@@ -50,3 +50,15 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Ignore .exe files
+*.exe
+*.7z
+*.zip
+
+# Ignore directories created by the build and publish processes
+/build/
+/publish/
+/Release/
+/Debug/
+/.vs/
