@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
@@ -70,6 +71,29 @@ namespace lucid_dreams
         }
 
         //Functions
+        public Image RoundCorners(Image StartImage, int CornerRadius, Color BackgroundColor)
+        {
+            CornerRadius *= 2;
+            Bitmap RoundedImage = new Bitmap(StartImage.Width, StartImage.Height);
+
+            using (Graphics g = Graphics.FromImage(RoundedImage))
+            {
+                g.Clear(BackgroundColor);
+                g.SmoothingMode = SmoothingMode.AntiAlias;
+
+                Brush brush = new TextureBrush(StartImage);
+
+                GraphicsPath gp = new GraphicsPath();
+                gp.AddArc(0, 0, CornerRadius, CornerRadius, 180, 90);
+                gp.AddArc(0 + RoundedImage.Width - CornerRadius, 0, CornerRadius, CornerRadius, 270, 90);
+                gp.AddArc(0 + RoundedImage.Width - CornerRadius, 0 + RoundedImage.Height - CornerRadius, CornerRadius, CornerRadius, 0, 90);
+                gp.AddArc(0, 0 + RoundedImage.Height - CornerRadius, CornerRadius, CornerRadius, 90, 90);
+                g.FillPath(brush, gp);
+
+                return RoundedImage;
+            }
+        }
+
         private async void fullUpdate()
         {
             using (HttpClient client = new HttpClient())
@@ -223,9 +247,15 @@ namespace lucid_dreams
                             regLabel.Text = $"Registered: {GlobalRegisterDate}";
 
                             //Set Avatar Box Elements
-                            avatarBox.Size = new Size(100, 100);
+                            System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
+                            gp.AddEllipse(0, 0, avatarBox.Width - 4, avatarBox.Height - 4);
+                            Region rg = new Region(gp);
+                            avatarBox.Region = rg;
+                            avatarBox.Visible = true;
+                            avatarBox.Size = new Size(68, 68);
                             avatarBox.ImageLocation = AvatarURL;
                             avatarBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                            
 
                             //TO-DO Update rest of the UI elements
                             syncFinished = true;

@@ -29,6 +29,18 @@
           "build/Fody.targets": {}
         }
       },
+      "MaterialSkin.2/2.3.1": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Design"
+        ],
+        "compile": {
+          "lib/net48/MaterialSkin.dll": {}
+        },
+        "runtime": {
+          "lib/net48/MaterialSkin.dll": {}
+        }
+      },
       "Microsoft.NETCore.Platforms/1.1.0": {
         "type": "package",
         "compile": {
@@ -820,6 +832,18 @@
           "build/Fody.targets": {}
         }
       },
+      "MaterialSkin.2/2.3.1": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Design"
+        ],
+        "compile": {
+          "lib/net48/MaterialSkin.dll": {}
+        },
+        "runtime": {
+          "lib/net48/MaterialSkin.dll": {}
+        }
+      },
       "Microsoft.NETCore.Platforms/1.1.0": {
         "type": "package",
         "compile": {
@@ -1545,6 +1569,18 @@
         "type": "package",
         "build": {
           "build/Fody.targets": {}
+        }
+      },
+      "MaterialSkin.2/2.3.1": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Design"
+        ],
+        "compile": {
+          "lib/net48/MaterialSkin.dll": {}
+        },
+        "runtime": {
+          "lib/net48/MaterialSkin.dll": {}
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {
@@ -2274,6 +2310,18 @@
           "build/Fody.targets": {}
         }
       },
+      "MaterialSkin.2/2.3.1": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Design"
+        ],
+        "compile": {
+          "lib/net48/MaterialSkin.dll": {}
+        },
+        "runtime": {
+          "lib/net48/MaterialSkin.dll": {}
+        }
+      },
       "Microsoft.NETCore.Platforms/1.1.0": {
         "type": "package",
         "compile": {
@@ -2999,6 +3047,18 @@
         "type": "package",
         "build": {
           "build/Fody.targets": {}
+        }
+      },
+      "MaterialSkin.2/2.3.1": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Design"
+        ],
+        "compile": {
+          "lib/net48/MaterialSkin.dll": {}
+        },
+        "runtime": {
+          "lib/net48/MaterialSkin.dll": {}
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {
@@ -3754,6 +3814,23 @@
         "netstandardtask/Mono.Cecil.Rocks.pdb",
         "netstandardtask/Mono.Cecil.dll",
         "netstandardtask/Mono.Cecil.pdb"
+      ]
+    },
+    "MaterialSkin.2/2.3.1": {
+      "sha512": "w2vFxLNk4InCDU7pXDfBqPfv55HhBtuu8HRfEqQpeS3sNTS1pUzDs/hS0b5JW2/tKvt+P1of9OINP8a9omWDBg==",
+      "type": "package",
+      "path": "materialskin.2/2.3.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net45/MaterialSkin.dll",
+        "lib/net461/MaterialSkin.dll",
+        "lib/net48/MaterialSkin.dll",
+        "lib/net5.0-windows7.0/MaterialSkin.dll",
+        "materialskin.2.2.3.1.nupkg.sha512",
+        "materialskin.2.nuspec",
+        "nugetIcon.png"
       ]
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
@@ -6620,6 +6697,7 @@
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.8": [
       "Costura.Fody >= 5.7.0",
+      "MaterialSkin.2 >= 2.3.1",
       "System.Resources.Extensions >= 8.0.0"
     ]
   },
@@ -6661,6 +6739,10 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[5.7.0, )"
+          },
+          "MaterialSkin.2": {
+            "target": "Package",
+            "version": "[2.3.1, )"
           },
           "System.Resources.Extensions": {
             "target": "Package",

@@ -33,20 +33,7 @@ C:\Users\Lu\Documents\GitHub\lucid-dreams\bin\Debug\lucid-dreams.exe.manifest
 C:\Users\Lu\Documents\GitHub\lucid-dreams\bin\Debug\lucid-dreams.application
 C:\Users\Lu\Documents\GitHub\lucid-dreams\bin\Debug\lucid-dreams.exe
 C:\Users\Lu\Documents\GitHub\lucid-dreams\bin\Debug\lucid-dreams.pdb
-C:\Users\Lu\Documents\GitHub\lucid-dreams\bin\Debug\MaterialSkin.dll
-C:\Users\Lu\Documents\GitHub\lucid-dreams\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Users\Lu\Documents\GitHub\lucid-dreams\bin\Debug\System.Buffers.dll
-C:\Users\Lu\Documents\GitHub\lucid-dreams\bin\Debug\System.Memory.dll
-C:\Users\Lu\Documents\GitHub\lucid-dreams\bin\Debug\System.Numerics.Vectors.dll
-C:\Users\Lu\Documents\GitHub\lucid-dreams\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
-C:\Users\Lu\Documents\GitHub\lucid-dreams\bin\Debug\System.Text.Encodings.Web.dll
-C:\Users\Lu\Documents\GitHub\lucid-dreams\bin\Debug\System.Text.Json.dll
-C:\Users\Lu\Documents\GitHub\lucid-dreams\bin\Debug\System.Threading.Tasks.Extensions.dll
-C:\Users\Lu\Documents\GitHub\lucid-dreams\bin\Debug\System.ValueTuple.dll
 C:\Users\Lu\Documents\GitHub\lucid-dreams\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
-C:\Users\Lu\Documents\GitHub\lucid-dreams\bin\Debug\System.Buffers.xml
-C:\Users\Lu\Documents\GitHub\lucid-dreams\bin\Debug\System.Memory.xml
-C:\Users\Lu\Documents\GitHub\lucid-dreams\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\Lu\Documents\GitHub\lucid-dreams\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Lu\Documents\GitHub\lucid-dreams\bin\Debug\System.Text.Encodings.Web.xml
 C:\Users\Lu\Documents\GitHub\lucid-dreams\bin\Debug\System.Text.Json.xml
@@ -62,3 +49,6 @@ C:\Users\Lu\Documents\GitHub\lucid-dreams\obj\Debug\lucid-dreams.application
 C:\Users\Lu\Documents\GitHub\lucid-dreams\obj\Debug\lucid-dreams.csproj.CopyComplete
 C:\Users\Lu\Documents\GitHub\lucid-dreams\obj\Debug\lucid-dreams.exe
 C:\Users\Lu\Documents\GitHub\lucid-dreams\obj\Debug\lucid-dreams.pdb
+C:\Users\Lu\Documents\GitHub\lucid-dreams\obj\Debug\lucid-dreams.csproj.SuggestedBindingRedirects.cache
+C:\Users\Lu\Documents\GitHub\lucid-dreams\obj\Debug\lucid-dreams.exe.config
+C:\Users\Lu\Documents\GitHub\lucid-dreams\obj\Debug\lucid-dreams.csproj.Fody.CopyLocal.cache

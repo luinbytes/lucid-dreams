@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "2hLBVo200eSdqUU8fIVxU5c+/OGlm/4wjGa+g4b5kXH7F4TNcKZ2/cijByPIk53pSvS0CqTK0FmUNmNIAaHH/Q==",
+  "dgSpecHash": "3qDL+k52nqoJozvcyxZO09sWN7bUFCm6++4s48uwA/rg5rZEimsLFOIw4nvlkRcDVQdwH9Rwv/bN5I07OuYbRQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Lu\\Documents\\GitHub\\lucid-dreams\\lucid-dreams.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lu\\.nuget\\packages\\costura.fody\\5.7.0\\costura.fody.5.7.0.nupkg.sha512",
     "C:\\Users\\Lu\\.nuget\\packages\\fody\\6.5.5\\fody.6.5.5.nupkg.sha512",
+    "C:\\Users\\Lu\\.nuget\\packages\\materialskin.2\\2.3.1\\materialskin.2.2.3.1.nupkg.sha512",
     "C:\\Users\\Lu\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\Lu\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\Lu\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",

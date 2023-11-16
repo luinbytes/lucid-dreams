@@ -34,8 +34,8 @@
             this.tabSelector = new MaterialSkin.Controls.MaterialTabSelector();
             this.tabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.syncButton = new MaterialSkin.Controls.MaterialButton();
-            this.avatarBox = new System.Windows.Forms.PictureBox();
+            this.protectionCard = new MaterialSkin.Controls.MaterialCard();
+            this.protectionCombo = new MaterialSkin.Controls.MaterialComboBox();
             this.infoCard = new MaterialSkin.Controls.MaterialCard();
             this.regLabel = new MaterialSkin.Controls.MaterialLabel();
             this.fidLabel = new MaterialSkin.Controls.MaterialLabel();
@@ -45,13 +45,17 @@
             this.alertsLabel = new MaterialSkin.Controls.MaterialLabel();
             this.usernameLabel = new MaterialSkin.Controls.MaterialLabel();
             this.loginCard = new MaterialSkin.Controls.MaterialCard();
+            this.syncButton = new MaterialSkin.Controls.MaterialButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.avatarBox = new System.Windows.Forms.PictureBox();
+            this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.avatarBox)).BeginInit();
+            this.protectionCard.SuspendLayout();
             this.infoCard.SuspendLayout();
             this.loginCard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.avatarBox)).BeginInit();
             this.SuspendLayout();
             // 
             // loginButton
@@ -63,12 +67,12 @@
             this.loginButton.Depth = 0;
             this.loginButton.HighEmphasis = true;
             this.loginButton.Icon = null;
-            this.loginButton.Location = new System.Drawing.Point(161, 37);
+            this.loginButton.Location = new System.Drawing.Point(138, 51);
             this.loginButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.loginButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.loginButton.Name = "loginButton";
             this.loginButton.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.loginButton.Size = new System.Drawing.Size(67, 21);
+            this.loginButton.Size = new System.Drawing.Size(82, 21);
             this.loginButton.TabIndex = 0;
             this.loginButton.Text = "Login";
             this.loginButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -88,7 +92,7 @@
             this.keyTextBox.HideSelection = true;
             this.keyTextBox.Hint = "User Key";
             this.keyTextBox.LeadingIcon = null;
-            this.keyTextBox.Location = new System.Drawing.Point(5, 10);
+            this.keyTextBox.Location = new System.Drawing.Point(18, 5);
             this.keyTextBox.MaxLength = 19;
             this.keyTextBox.MouseState = MaterialSkin.MouseState.OUT;
             this.keyTextBox.Name = "keyTextBox";
@@ -100,12 +104,13 @@
             this.keyTextBox.SelectionLength = 0;
             this.keyTextBox.SelectionStart = 0;
             this.keyTextBox.ShortcutsEnabled = true;
-            this.keyTextBox.Size = new System.Drawing.Size(142, 48);
+            this.keyTextBox.Size = new System.Drawing.Size(203, 36);
             this.keyTextBox.TabIndex = 2;
             this.keyTextBox.TabStop = false;
             this.keyTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.keyTextBox.TrailingIcon = null;
             this.keyTextBox.UseSystemPasswordChar = false;
+            this.keyTextBox.UseTallSize = false;
             // 
             // tabSelector
             // 
@@ -119,7 +124,7 @@
             this.tabSelector.Margin = new System.Windows.Forms.Padding(0);
             this.tabSelector.MouseState = MaterialSkin.MouseState.HOVER;
             this.tabSelector.Name = "tabSelector";
-            this.tabSelector.Size = new System.Drawing.Size(1070, 50);
+            this.tabSelector.Size = new System.Drawing.Size(1118, 50);
             this.tabSelector.TabIndex = 3;
             this.tabSelector.Text = "materialTabSelector1";
             // 
@@ -138,54 +143,68 @@
             this.tabControl.Multiline = true;
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1070, 599);
+            this.tabControl.Size = new System.Drawing.Size(1118, 716);
             this.tabControl.TabIndex = 5;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.avatarBox);
+            this.tabPage1.Controls.Add(this.protectionCard);
             this.tabPage1.Controls.Add(this.infoCard);
             this.tabPage1.Controls.Add(this.loginCard);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1062, 570);
+            this.tabPage1.Size = new System.Drawing.Size(1110, 687);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "User Control";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // syncButton
+            // protectionCard
             // 
-            this.syncButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.syncButton.AutoSize = false;
-            this.syncButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.syncButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.syncButton.Depth = 0;
-            this.syncButton.HighEmphasis = true;
-            this.syncButton.Icon = null;
-            this.syncButton.Location = new System.Drawing.Point(161, 10);
-            this.syncButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.syncButton.MouseState = MaterialSkin.MouseState.HOVER;
-            this.syncButton.Name = "syncButton";
-            this.syncButton.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.syncButton.Size = new System.Drawing.Size(67, 22);
-            this.syncButton.TabIndex = 8;
-            this.syncButton.Text = "Sync";
-            this.syncButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.syncButton.UseAccentColor = false;
-            this.syncButton.UseVisualStyleBackColor = true;
-            this.syncButton.Enabled = false;
-            this.syncButton.Click += new System.EventHandler(this.syncButton_Click);
+            this.protectionCard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.protectionCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.protectionCard.Controls.Add(this.materialButton1);
+            this.protectionCard.Controls.Add(this.protectionCombo);
+            this.protectionCard.Depth = 0;
+            this.protectionCard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.protectionCard.Location = new System.Drawing.Point(888, 601);
+            this.protectionCard.Margin = new System.Windows.Forms.Padding(14);
+            this.protectionCard.MouseState = MaterialSkin.MouseState.HOVER;
+            this.protectionCard.Name = "protectionCard";
+            this.protectionCard.Padding = new System.Windows.Forms.Padding(14);
+            this.protectionCard.Size = new System.Drawing.Size(205, 79);
+            this.protectionCard.TabIndex = 8;
             // 
-            // avatarBox
+            // protectionCombo
             // 
-            this.avatarBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.avatarBox.Location = new System.Drawing.Point(13, 386);
-            this.avatarBox.Name = "avatarBox";
-            this.avatarBox.Size = new System.Drawing.Size(100, 100);
-            this.avatarBox.TabIndex = 2;
-            this.avatarBox.TabStop = false;
-            this.avatarBox.WaitOnLoad = true;
+            this.protectionCombo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.protectionCombo.AutoResize = false;
+            this.protectionCombo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.protectionCombo.Depth = 0;
+            this.protectionCombo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.protectionCombo.DropDownHeight = 118;
+            this.protectionCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.protectionCombo.DropDownWidth = 121;
+            this.protectionCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.protectionCombo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.protectionCombo.FormattingEnabled = true;
+            this.protectionCombo.Hint = "Protection";
+            this.protectionCombo.IntegralHeight = false;
+            this.protectionCombo.ItemHeight = 29;
+            this.protectionCombo.Items.AddRange(new object[] {
+            "Standard",
+            "IPC/Zombie",
+            "Kernel",
+            "Min Usermode",
+            "Min Kernel"});
+            this.protectionCombo.Location = new System.Drawing.Point(17, 7);
+            this.protectionCombo.MaxDropDownItems = 4;
+            this.protectionCombo.MouseState = MaterialSkin.MouseState.OUT;
+            this.protectionCombo.Name = "protectionCombo";
+            this.protectionCombo.Size = new System.Drawing.Size(171, 35);
+            this.protectionCombo.StartIndex = 0;
+            this.protectionCombo.TabIndex = 0;
+            this.protectionCombo.UseTallSize = false;
             // 
             // infoCard
             // 
@@ -304,20 +323,43 @@
             this.loginCard.Controls.Add(this.loginButton);
             this.loginCard.Depth = 0;
             this.loginCard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.loginCard.Location = new System.Drawing.Point(13, 492);
+            this.loginCard.Location = new System.Drawing.Point(13, 601);
             this.loginCard.Margin = new System.Windows.Forms.Padding(14);
             this.loginCard.MouseState = MaterialSkin.MouseState.HOVER;
             this.loginCard.Name = "loginCard";
             this.loginCard.Padding = new System.Windows.Forms.Padding(14);
-            this.loginCard.Size = new System.Drawing.Size(239, 64);
+            this.loginCard.Size = new System.Drawing.Size(238, 79);
             this.loginCard.TabIndex = 6;
+            // 
+            // syncButton
+            // 
+            this.syncButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.syncButton.AutoSize = false;
+            this.syncButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.syncButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.syncButton.Depth = 0;
+            this.syncButton.Enabled = false;
+            this.syncButton.HighEmphasis = true;
+            this.syncButton.Icon = null;
+            this.syncButton.Location = new System.Drawing.Point(18, 50);
+            this.syncButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.syncButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.syncButton.Name = "syncButton";
+            this.syncButton.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.syncButton.Size = new System.Drawing.Size(82, 22);
+            this.syncButton.TabIndex = 8;
+            this.syncButton.Text = "Sync";
+            this.syncButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.syncButton.UseAccentColor = true;
+            this.syncButton.UseVisualStyleBackColor = true;
+            this.syncButton.Click += new System.EventHandler(this.syncButton_Click);
             // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1046, 531);
+            this.tabPage2.Size = new System.Drawing.Size(1094, 648);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Config";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -327,18 +369,50 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1046, 531);
+            this.tabPage3.Size = new System.Drawing.Size(1094, 648);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Scripts";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // avatarBox
+            // 
+            this.avatarBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.avatarBox.Location = new System.Drawing.Point(1029, 36);
+            this.avatarBox.Name = "avatarBox";
+            this.avatarBox.Size = new System.Drawing.Size(68, 68);
+            this.avatarBox.TabIndex = 2;
+            this.avatarBox.TabStop = false;
+            this.avatarBox.Visible = false;
+            this.avatarBox.WaitOnLoad = true;
+            // 
+            // materialButton1
+            // 
+            this.materialButton1.AutoSize = false;
+            this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton1.Depth = 0;
+            this.materialButton1.HighEmphasis = true;
+            this.materialButton1.Icon = null;
+            this.materialButton1.Location = new System.Drawing.Point(17, 46);
+            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButton1.Name = "materialButton1";
+            this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButton1.Size = new System.Drawing.Size(171, 31);
+            this.materialButton1.TabIndex = 1;
+            this.materialButton1.Text = "Set Protection";
+            this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButton1.UseAccentColor = false;
+            this.materialButton1.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1070, 722);
+            this.ClientSize = new System.Drawing.Size(1118, 839);
             this.Controls.Add(this.tabControl);
+            this.Controls.Add(this.avatarBox);
             this.Controls.Add(this.tabSelector);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -347,10 +421,11 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.avatarBox)).EndInit();
+            this.protectionCard.ResumeLayout(false);
             this.infoCard.ResumeLayout(false);
             this.infoCard.PerformLayout();
             this.loginCard.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.avatarBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -375,6 +450,9 @@
         private MaterialSkin.Controls.MaterialLabel scoreLabel;
         private System.Windows.Forms.PictureBox avatarBox;
         private MaterialSkin.Controls.MaterialButton syncButton;
+        private MaterialSkin.Controls.MaterialCard protectionCard;
+        private MaterialSkin.Controls.MaterialComboBox protectionCombo;
+        private MaterialSkin.Controls.MaterialButton materialButton1;
     }
 }
 
