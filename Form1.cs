@@ -40,6 +40,7 @@ namespace lucid_dreams
         bool autoKey;
         bool curSync;
         bool syncFinished;
+        bool showSync = false;
 
         public MainForm()
         {
@@ -60,8 +61,6 @@ namespace lucid_dreams
                 keyTextBox.Text = userKey;
                 autoKey = true;
                 fullUpdate();
-            } else {
-                MessageBox.Show("Key not found, manual login!");
             }
         }
 
@@ -81,7 +80,6 @@ namespace lucid_dreams
                     {
                         userKey = keyTextBox.Text;
                     }
-
                     if (!curSync)
                     {
                         curSync = true;
@@ -232,6 +230,13 @@ namespace lucid_dreams
                             //TO-DO Update rest of the UI elements
                             syncFinished = true;
                             curSync = false;
+                            showSync = true;
+                            if (showSync)
+                            {
+                                syncButton.Enabled = true;
+                                loginButton.Enabled = false;
+                                keyTextBox.Enabled = false;
+                            }
                         }
                         else
                         {
