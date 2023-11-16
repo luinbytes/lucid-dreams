@@ -34,8 +34,8 @@
             this.tabSelector = new MaterialSkin.Controls.MaterialTabSelector();
             this.tabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.infoCard = new MaterialSkin.Controls.MaterialCard();
             this.avatarBox = new System.Windows.Forms.PictureBox();
+            this.infoCard = new MaterialSkin.Controls.MaterialCard();
             this.regLabel = new MaterialSkin.Controls.MaterialLabel();
             this.fidLabel = new MaterialSkin.Controls.MaterialLabel();
             this.postsLabel = new MaterialSkin.Controls.MaterialLabel();
@@ -46,10 +46,11 @@
             this.loginCard = new MaterialSkin.Controls.MaterialCard();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.syncButton = new MaterialSkin.Controls.MaterialButton();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.infoCard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avatarBox)).BeginInit();
+            this.infoCard.SuspendLayout();
             this.loginCard.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,7 +119,7 @@
             this.tabSelector.Margin = new System.Windows.Forms.Padding(0);
             this.tabSelector.MouseState = MaterialSkin.MouseState.HOVER;
             this.tabSelector.Name = "tabSelector";
-            this.tabSelector.Size = new System.Drawing.Size(981, 50);
+            this.tabSelector.Size = new System.Drawing.Size(1054, 50);
             this.tabSelector.TabIndex = 3;
             this.tabSelector.Text = "materialTabSelector1";
             // 
@@ -137,21 +138,32 @@
             this.tabControl.Multiline = true;
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(981, 711);
+            this.tabControl.Size = new System.Drawing.Size(1054, 560);
             this.tabControl.TabIndex = 5;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.syncButton);
             this.tabPage1.Controls.Add(this.avatarBox);
             this.tabPage1.Controls.Add(this.infoCard);
             this.tabPage1.Controls.Add(this.loginCard);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(973, 682);
+            this.tabPage1.Size = new System.Drawing.Size(1046, 531);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "User Control";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // avatarBox
+            // 
+            this.avatarBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.avatarBox.Location = new System.Drawing.Point(13, 347);
+            this.avatarBox.Name = "avatarBox";
+            this.avatarBox.Size = new System.Drawing.Size(100, 100);
+            this.avatarBox.TabIndex = 2;
+            this.avatarBox.TabStop = false;
+            this.avatarBox.WaitOnLoad = true;
             // 
             // infoCard
             // 
@@ -172,16 +184,6 @@
             this.infoCard.Padding = new System.Windows.Forms.Padding(14);
             this.infoCard.Size = new System.Drawing.Size(315, 155);
             this.infoCard.TabIndex = 7;
-            // 
-            // avatarBox
-            // 
-            this.avatarBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.avatarBox.Location = new System.Drawing.Point(13, 498);
-            this.avatarBox.Name = "avatarBox";
-            this.avatarBox.Size = new System.Drawing.Size(100, 100);
-            this.avatarBox.TabIndex = 2;
-            this.avatarBox.TabStop = false;
-            this.avatarBox.WaitOnLoad = true;
             // 
             // regLabel
             // 
@@ -279,7 +281,7 @@
             this.loginCard.Controls.Add(this.loginButton);
             this.loginCard.Depth = 0;
             this.loginCard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.loginCard.Location = new System.Drawing.Point(13, 604);
+            this.loginCard.Location = new System.Drawing.Point(13, 453);
             this.loginCard.Margin = new System.Windows.Forms.Padding(14);
             this.loginCard.MouseState = MaterialSkin.MouseState.HOVER;
             this.loginCard.Name = "loginCard";
@@ -292,7 +294,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(957, 643);
+            this.tabPage2.Size = new System.Drawing.Size(989, 721);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Config";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -302,17 +304,39 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(957, 643);
+            this.tabPage3.Size = new System.Drawing.Size(973, 682);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Scripts";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // syncButton
+            // 
+            this.syncButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.syncButton.AutoSize = false;
+            this.syncButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.syncButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.syncButton.Depth = 0;
+            this.syncButton.HighEmphasis = true;
+            this.syncButton.Icon = null;
+            this.syncButton.Location = new System.Drawing.Point(120, 411);
+            this.syncButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.syncButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.syncButton.Name = "syncButton";
+            this.syncButton.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.syncButton.Size = new System.Drawing.Size(75, 36);
+            this.syncButton.TabIndex = 8;
+            this.syncButton.Text = "Sync";
+            this.syncButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.syncButton.UseAccentColor = false;
+            this.syncButton.UseVisualStyleBackColor = true;
+            this.syncButton.Click += new System.EventHandler(this.syncButton_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(981, 834);
+            this.ClientSize = new System.Drawing.Size(1054, 683);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.tabSelector);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -322,9 +346,9 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.avatarBox)).EndInit();
             this.infoCard.ResumeLayout(false);
             this.infoCard.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.avatarBox)).EndInit();
             this.loginCard.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -349,6 +373,7 @@
         private MaterialSkin.Controls.MaterialLabel postsLabel;
         private MaterialSkin.Controls.MaterialLabel scoreLabel;
         private System.Windows.Forms.PictureBox avatarBox;
+        private MaterialSkin.Controls.MaterialButton syncButton;
     }
 }
 
