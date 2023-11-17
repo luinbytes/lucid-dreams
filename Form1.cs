@@ -37,11 +37,15 @@ namespace lucid_dreams
         public static string AvatarURL;
         public static string GlobalConfig;
         public static string SessionHistory;
+
         string userKey;
         bool autoKey;
         bool curSync;
         bool syncFinished;
         bool showSync = false;
+        bool syncTextReset = false;
+        int textTimeOut = 3000; // 3 Seconds
+        string VERSION = "0.0.3";
 
         public MainForm()
         {
@@ -107,10 +111,23 @@ namespace lucid_dreams
                     if (!curSync)
                     {
                         curSync = true;
+                        syncButton.Text = "Syncing";
+                        syncButton.Enabled = false;
+                        System.Windows.Forms.Timer syncButtonTimer = new System.Windows.Forms.Timer();
+                        syncButtonTimer.Interval = 5000;
+                        syncButtonTimer.Tick += (s, ea) =>
+                        {
+                            syncButton.Text = "Sync";
+                            syncButton.Enabled = true;
+                            syncTextReset = true;
+                            syncButtonTimer.Stop();
+                        };
+                        syncButtonTimer.Start();
+
                         Regex regex = new Regex(@"^[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}$");
                         if (!regex.IsMatch(userKey))
                         {
-                            MessageBox.Show("Your key was an invalid format! Wanted format: ABCD-EFGH-IJKL-MNOP", "Format Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Your key was an invalid format! Wanted format: ABCD-EFGH-IJKL-MNOP.", "Format Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
 
@@ -238,6 +255,7 @@ namespace lucid_dreams
                             }
 
                             //Update UI
+                            //Info Panels
                             usernameLabel.Text = $"Welcome {GlobalUsername}";
                             alertsLabel.Text = $"Unread Alerts: {GlobalUnreadAlerts}";
                             messagesLabel.Text = $"Unread Messages: {GlobalUnreadConversations}";
@@ -255,24 +273,25 @@ namespace lucid_dreams
                             avatarBox.Size = new Size(68, 68);
                             avatarBox.ImageLocation = AvatarURL;
                             avatarBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                            
+
+                            //Protection
+                            protectionCombo.SelectedIndex = Int32.Parse(GlobalProtection);
 
                             //TO-DO Update rest of the UI elements
                             syncFinished = true;
-                            curSync = false;
                             showSync = true;
                             if (showSync)
                             {
-                                syncButton.Enabled = true;
                                 loginButton.Enabled = false;
                                 keyTextBox.Enabled = false;
                             }
+                            curSync = false;
                         }
                         else
                         {
                             if (globalResponse.StatusCode == HttpStatusCode.Unauthorized)
                             {
-                                DialogResult runLaunchbat = MessageBox.Show("This either means you don't have an active session or your hash is missmatched.\n\nRun launch.bat to set a session?", "Error Unauthorized", MessageBoxButtons.YesNo);
+                                DialogResult runLaunchbat = MessageBox.Show("This either means you don't have an active session or your hash is missmatched.\n\nRun launch.bat to set a session?", "Error Unauthorized", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                                 if (runLaunchbat == DialogResult.Yes)
                                 {
                                     string launchBatPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "launch.bat");
@@ -302,28 +321,33 @@ namespace lucid_dreams
                                         MessageBox.Show("launch.bat does not exist.", "Fatal Error", MessageBoxButtons.OK);
                                     }
                                 }
+                                curSync = false;
                             }
                             else
                             {
                                 MessageBox.Show($"{globalResponse.StatusCode}");
                             }
                         }
+                        curSync = false;
                     }
                 }
                 catch (KeyNotFoundException knfEx)
                 {
-                    MessageBox.Show($"Key not found: {knfEx.Message}\nException Source: {knfEx.Source}\nException Stack Trace: {knfEx.StackTrace}");
+                    MessageBox.Show($"Exception caught. Please contact developer.\n\nKey not found: {knfEx.Message}\nException Source: {knfEx.Source}\nException Stack Trace: {knfEx.StackTrace}", "Fatal Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Exception: {ex.Message}\nException Source: {ex.Source}\nException Stack Trace: {ex.StackTrace}");
+                    MessageBox.Show($"Exception caught. Please contact developer.\n\nException: {ex.Message}\nException Source: {ex.Source}\nException Stack Trace: {ex.StackTrace}", "Fatal Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
         private async void loginButton_click(object sender, EventArgs e)
         {
-            fullUpdate();
+            if (!curSync)
+            {
+                fullUpdate();
+            }
         }
 
         private void syncButton_Click(object sender, EventArgs e)
@@ -332,18 +356,35 @@ namespace lucid_dreams
             {
                 fullUpdate();
             }
-            if (syncFinished)
+        }
+
+        private async void setProtectionButton_Click(object sender, EventArgs e)
+        {
+            try
             {
-                syncButton.Text = "Synced!";
-                System.Windows.Forms.Timer syncTextTimer = new System.Windows.Forms.Timer();
-                syncTextTimer.Interval = 3000; // 3 seconds
-                syncTextTimer.Tick += (s, ea) =>
+                HttpClient httpProtClient = new HttpClient();
+                HttpResponseMessage httpProtClientResponse = await httpProtClient.GetAsync($"https://constelia.ai/api.php?key={userKey}&cmd=setProtection&protection={protectionCombo.SelectedIndex}");
+
+                if (httpProtClientResponse.IsSuccessStatusCode)
                 {
-                    syncButton.Text = "Sync";
-                    syncTextTimer.Stop();
-                };
-                syncTextTimer.Start();
-                syncFinished = false;
+                    setProtectionButton.Text = "Protection Set!";
+                    System.Windows.Forms.Timer protectionTextTimer = new System.Windows.Forms.Timer();
+                    protectionTextTimer.Interval = textTimeOut;
+                    protectionTextTimer.Tick += (s, ea) =>
+                    {
+                        setProtectionButton.Text = "Set Protection";
+                        protectionTextTimer.Stop();
+                    };
+                    protectionTextTimer.Start();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to set protection.", "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Exception thrown. Please contact developer.\n\nException:\n{ex.Message}", "Fatal Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
