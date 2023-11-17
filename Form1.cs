@@ -49,7 +49,7 @@ namespace lucid_dreams
         bool showSync = false;
         bool syncTextReset = false;
         int textTimeOut = 3000; // 3 Seconds
-        string VERSION = "0.0.3";
+        string VERSION = "0.1.1";
 
         public MainForm()
         {
