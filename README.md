@@ -53,7 +53,7 @@ Follow these steps to build the project:
 
 2. **Install .NET Core SDK**: Download and install the .NET Core SDK from the [official website](https://dotnet.microsoft.com/download).
 
-3. **Clone the Repository**: Clone the project repository to your local machine using Git. You can do this by running the following command in your terminal: `git clone https://github.com/luinbytes/lucid_dreams`
+3. **Clone the Repository**: Clone the project repository to your local machine using Git. You can do this by running the following command in your terminal: `git clone https://github.com/luinbytes/lucid-dreams`
 
 4. **Open the Project in VS Code**: Open Visual Studio Code, click on `File > Open Folder` and select the folder of the cloned repository.
 
@@ -84,16 +84,16 @@ Project Link: [https://github.com/luinbytes/lucid-dreams](https://github.com/lui
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/luinbytes/lucid_dreams.svg?style=for-the-badge
-[contributors-url]: https://github.com/luinbytes/lucid_dreams/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/luinbytes/lucid_dreams.svg?style=for-the-badge
-[forks-url]: https://github.com/luinbytes/lucid_dreams/network/members
-[stars-shield]: https://img.shields.io/github/stars/luinbytes/lucid_dreams.svg?style=for-the-badge
-[stars-url]: https://github.com/luinbytes/lucid_dreams/stargazers
-[issues-shield]: https://img.shields.io/github/issues/luinbytes/lucid_dreams.svg?style=for-the-badge
-[issues-url]: https://github.com/luinbytes/lucid_dreams/issues
-[license-shield]: https://img.shields.io/github/license/luinbytes/lucid_dreams.svg?style=for-the-badge
-[license-url]: https://github.com/luinbytes/lucid_dreams/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/luinbytes/lucid-dreams.svg?style=for-the-badge
+[contributors-url]: https://github.com/luinbytes/lucid-dreams/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/luinbytes/lucid-dreams.svg?style=for-the-badge
+[forks-url]: https://github.com/luinbytes/lucid-dreams/network/members
+[stars-shield]: https://img.shields.io/github/stars/luinbytes/lucid-dreams.svg?style=for-the-badge
+[stars-url]: https://github.com/luinbytes/lucid-dreams/stargazers
+[issues-shield]: https://img.shields.io/github/issues/luinbytes/lucid-dreams.svg?style=for-the-badge
+[issues-url]: https://github.com/luinbytes/lucid-dreams/issues
+[license-shield]: https://img.shields.io/github/license/luinbytes/lucid-dreams.svg?style=for-the-badge
+[license-url]: https://github.com/luinbytes/lucid-dreams/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
 [product-screenshot]: images/screenshot.png

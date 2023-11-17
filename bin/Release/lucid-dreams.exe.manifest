@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="lucid-dreams.exe" size="3926480">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="lucid-dreams.exe" size="3932112">
       <assemblyIdentity name="lucid-dreams" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>U0hRK7idj/UhcZrSBOKGnsYzskf0Hnqk2oi+OUoYbRQ=</dsig:DigestValue>
+        <dsig:DigestValue>w2VPaUnT5NZ6avTh+s204IOhEwExK89PYbvf9PfR80w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
