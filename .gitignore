@@ -61,4 +61,6 @@ dkms.conf
 /publish/
 /Release/
 /Debug/
+/Debug/launch.bat
+/Debug/constellation.bat
 /.vs/

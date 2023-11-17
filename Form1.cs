@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
@@ -37,6 +38,9 @@ namespace lucid_dreams
         public static string AvatarURL;
         public static string GlobalConfig;
         public static string SessionHistory;
+
+        private StringBuilder outputBuilder = new StringBuilder();
+        private StringBuilder errorBuilder = new StringBuilder();
 
         string userKey;
         bool autoKey;
@@ -385,6 +389,66 @@ namespace lucid_dreams
             catch (Exception ex)
             {
                 MessageBox.Show($"Exception thrown. Please contact developer.\n\nException:\n{ex.Message}", "Fatal Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void launchConButton_Click(object sender, EventArgs e)
+        {
+            string conBatchPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "constellation.bat");
+            string conBatchUrl = "https://constelia.ai/constellation.bat";
+
+            using (HttpClient conBatchClient = new HttpClient())
+            {
+                var conBatchResponce = await conBatchClient.GetAsync(conBatchUrl);
+                if (conBatchResponce.IsSuccessStatusCode)
+                {
+                    var conBatchContents = await conBatchResponce.Content.ReadAsByteArrayAsync();
+                    File.WriteAllBytes(conBatchPath, conBatchContents);
+                }
+                else
+                {
+                    MessageBox.Show($"Unable to download constellation.bat from {conBatchUrl}", "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            if (File.Exists(conBatchPath))
+            {
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = "cmd",
+                    Arguments = $"/c start \"\" \"{conBatchPath}\"",
+                    UseShellExecute = true
+                });
+            }
+        }
+
+        private async void launchUniButton_Click(object sender, EventArgs e)
+        {
+            string uniBatchPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "launch.bat");
+            string uniBatchUrl = "https://constelia.ai/launch.bat";
+
+            using (HttpClient uniBatchClient = new HttpClient())
+            {
+                var uniBatchResponce = await uniBatchClient.GetAsync(uniBatchUrl);
+                if (uniBatchResponce.IsSuccessStatusCode)
+                {
+                    var conBatchContents = await uniBatchResponce.Content.ReadAsByteArrayAsync();
+                    File.WriteAllBytes(uniBatchPath, conBatchContents);
+                }
+                else
+                {
+                    MessageBox.Show($"Unable to download constellation.bat from {uniBatchUrl}", "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            if (File.Exists(uniBatchPath))
+            {
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = "cmd",
+                    Arguments = $"/c start \"\" \"{uniBatchPath}\"",
+                    UseShellExecute = true
+                });
             }
         }
     }
