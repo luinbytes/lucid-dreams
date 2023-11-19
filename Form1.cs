@@ -43,6 +43,7 @@ namespace lucid_dreams
         private StringBuilder errorBuilder = new StringBuilder();
 
         string userKey;
+        bool loggedIn = false;
         bool autoKey;
         bool curSync;
         bool syncFinished;
@@ -290,6 +291,14 @@ namespace lucid_dreams
                                 keyTextBox.Enabled = false;
                             }
                             curSync = false;
+                            if (!loggedIn)
+                            {
+                                syncButton.Enabled = false;
+                            }
+                            else
+                            {
+                                syncButton.Enabled = true;
+                            }
                         }
                         else
                         {
@@ -450,6 +459,21 @@ namespace lucid_dreams
                     UseShellExecute = true
                 });
             }
+        }
+
+        private void forumButton_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://constelia.ai/forums/index.php");
+        }
+
+        private void divinityButton_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://constelia.ai/divinity.php");
+        }
+
+        private void gitButton_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/luinbytes/lucid-dreams/");
         }
     }
 }
