@@ -282,7 +282,7 @@ namespace lucid_dreams
                             //Protection
                             protectionCombo.SelectedIndex = Int32.Parse(GlobalProtection);
 
-                            //TO-DO Update rest of the UI elements
+                            //Sync
                             syncFinished = true;
                             showSync = true;
                             if (showSync)
@@ -299,6 +299,9 @@ namespace lucid_dreams
                             {
                                 syncButton.Enabled = true;
                             }
+
+                            //Config
+                            configTextBox.Text = GlobalConfig;
                         }
                         else
                         {

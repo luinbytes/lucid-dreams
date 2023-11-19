@@ -55,28 +55,35 @@
             this.setProtectionButton = new MaterialSkin.Controls.MaterialButton();
             this.protectionCombo = new MaterialSkin.Controls.MaterialComboBox();
             this.tabConfig = new System.Windows.Forms.TabPage();
+            this.materialCard6 = new MaterialSkin.Controls.MaterialCard();
+            this.configTextBox = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             this.tabScripts = new System.Windows.Forms.TabPage();
             this.tabSettings = new System.Windows.Forms.TabPage();
+            this.materialCard4 = new MaterialSkin.Controls.MaterialCard();
+            this.materialCard5 = new MaterialSkin.Controls.MaterialCard();
+            this.gitButton = new MaterialSkin.Controls.MaterialButton();
+            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.infoLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.infoLabel = new MaterialSkin.Controls.MaterialLabel();
             this.avatarBox = new System.Windows.Forms.PictureBox();
-            this.materialCard4 = new MaterialSkin.Controls.MaterialCard();
-            this.materialCard5 = new MaterialSkin.Controls.MaterialCard();
-            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
-            this.gitButton = new MaterialSkin.Controls.MaterialButton();
+            this.loadConfigButton = new MaterialSkin.Controls.MaterialButton();
+            this.saveConfigButton = new MaterialSkin.Controls.MaterialButton();
+            this.resetConfigButton = new MaterialSkin.Controls.MaterialButton();
             this.tabControl.SuspendLayout();
             this.tabUser.SuspendLayout();
             this.loginCard1.SuspendLayout();
             this.materialCard3.SuspendLayout();
             this.protectionCard.SuspendLayout();
+            this.tabConfig.SuspendLayout();
+            this.materialCard6.SuspendLayout();
             this.tabSettings.SuspendLayout();
+            this.materialCard4.SuspendLayout();
+            this.materialCard5.SuspendLayout();
             this.materialCard1.SuspendLayout();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avatarBox)).BeginInit();
-            this.materialCard4.SuspendLayout();
-            this.materialCard5.SuspendLayout();
             this.SuspendLayout();
             // 
             // loginButton
@@ -146,7 +153,7 @@
             this.tabSelector.Margin = new System.Windows.Forms.Padding(0);
             this.tabSelector.MouseState = MaterialSkin.MouseState.HOVER;
             this.tabSelector.Name = "tabSelector";
-            this.tabSelector.Size = new System.Drawing.Size(1027, 50);
+            this.tabSelector.Size = new System.Drawing.Size(1039, 50);
             this.tabSelector.TabIndex = 3;
             this.tabSelector.Text = "materialTabSelector1";
             // 
@@ -166,7 +173,7 @@
             this.tabControl.Multiline = true;
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1027, 617);
+            this.tabControl.Size = new System.Drawing.Size(1039, 545);
             this.tabControl.TabIndex = 5;
             // 
             // tabUser
@@ -177,7 +184,7 @@
             this.tabUser.Location = new System.Drawing.Point(4, 25);
             this.tabUser.Name = "tabUser";
             this.tabUser.Padding = new System.Windows.Forms.Padding(3);
-            this.tabUser.Size = new System.Drawing.Size(962, 561);
+            this.tabUser.Size = new System.Drawing.Size(1031, 516);
             this.tabUser.TabIndex = 0;
             this.tabUser.Text = "User Control";
             this.tabUser.UseVisualStyleBackColor = true;
@@ -191,7 +198,7 @@
             this.loginCard1.Controls.Add(this.keyTextBox);
             this.loginCard1.Depth = 0;
             this.loginCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.loginCard1.Location = new System.Drawing.Point(13, 432);
+            this.loginCard1.Location = new System.Drawing.Point(13, 387);
             this.loginCard1.Margin = new System.Windows.Forms.Padding(14);
             this.loginCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.loginCard1.Name = "loginCard1";
@@ -414,7 +421,7 @@
             this.protectionCard.Controls.Add(this.protectionCombo);
             this.protectionCard.Depth = 0;
             this.protectionCard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.protectionCard.Location = new System.Drawing.Point(549, 432);
+            this.protectionCard.Location = new System.Drawing.Point(622, 387);
             this.protectionCard.Margin = new System.Windows.Forms.Padding(14);
             this.protectionCard.MouseState = MaterialSkin.MouseState.HOVER;
             this.protectionCard.Name = "protectionCard";
@@ -489,12 +496,12 @@
             this.setProtectionButton.Depth = 0;
             this.setProtectionButton.HighEmphasis = true;
             this.setProtectionButton.Icon = null;
-            this.setProtectionButton.Location = new System.Drawing.Point(207, 93);
+            this.setProtectionButton.Location = new System.Drawing.Point(207, 88);
             this.setProtectionButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.setProtectionButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.setProtectionButton.Name = "setProtectionButton";
             this.setProtectionButton.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.setProtectionButton.Size = new System.Drawing.Size(171, 22);
+            this.setProtectionButton.Size = new System.Drawing.Size(171, 27);
             this.setProtectionButton.TabIndex = 1;
             this.setProtectionButton.Text = "Set Protection";
             this.setProtectionButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -524,7 +531,7 @@
             "Kernel",
             "Min Usermode",
             "Min Kernel"});
-            this.protectionCombo.Location = new System.Drawing.Point(207, 49);
+            this.protectionCombo.Location = new System.Drawing.Point(207, 45);
             this.protectionCombo.MaxDropDownItems = 4;
             this.protectionCombo.MouseState = MaterialSkin.MouseState.OUT;
             this.protectionCombo.Name = "protectionCombo";
@@ -535,20 +542,70 @@
             // 
             // tabConfig
             // 
+            this.tabConfig.Controls.Add(this.materialCard6);
+            this.tabConfig.Controls.Add(this.configTextBox);
             this.tabConfig.Location = new System.Drawing.Point(4, 25);
             this.tabConfig.Name = "tabConfig";
             this.tabConfig.Padding = new System.Windows.Forms.Padding(3);
-            this.tabConfig.Size = new System.Drawing.Size(946, 522);
+            this.tabConfig.Size = new System.Drawing.Size(1031, 516);
             this.tabConfig.TabIndex = 1;
             this.tabConfig.Text = "Config";
             this.tabConfig.UseVisualStyleBackColor = true;
+            // 
+            // materialCard6
+            // 
+            this.materialCard6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialCard6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard6.Controls.Add(this.resetConfigButton);
+            this.materialCard6.Controls.Add(this.saveConfigButton);
+            this.materialCard6.Controls.Add(this.loadConfigButton);
+            this.materialCard6.Depth = 0;
+            this.materialCard6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard6.Location = new System.Drawing.Point(6, 448);
+            this.materialCard6.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard6.Name = "materialCard6";
+            this.materialCard6.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard6.Size = new System.Drawing.Size(1019, 61);
+            this.materialCard6.TabIndex = 3;
+            // 
+            // configTextBox
+            // 
+            this.configTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.configTextBox.AnimateReadOnly = false;
+            this.configTextBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.configTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.configTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.configTextBox.Depth = 0;
+            this.configTextBox.HideSelection = true;
+            this.configTextBox.Location = new System.Drawing.Point(6, 6);
+            this.configTextBox.MaxLength = 32767;
+            this.configTextBox.MouseState = MaterialSkin.MouseState.OUT;
+            this.configTextBox.Name = "configTextBox";
+            this.configTextBox.PasswordChar = '\0';
+            this.configTextBox.ReadOnly = false;
+            this.configTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.configTextBox.SelectedText = "";
+            this.configTextBox.SelectionLength = 0;
+            this.configTextBox.SelectionStart = 0;
+            this.configTextBox.ShortcutsEnabled = true;
+            this.configTextBox.Size = new System.Drawing.Size(1019, 435);
+            this.configTextBox.TabIndex = 2;
+            this.configTextBox.TabStop = false;
+            this.configTextBox.Text = "Figgy";
+            this.configTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.configTextBox.UseAccent = false;
+            this.configTextBox.UseSystemPasswordChar = false;
             // 
             // tabScripts
             // 
             this.tabScripts.Location = new System.Drawing.Point(4, 25);
             this.tabScripts.Name = "tabScripts";
             this.tabScripts.Padding = new System.Windows.Forms.Padding(3);
-            this.tabScripts.Size = new System.Drawing.Size(946, 522);
+            this.tabScripts.Size = new System.Drawing.Size(1031, 516);
             this.tabScripts.TabIndex = 2;
             this.tabScripts.Text = "Scripts";
             this.tabScripts.UseVisualStyleBackColor = true;
@@ -560,10 +617,81 @@
             this.tabSettings.Location = new System.Drawing.Point(4, 25);
             this.tabSettings.Name = "tabSettings";
             this.tabSettings.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSettings.Size = new System.Drawing.Size(1019, 588);
+            this.tabSettings.Size = new System.Drawing.Size(1031, 516);
             this.tabSettings.TabIndex = 3;
             this.tabSettings.Text = "Settings";
             this.tabSettings.UseVisualStyleBackColor = true;
+            // 
+            // materialCard4
+            // 
+            this.materialCard4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.materialCard4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard4.Controls.Add(this.materialCard5);
+            this.materialCard4.Controls.Add(this.materialLabel4);
+            this.materialCard4.Depth = 0;
+            this.materialCard4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard4.Location = new System.Drawing.Point(13, 14);
+            this.materialCard4.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard4.Name = "materialCard4";
+            this.materialCard4.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard4.Size = new System.Drawing.Size(308, 557);
+            this.materialCard4.TabIndex = 2;
+            // 
+            // materialCard5
+            // 
+            this.materialCard5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialCard5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard5.Controls.Add(this.gitButton);
+            this.materialCard5.Depth = 0;
+            this.materialCard5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard5.Location = new System.Drawing.Point(11, 56);
+            this.materialCard5.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard5.Name = "materialCard5";
+            this.materialCard5.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard5.Size = new System.Drawing.Size(286, 491);
+            this.materialCard5.TabIndex = 1;
+            // 
+            // gitButton
+            // 
+            this.gitButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gitButton.AutoSize = false;
+            this.gitButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.gitButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.gitButton.Depth = 0;
+            this.gitButton.HighEmphasis = true;
+            this.gitButton.Icon = null;
+            this.gitButton.Location = new System.Drawing.Point(18, 18);
+            this.gitButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.gitButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.gitButton.Name = "gitButton";
+            this.gitButton.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.gitButton.Size = new System.Drawing.Size(250, 32);
+            this.gitButton.TabIndex = 0;
+            this.gitButton.Text = "Github";
+            this.gitButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.gitButton.UseAccentColor = false;
+            this.gitButton.UseVisualStyleBackColor = true;
+            this.gitButton.Click += new System.EventHandler(this.gitButton_Click);
+            // 
+            // materialLabel4
+            // 
+            this.materialLabel4.AutoSize = true;
+            this.materialLabel4.Depth = 0;
+            this.materialLabel4.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel4.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel4.HighEmphasis = true;
+            this.materialLabel4.Location = new System.Drawing.Point(16, 14);
+            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel4.Name = "materialLabel4";
+            this.materialLabel4.Size = new System.Drawing.Size(69, 24);
+            this.materialLabel4.TabIndex = 0;
+            this.materialLabel4.Text = "Utilities";
             // 
             // materialCard1
             // 
@@ -629,7 +757,7 @@
             // avatarBox
             // 
             this.avatarBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.avatarBox.Location = new System.Drawing.Point(953, 34);
+            this.avatarBox.Location = new System.Drawing.Point(965, 34);
             this.avatarBox.Name = "avatarBox";
             this.avatarBox.Size = new System.Drawing.Size(68, 68);
             this.avatarBox.TabIndex = 2;
@@ -637,83 +765,72 @@
             this.avatarBox.Visible = false;
             this.avatarBox.WaitOnLoad = true;
             // 
-            // materialCard4
+            // loadConfigButton
             // 
-            this.materialCard4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.materialCard4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard4.Controls.Add(this.materialCard5);
-            this.materialCard4.Controls.Add(this.materialLabel4);
-            this.materialCard4.Depth = 0;
-            this.materialCard4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard4.Location = new System.Drawing.Point(13, 14);
-            this.materialCard4.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCard4.Name = "materialCard4";
-            this.materialCard4.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard4.Size = new System.Drawing.Size(308, 557);
-            this.materialCard4.TabIndex = 2;
+            this.loadConfigButton.AutoSize = false;
+            this.loadConfigButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.loadConfigButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.loadConfigButton.Depth = 0;
+            this.loadConfigButton.HighEmphasis = true;
+            this.loadConfigButton.Icon = null;
+            this.loadConfigButton.Location = new System.Drawing.Point(14, 11);
+            this.loadConfigButton.Margin = new System.Windows.Forms.Padding(0);
+            this.loadConfigButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.loadConfigButton.Name = "loadConfigButton";
+            this.loadConfigButton.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.loadConfigButton.Size = new System.Drawing.Size(268, 36);
+            this.loadConfigButton.TabIndex = 0;
+            this.loadConfigButton.Text = "Load Config";
+            this.loadConfigButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.loadConfigButton.UseAccentColor = false;
+            this.loadConfigButton.UseVisualStyleBackColor = true;
             // 
-            // materialCard5
+            // saveConfigButton
             // 
-            this.materialCard5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialCard5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard5.Controls.Add(this.gitButton);
-            this.materialCard5.Depth = 0;
-            this.materialCard5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard5.Location = new System.Drawing.Point(11, 56);
-            this.materialCard5.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard5.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCard5.Name = "materialCard5";
-            this.materialCard5.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard5.Size = new System.Drawing.Size(286, 491);
-            this.materialCard5.TabIndex = 1;
+            this.saveConfigButton.AutoSize = false;
+            this.saveConfigButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.saveConfigButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.saveConfigButton.Depth = 0;
+            this.saveConfigButton.HighEmphasis = true;
+            this.saveConfigButton.Icon = null;
+            this.saveConfigButton.Location = new System.Drawing.Point(296, 11);
+            this.saveConfigButton.Margin = new System.Windows.Forms.Padding(14, 0, 0, 0);
+            this.saveConfigButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.saveConfigButton.Name = "saveConfigButton";
+            this.saveConfigButton.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.saveConfigButton.Size = new System.Drawing.Size(268, 36);
+            this.saveConfigButton.TabIndex = 0;
+            this.saveConfigButton.Text = "Save Config";
+            this.saveConfigButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.saveConfigButton.UseAccentColor = false;
+            this.saveConfigButton.UseVisualStyleBackColor = true;
             // 
-            // materialLabel4
+            // resetConfigButton
             // 
-            this.materialLabel4.AutoSize = true;
-            this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel4.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel4.HighEmphasis = true;
-            this.materialLabel4.Location = new System.Drawing.Point(16, 14);
-            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(69, 24);
-            this.materialLabel4.TabIndex = 0;
-            this.materialLabel4.Text = "Utilities";
-            // 
-            // gitButton
-            // 
-            this.gitButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gitButton.AutoSize = false;
-            this.gitButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.gitButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.gitButton.Depth = 0;
-            this.gitButton.HighEmphasis = true;
-            this.gitButton.Icon = null;
-            this.gitButton.Location = new System.Drawing.Point(18, 18);
-            this.gitButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.gitButton.MouseState = MaterialSkin.MouseState.HOVER;
-            this.gitButton.Name = "gitButton";
-            this.gitButton.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.gitButton.Size = new System.Drawing.Size(250, 32);
-            this.gitButton.TabIndex = 0;
-            this.gitButton.Text = "Github";
-            this.gitButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.gitButton.UseAccentColor = false;
-            this.gitButton.UseVisualStyleBackColor = true;
-            this.gitButton.Click += new System.EventHandler(this.gitButton_Click);
+            this.resetConfigButton.AutoSize = false;
+            this.resetConfigButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.resetConfigButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.resetConfigButton.Depth = 0;
+            this.resetConfigButton.HighEmphasis = true;
+            this.resetConfigButton.Icon = null;
+            this.resetConfigButton.Location = new System.Drawing.Point(578, 11);
+            this.resetConfigButton.Margin = new System.Windows.Forms.Padding(14, 0, 0, 0);
+            this.resetConfigButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.resetConfigButton.Name = "resetConfigButton";
+            this.resetConfigButton.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.resetConfigButton.Size = new System.Drawing.Size(268, 36);
+            this.resetConfigButton.TabIndex = 0;
+            this.resetConfigButton.Text = "Reset Config";
+            this.resetConfigButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.resetConfigButton.UseAccentColor = false;
+            this.resetConfigButton.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1027, 740);
+            this.ClientSize = new System.Drawing.Size(1039, 668);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.avatarBox);
             this.Controls.Add(this.tabSelector);
@@ -730,14 +847,16 @@
             this.materialCard3.PerformLayout();
             this.protectionCard.ResumeLayout(false);
             this.protectionCard.PerformLayout();
+            this.tabConfig.ResumeLayout(false);
+            this.materialCard6.ResumeLayout(false);
             this.tabSettings.ResumeLayout(false);
+            this.materialCard4.ResumeLayout(false);
+            this.materialCard4.PerformLayout();
+            this.materialCard5.ResumeLayout(false);
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
             this.materialCard2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.avatarBox)).EndInit();
-            this.materialCard4.ResumeLayout(false);
-            this.materialCard4.PerformLayout();
-            this.materialCard5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -781,6 +900,11 @@
         private MaterialSkin.Controls.MaterialCard materialCard5;
         private MaterialSkin.Controls.MaterialButton gitButton;
         private MaterialSkin.Controls.MaterialLabel materialLabel4;
+        private MaterialSkin.Controls.MaterialMultiLineTextBox2 configTextBox;
+        private MaterialSkin.Controls.MaterialCard materialCard6;
+        private MaterialSkin.Controls.MaterialButton loadConfigButton;
+        private MaterialSkin.Controls.MaterialButton resetConfigButton;
+        private MaterialSkin.Controls.MaterialButton saveConfigButton;
     }
 }
 
