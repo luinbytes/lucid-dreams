@@ -50,7 +50,7 @@ namespace lucid_dreams
         bool showSync = false;
         bool syncTextReset = false;
         int textTimeOut = 3000; // 3 Seconds
-        string VERSION = "0.1.1";
+        string VERSION = "0.1.2";
 
         public MainForm()
         {
@@ -63,6 +63,7 @@ namespace lucid_dreams
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.Purple200, Primary.Purple300, Primary.Purple500, Accent.DeepPurple400, TextShade.WHITE);
+            versionLabel.Text = $"v{VERSION}";
 
             string keyDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "key.txt");
             if (File.Exists(keyDir))
