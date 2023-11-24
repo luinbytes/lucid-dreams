@@ -55,22 +55,28 @@ namespace lucid_dreams
         public MainForm()
         {
             InitializeComponent();
+            // Force non-resizable window
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Sizable = false;
 
+            // Theme Manager Setup
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.Purple200, Primary.Purple300, Primary.Purple500, Accent.DeepPurple400, TextShade.WHITE);
+            
+            // Version global
             versionLabel.Text = $"v{VERSION}";
 
+            // Key check
             string keyDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "key.txt");
             if (File.Exists(keyDir))
             {
                 userKey = File.ReadAllText(keyDir);
                 keyTextBox.Text = userKey;
                 autoKey = true;
+                // Forces a full webAPI refresh
                 fullUpdate();
             }
         }
@@ -80,7 +86,9 @@ namespace lucid_dreams
 
         }
 
-        //Functions
+        // Functions
+        
+        // Rounds any image. Not the best implementation.
         public Image RoundCorners(Image StartImage, int CornerRadius, Color BackgroundColor)
         {
             CornerRadius *= 2;
@@ -104,21 +112,26 @@ namespace lucid_dreams
             }
         }
 
+        // Runs the main constelia.ai API request and stores the restults in their respective global values.
         private async void fullUpdate()
         {
             using (HttpClient client = new HttpClient())
             {
                 try
                 {
+                    // If the key wasn't automatically found, grab it from the text field and store it.
                     if (!autoKey)
                     {
                         userKey = keyTextBox.Text;
                     }
+                    // Check if there is already a sync task running. If not, start one.
                     if (!curSync)
                     {
                         curSync = true;
                         syncButton.Text = "Syncing";
                         syncButton.Enabled = false;
+                        
+                        // Timer for sync button text to reset back to normal.
                         System.Windows.Forms.Timer syncButtonTimer = new System.Windows.Forms.Timer();
                         syncButtonTimer.Interval = 5000;
                         syncButtonTimer.Tick += (s, ea) =>
@@ -130,6 +143,8 @@ namespace lucid_dreams
                         };
                         syncButtonTimer.Start();
 
+                        /** We need to check if the key is a valid format before running the API request.
+                        *   This is ESSENTIAL to ensure users wont get false API banned. **/
                         Regex regex = new Regex(@"^[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}$");
                         if (!regex.IsMatch(userKey))
                         {
@@ -137,21 +152,28 @@ namespace lucid_dreams
                             return;
                         }
 
+                        // Base URL is the main APi request here. It grabs ALL user info except sessions, so we need to run a request for that seperately.
                         string baseUrl = $"https://constelia.ai/api.php?key={userKey}";
                         HttpResponseMessage globalResponse = await client.GetAsync(baseUrl);
                         HttpResponseMessage sessionResponse = await client.GetAsync($"https://constelia.ai/api.php?key={userKey}&cmd=getMember&history");
 
+                        // Check if both responses are good.
                         if (globalResponse.IsSuccessStatusCode && sessionResponse.IsSuccessStatusCode)
                         {
+                            // Converting both results right to strings makes this process a lot simpler.
                             string globalResult = await globalResponse.Content.ReadAsStringAsync();
                             string sessionResult = await sessionResponse.Content.ReadAsStringAsync();
+                            
+                            // Ensure the GlobalUserKey is stored for future use.
                             GlobalUserKey = userKey;
 
+                            // Parsing both results and getting their root.
                             var globalJson = JsonDocument.Parse(globalResult);
                             var sessionJson = JsonDocument.Parse(sessionResult);
                             var globalRoot = globalJson.RootElement;
                             var sessionRoot = sessionJson.RootElement;
 
+                            // Store json parsing results into their globals.
                             if (globalRoot.TryGetProperty("username", out var memberProperty) && memberProperty.ValueKind == JsonValueKind.String)
                             {
                                 GlobalUsername = memberProperty.GetString();
@@ -260,8 +282,8 @@ namespace lucid_dreams
                                 SessionHistory = "{}";
                             }
 
-                            //Update UI
-                            //Info Panels
+                            // Update UI
+                            // Info Panels
                             usernameLabel.Text = $"Welcome {GlobalUsername}";
                             alertsLabel.Text = $"Unread Alerts: {GlobalUnreadAlerts}";
                             messagesLabel.Text = $"Unread Messages: {GlobalUnreadConversations}";
@@ -270,7 +292,7 @@ namespace lucid_dreams
                             fidLabel.Text = $"Fantasy ID: {GlobalFid}";
                             regLabel.Text = $"Registered: {GlobalRegisterDate}";
 
-                            //Set Avatar Box Elements
+                            // Set Avatar Box Elements
                             System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
                             gp.AddEllipse(0, 0, avatarBox.Width - 4, avatarBox.Height - 4);
                             Region rg = new Region(gp);
@@ -280,10 +302,10 @@ namespace lucid_dreams
                             avatarBox.ImageLocation = AvatarURL;
                             avatarBox.SizeMode = PictureBoxSizeMode.StretchImage;
 
-                            //Protection
+                            // Protection
                             protectionCombo.SelectedIndex = Int32.Parse(GlobalProtection);
 
-                            //Sync
+                            // Sync
                             syncFinished = true;
                             showSync = true;
                             if (showSync)
@@ -301,14 +323,16 @@ namespace lucid_dreams
                                 syncButton.Enabled = true;
                             }
 
-                            //Config
+                            // Config
                             configTextBox.Text = GlobalConfig;
                         }
                         else
                         {
+                            // Handle users that haven't set a session or have an invalid session hash.
                             if (globalResponse.StatusCode == HttpStatusCode.Unauthorized)
                             {
                                 DialogResult runLaunchbat = MessageBox.Show("This either means you don't have an active session or your hash is missmatched.\n\nRun launch.bat to set a session?", "Error Unauthorized", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                                // Grab latest launch.bat and run it so the user can set a valid session.
                                 if (runLaunchbat == DialogResult.Yes)
                                 {
                                     string launchBatPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "launch.bat");
@@ -338,6 +362,8 @@ namespace lucid_dreams
                                         MessageBox.Show("launch.bat does not exist.", "Fatal Error", MessageBoxButtons.OK);
                                     }
                                 }
+                                /** We need to remember to set the sync var to false whenever a sync is not in process!
+                                 *  Especially when stopped due to unexpected errors. **/
                                 curSync = false;
                             }
                             else
@@ -345,9 +371,11 @@ namespace lucid_dreams
                                 MessageBox.Show($"{globalResponse.StatusCode}");
                             }
                         }
+                        // Once again, making sure we remember to update this var when needed.
                         curSync = false;
                     }
                 }
+                // Exception handling.
                 catch (KeyNotFoundException knfEx)
                 {
                     MessageBox.Show($"Exception caught. Please contact developer.\n\nKey not found: {knfEx.Message}\nException Source: {knfEx.Source}\nException Stack Trace: {knfEx.StackTrace}", "Fatal Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -361,6 +389,7 @@ namespace lucid_dreams
 
         private async void loginButton_click(object sender, EventArgs e)
         {
+            // If the login button was clicked and there isn't currently a sync task running then run a full update.
             if (!curSync)
             {
                 fullUpdate();
@@ -369,6 +398,7 @@ namespace lucid_dreams
 
         private void syncButton_Click(object sender, EventArgs e)
         {
+            // Same as login but for the sync button :)
             if (!curSync)
             {
                 fullUpdate();
@@ -379,6 +409,8 @@ namespace lucid_dreams
         {
             try
             {
+                /** New http client for the API request.
+                 *  Grabbing the current wanted protection value from the combo. **/
                 HttpClient httpProtClient = new HttpClient();
                 HttpResponseMessage httpProtClientResponse = await httpProtClient.GetAsync($"https://constelia.ai/api.php?key={userKey}&cmd=setProtection&protection={protectionCombo.SelectedIndex}");
 
@@ -407,9 +439,12 @@ namespace lucid_dreams
 
         private async void launchConButton_Click(object sender, EventArgs e)
         {
+            // Find where the lucid dreams exe is currently stored and grab the full path.
             string conBatchPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "constellation.bat");
+            // Pull a new constellation.bat straight from the site.
             string conBatchUrl = "https://constelia.ai/constellation.bat";
 
+            // Write the bytes mf
             using (HttpClient conBatchClient = new HttpClient())
             {
                 var conBatchResponce = await conBatchClient.GetAsync(conBatchUrl);
@@ -424,6 +459,8 @@ namespace lucid_dreams
                     return;
                 }
             }
+            // RUN THAT BIHHHHHHHHHHH
+            //you can really see how my attention span disappeared while writing these.
             if (File.Exists(conBatchPath))
             {
                 Process.Start(new ProcessStartInfo
@@ -435,6 +472,7 @@ namespace lucid_dreams
             }
         }
 
+        // Same as above tbh
         private async void launchUniButton_Click(object sender, EventArgs e)
         {
             string uniBatchPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "launch.bat");
@@ -465,6 +503,7 @@ namespace lucid_dreams
             }
         }
 
+        // Open forums/divinity/github
         private void forumButton_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://constelia.ai/forums/index.php");
