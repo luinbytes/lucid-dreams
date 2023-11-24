@@ -76,6 +76,12 @@
             this.infoLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.infoLabel = new MaterialSkin.Controls.MaterialLabel();
             this.avatarBox = new System.Windows.Forms.PictureBox();
+            this.materialCheckbox1 = new MaterialSkin.Controls.MaterialCheckbox();
+            this.materialCard7 = new MaterialSkin.Controls.MaterialCard();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialSlider1 = new MaterialSkin.Controls.MaterialSlider();
+            this.materialTextBox21 = new MaterialSkin.Controls.MaterialTextBox2();
+            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.tabControl.SuspendLayout();
             this.tabUser.SuspendLayout();
             this.aiCard.SuspendLayout();
@@ -90,6 +96,7 @@
             this.materialCard1.SuspendLayout();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avatarBox)).BeginInit();
+            this.materialCard7.SuspendLayout();
             this.SuspendLayout();
             // 
             // loginButton
@@ -639,6 +646,7 @@
             // 
             // tabConfig
             // 
+            this.tabConfig.Controls.Add(this.materialCard7);
             this.tabConfig.Controls.Add(this.materialCard6);
             this.tabConfig.Controls.Add(this.configTextBox);
             this.tabConfig.Location = new System.Drawing.Point(4, 25);
@@ -755,7 +763,7 @@
             this.configTextBox.SelectionLength = 0;
             this.configTextBox.SelectionStart = 0;
             this.configTextBox.ShortcutsEnabled = true;
-            this.configTextBox.Size = new System.Drawing.Size(1119, 508);
+            this.configTextBox.Size = new System.Drawing.Size(556, 508);
             this.configTextBox.TabIndex = 2;
             this.configTextBox.TabStop = false;
             this.configTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -943,6 +951,106 @@
             this.avatarBox.Visible = false;
             this.avatarBox.WaitOnLoad = true;
             // 
+            // materialCheckbox1
+            // 
+            this.materialCheckbox1.AutoSize = true;
+            this.materialCheckbox1.Depth = 0;
+            this.materialCheckbox1.Location = new System.Drawing.Point(14, 26);
+            this.materialCheckbox1.Margin = new System.Windows.Forms.Padding(0);
+            this.materialCheckbox1.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.materialCheckbox1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCheckbox1.Name = "materialCheckbox1";
+            this.materialCheckbox1.ReadOnly = false;
+            this.materialCheckbox1.Ripple = true;
+            this.materialCheckbox1.Size = new System.Drawing.Size(165, 37);
+            this.materialCheckbox1.TabIndex = 5;
+            this.materialCheckbox1.Text = "exampleCheckBox";
+            this.materialCheckbox1.UseVisualStyleBackColor = true;
+            // 
+            // materialCard7
+            // 
+            this.materialCard7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard7.Controls.Add(this.materialLabel5);
+            this.materialCard7.Controls.Add(this.materialTextBox21);
+            this.materialCard7.Controls.Add(this.materialSlider1);
+            this.materialCard7.Controls.Add(this.materialLabel3);
+            this.materialCard7.Controls.Add(this.materialCheckbox1);
+            this.materialCard7.Depth = 0;
+            this.materialCard7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard7.Location = new System.Drawing.Point(579, 6);
+            this.materialCard7.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard7.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard7.Name = "materialCard7";
+            this.materialCard7.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard7.Size = new System.Drawing.Size(334, 167);
+            this.materialCard7.TabIndex = 6;
+            // 
+            // materialLabel3
+            // 
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel3.Location = new System.Drawing.Point(18, 4);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(153, 19);
+            this.materialLabel3.TabIndex = 6;
+            this.materialLabel3.Text = "Script Name Example";
+            // 
+            // materialSlider1
+            // 
+            this.materialSlider1.Depth = 0;
+            this.materialSlider1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialSlider1.Location = new System.Drawing.Point(17, 66);
+            this.materialSlider1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialSlider1.Name = "materialSlider1";
+            this.materialSlider1.Size = new System.Drawing.Size(250, 40);
+            this.materialSlider1.TabIndex = 7;
+            this.materialSlider1.Text = "exampleSlider";
+            // 
+            // materialTextBox21
+            // 
+            this.materialTextBox21.AnimateReadOnly = false;
+            this.materialTextBox21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.materialTextBox21.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.materialTextBox21.Depth = 0;
+            this.materialTextBox21.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialTextBox21.HideSelection = true;
+            this.materialTextBox21.LeadingIcon = null;
+            this.materialTextBox21.Location = new System.Drawing.Point(146, 112);
+            this.materialTextBox21.MaxLength = 32767;
+            this.materialTextBox21.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialTextBox21.Name = "materialTextBox21";
+            this.materialTextBox21.PasswordChar = '\0';
+            this.materialTextBox21.PrefixSuffixText = null;
+            this.materialTextBox21.ReadOnly = false;
+            this.materialTextBox21.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.materialTextBox21.SelectedText = "";
+            this.materialTextBox21.SelectionLength = 0;
+            this.materialTextBox21.SelectionStart = 0;
+            this.materialTextBox21.ShortcutsEnabled = true;
+            this.materialTextBox21.Size = new System.Drawing.Size(87, 36);
+            this.materialTextBox21.TabIndex = 8;
+            this.materialTextBox21.TabStop = false;
+            this.materialTextBox21.Text = "4.20";
+            this.materialTextBox21.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.materialTextBox21.TrailingIcon = null;
+            this.materialTextBox21.UseAccent = false;
+            this.materialTextBox21.UseSystemPasswordChar = false;
+            this.materialTextBox21.UseTallSize = false;
+            // 
+            // materialLabel5
+            // 
+            this.materialLabel5.AutoSize = true;
+            this.materialLabel5.Depth = 0;
+            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel5.Location = new System.Drawing.Point(18, 121);
+            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel5.Name = "materialLabel5";
+            this.materialLabel5.Size = new System.Drawing.Size(122, 19);
+            this.materialLabel5.TabIndex = 9;
+            this.materialLabel5.Text = "exampleInt/Float";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -976,6 +1084,8 @@
             this.materialCard1.PerformLayout();
             this.materialCard2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.avatarBox)).EndInit();
+            this.materialCard7.ResumeLayout(false);
+            this.materialCard7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1029,6 +1139,12 @@
         private MaterialSkin.Controls.MaterialMultiLineTextBox2 aiMultiLineTextBox;
         private MaterialSkin.Controls.MaterialTextBox2 aiInputTextBox;
         private MaterialSkin.Controls.MaterialFloatingActionButton aiSendButton;
+        private MaterialSkin.Controls.MaterialCard materialCard7;
+        private MaterialSkin.Controls.MaterialCheckbox materialCheckbox1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel5;
+        private MaterialSkin.Controls.MaterialTextBox2 materialTextBox21;
+        private MaterialSkin.Controls.MaterialSlider materialSlider1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel3;
     }
 }
 
