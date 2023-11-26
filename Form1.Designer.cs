@@ -213,7 +213,7 @@
             this.aiCard.MouseState = MaterialSkin.MouseState.HOVER;
             this.aiCard.Name = "aiCard";
             this.aiCard.Padding = new System.Windows.Forms.Padding(14);
-            this.aiCard.Size = new System.Drawing.Size(396, 465);
+            this.aiCard.Size = new System.Drawing.Size(396, 458);
             this.aiCard.TabIndex = 11;
             // 
             // aiSendButton
@@ -221,7 +221,7 @@
             this.aiSendButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.aiSendButton.Depth = 0;
             this.aiSendButton.Icon = ((System.Drawing.Image)(resources.GetObject("aiSendButton.Icon")));
-            this.aiSendButton.Location = new System.Drawing.Point(342, 472);
+            this.aiSendButton.Location = new System.Drawing.Point(342, 465);
             this.aiSendButton.Mini = true;
             this.aiSendButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.aiSendButton.Name = "aiSendButton";
@@ -242,7 +242,7 @@
             this.aiInputTextBox.HideSelection = true;
             this.aiInputTextBox.Hint = "Ask Constelia...";
             this.aiInputTextBox.LeadingIcon = null;
-            this.aiInputTextBox.Location = new System.Drawing.Point(17, 412);
+            this.aiInputTextBox.Location = new System.Drawing.Point(17, 405);
             this.aiInputTextBox.MaxLength = 32767;
             this.aiInputTextBox.MouseState = MaterialSkin.MouseState.OUT;
             this.aiInputTextBox.Name = "aiInputTextBox";
@@ -285,7 +285,7 @@
             this.aiMultiLineTextBox.SelectionLength = 0;
             this.aiMultiLineTextBox.SelectionStart = 0;
             this.aiMultiLineTextBox.ShortcutsEnabled = true;
-            this.aiMultiLineTextBox.Size = new System.Drawing.Size(361, 380);
+            this.aiMultiLineTextBox.Size = new System.Drawing.Size(361, 373);
             this.aiMultiLineTextBox.TabIndex = 0;
             this.aiMultiLineTextBox.TabStop = false;
             this.aiMultiLineTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -300,7 +300,7 @@
             this.loginCard1.Controls.Add(this.keyTextBox);
             this.loginCard1.Depth = 0;
             this.loginCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.loginCard1.Location = new System.Drawing.Point(13, 496);
+            this.loginCard1.Location = new System.Drawing.Point(13, 487);
             this.loginCard1.Margin = new System.Windows.Forms.Padding(14);
             this.loginCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.loginCard1.Name = "loginCard1";
@@ -523,7 +523,7 @@
             this.protectionCard.Controls.Add(this.protectionCombo);
             this.protectionCard.Depth = 0;
             this.protectionCard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.protectionCard.Location = new System.Drawing.Point(739, 496);
+            this.protectionCard.Location = new System.Drawing.Point(739, 487);
             this.protectionCard.Margin = new System.Windows.Forms.Padding(14);
             this.protectionCard.MouseState = MaterialSkin.MouseState.HOVER;
             this.protectionCard.Name = "protectionCard";
@@ -664,12 +664,12 @@
             this.materialCard6.Controls.Add(this.loadConfigButton);
             this.materialCard6.Depth = 0;
             this.materialCard6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard6.Location = new System.Drawing.Point(6, 559);
+            this.materialCard6.Location = new System.Drawing.Point(20, 551);
             this.materialCard6.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard6.Name = "materialCard6";
             this.materialCard6.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard6.Size = new System.Drawing.Size(1135, 61);
+            this.materialCard6.Size = new System.Drawing.Size(1114, 61);
             this.materialCard6.TabIndex = 3;
             // 
             // resetConfigButton
@@ -682,7 +682,7 @@
             this.resetConfigButton.Depth = 0;
             this.resetConfigButton.HighEmphasis = true;
             this.resetConfigButton.Icon = null;
-            this.resetConfigButton.Location = new System.Drawing.Point(853, 11);
+            this.resetConfigButton.Location = new System.Drawing.Point(832, 11);
             this.resetConfigButton.Margin = new System.Windows.Forms.Padding(14, 0, 0, 0);
             this.resetConfigButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.resetConfigButton.Name = "resetConfigButton";
@@ -693,6 +693,7 @@
             this.resetConfigButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.resetConfigButton.UseAccentColor = false;
             this.resetConfigButton.UseVisualStyleBackColor = true;
+            this.resetConfigButton.Click += new System.EventHandler(this.resetConfigButton_Click);
             // 
             // saveConfigButton
             // 
@@ -710,7 +711,7 @@
             this.saveConfigButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.saveConfigButton.Name = "saveConfigButton";
             this.saveConfigButton.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.saveConfigButton.Size = new System.Drawing.Size(284, 36);
+            this.saveConfigButton.Size = new System.Drawing.Size(263, 36);
             this.saveConfigButton.TabIndex = 0;
             this.saveConfigButton.Text = "Save Config";
             this.saveConfigButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -752,7 +753,7 @@
             this.configTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.configTextBox.Depth = 0;
             this.configTextBox.HideSelection = true;
-            this.configTextBox.Location = new System.Drawing.Point(6, 6);
+            this.configTextBox.Location = new System.Drawing.Point(20, 6);
             this.configTextBox.MaxLength = 32767;
             this.configTextBox.MouseState = MaterialSkin.MouseState.OUT;
             this.configTextBox.Name = "configTextBox";
@@ -763,7 +764,7 @@
             this.configTextBox.SelectionLength = 0;
             this.configTextBox.SelectionStart = 0;
             this.configTextBox.ShortcutsEnabled = true;
-            this.configTextBox.Size = new System.Drawing.Size(1135, 547);
+            this.configTextBox.Size = new System.Drawing.Size(1114, 536);
             this.configTextBox.TabIndex = 2;
             this.configTextBox.TabStop = false;
             this.configTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;

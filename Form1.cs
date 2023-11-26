@@ -50,8 +50,9 @@ namespace lucid_dreams
         bool syncFinished;
         bool showSync = false;
         bool syncTextReset = false;
-        int textTimeOut = 3000; // 3 Seconds
-        string VERSION = "0.1.2";
+        int textTimeOut = 4000; // 4 Seconds (4000ms)
+        int resetConfigCount = 0;
+        string VERSION = "0.2.0";
 
         public MainForm()
         {
@@ -143,7 +144,7 @@ namespace lucid_dreams
 
                         // Timer for sync button text to reset back to normal.
                         System.Windows.Forms.Timer syncButtonTimer = new System.Windows.Forms.Timer();
-                        syncButtonTimer.Interval = 5000;
+                        syncButtonTimer.Interval = textTimeOut;
                         syncButtonTimer.Tick += (s, ea) =>
                         {
                             syncButton.Text = "Sync";
@@ -325,9 +326,23 @@ namespace lucid_dreams
                             }
 
                             // Config
+                            loadConfigButton.Enabled = false;
                             JsonDocument config = JsonDocument.Parse(GlobalConfig);
                             string formattedConfig = System.Text.Json.JsonSerializer.Serialize(config, new JsonSerializerOptions { WriteIndented = true });
                             configTextBox.Text = formattedConfig;
+                            loadConfigButton.Text = "Loaded";
+
+                            // Timer for load config button text to reset back to normal.
+                            System.Windows.Forms.Timer loadButtonTimer = new System.Windows.Forms.Timer();
+                            loadButtonTimer.Interval = textTimeOut;
+                            loadButtonTimer.Tick += (s, ea) =>
+                            {
+                                loadConfigButton.Text = "Load Config";
+                                loadConfigButton.Enabled = true;
+                                loadButtonTimer.Stop();
+                            };
+                            loadButtonTimer.Start();
+
                         }
                         else
                         {
@@ -352,7 +367,7 @@ namespace lucid_dreams
                                         }
                                         else
                                         {
-                                            MessageBox.Show($"Unable to download file from {launchBatUrl}", "Fatal Error", MessageBoxButtons.OK);
+                                            MessageBox.Show($"Unable to download file from {launchBatUrl}", "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                             return;
                                         }
                                     }
@@ -362,7 +377,7 @@ namespace lucid_dreams
                                     }
                                     else
                                     {
-                                        MessageBox.Show("launch.bat does not exist.", "Fatal Error", MessageBoxButtons.OK);
+                                        MessageBox.Show("launch.bat does not exist.", "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
                                 }
                                 /** We need to remember to set the sync var to false whenever a sync is not in process!
@@ -395,6 +410,7 @@ namespace lucid_dreams
         {
             try
             {
+                saveConfigButton.Enabled = false;
                 string fullConfig = configTextBox.Text;
                 string encodedConfig = HttpUtility.UrlEncode(fullConfig);
                 HttpClient configClient = new HttpClient();
@@ -403,16 +419,27 @@ namespace lucid_dreams
 
                 if (saveResponse.IsSuccessStatusCode)
                 {
-                    MessageBox.Show($"Config Saved!\n\n{configContent}");
+                    saveConfigButton.Text = "Config Saved!";
+                    System.Windows.Forms.Timer saveTimer = new System.Windows.Forms.Timer();
+                    saveTimer.Interval = textTimeOut;
+                    saveTimer.Tick += (s, ea) =>
+                    {
+                        saveConfigButton.Text = "Save Config";
+                        saveConfigButton.Enabled = true;
+                        saveTimer.Stop();
+                    };
+                    saveTimer.Start();
                 } 
                 else
                 {
                     MessageBox.Show($"Config failed to save!\n\n {saveResponse.StatusCode}");
+                    saveConfigButton.Enabled = true;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Exception caught. Please contact developer.\n\n{ex.Message}", "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                saveConfigButton.Enabled = true;
             }
         }
 
@@ -550,6 +577,7 @@ namespace lucid_dreams
 
         private void loadConfigButton_Click(object sender, EventArgs e)
         {
+            loadConfigButton.Enabled = false;
             fullUpdate(); // Might aswell update EVERYTHING in the background aswell as the config contents.
             // Prob not best practice?
         }
@@ -557,6 +585,65 @@ namespace lucid_dreams
         private void saveConfigButton_Click(object sender, EventArgs e)
         {
             setConfig();
+        }
+
+        private async void resetConfigButton_Click(object sender, EventArgs e)
+        {
+            resetConfigCount++;
+            resetConfigButton.Text = $"Are you sure? ({resetConfigCount}/5)";
+
+            if (resetConfigCount >= 5)
+            {
+                string baseConfig = @"{
+                ""bones"": [4, 7, 10],
+                ""constelia.lua"": null,
+                ""constellation.lua"": {
+                    ""esp"": false,
+                    ""esp_fov"": 10,
+                    ""esp_sonar"": false,
+                    ""esp_surround"": true,
+                    ""humanizer"": true,
+                    ""humanizer_debug"": true,
+                    ""humanizer_mouse_threshold"": 32,
+                    ""humanizer_range_max"": 10,
+                    ""humanizer_range_min"": 0.6,
+                    ""iterations"": 1
+                },
+                ""fc2.lua"": {
+                    ""anti_aliasing"": false,
+                    ""change_compositor"": true,
+                    ""fps_lock"": false,
+                    ""linux_sound_command"": ""play -q"",
+                    ""multicore"": null,
+                    ""no_base"": false,
+                    ""xdotool"": true,
+                    ""zombie"": ""explorer.exe"",
+                    ""zombie_mm"": true
+                }
+            }";
+
+                HttpClient resetClient = new HttpClient();
+                HttpResponseMessage resetClientResposne = await resetClient.GetAsync($"https://constelia.ai/api.php?key={userKey}&cmd=resetConfiguration");
+
+                if (resetClientResposne.IsSuccessStatusCode)
+                {
+                    resetConfigCount = 0;
+                    resetConfigButton.Text = "Config Reset!";
+                    configTextBox.Text = baseConfig;
+                    System.Windows.Forms.Timer resetTimer = new System.Windows.Forms.Timer();
+                    resetTimer.Interval = textTimeOut;
+                    resetTimer.Tick += (s, ea) =>
+                    {
+                        resetConfigButton.Text = "Reset Config";
+                        resetTimer.Stop();
+                    };
+                    resetTimer.Start();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to reset config.", "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
