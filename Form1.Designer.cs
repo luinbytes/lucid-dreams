@@ -189,9 +189,10 @@
             this.tabUser.Controls.Add(this.materialCard3);
             this.tabUser.Controls.Add(this.protectionCard);
             this.tabUser.Location = new System.Drawing.Point(4, 25);
+            this.tabUser.Margin = new System.Windows.Forms.Padding(0);
             this.tabUser.Name = "tabUser";
             this.tabUser.Padding = new System.Windows.Forms.Padding(3);
-            this.tabUser.Size = new System.Drawing.Size(1131, 587);
+            this.tabUser.Size = new System.Drawing.Size(1147, 626);
             this.tabUser.TabIndex = 0;
             this.tabUser.Text = "User Control";
             this.tabUser.UseVisualStyleBackColor = true;
@@ -207,12 +208,12 @@
             this.aiCard.Controls.Add(this.aiMultiLineTextBox);
             this.aiCard.Depth = 0;
             this.aiCard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.aiCard.Location = new System.Drawing.Point(706, 17);
+            this.aiCard.Location = new System.Drawing.Point(739, 14);
             this.aiCard.Margin = new System.Windows.Forms.Padding(14);
             this.aiCard.MouseState = MaterialSkin.MouseState.HOVER;
             this.aiCard.Name = "aiCard";
             this.aiCard.Padding = new System.Windows.Forms.Padding(14);
-            this.aiCard.Size = new System.Drawing.Size(396, 386);
+            this.aiCard.Size = new System.Drawing.Size(396, 465);
             this.aiCard.TabIndex = 11;
             // 
             // aiSendButton
@@ -220,7 +221,7 @@
             this.aiSendButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.aiSendButton.Depth = 0;
             this.aiSendButton.Icon = ((System.Drawing.Image)(resources.GetObject("aiSendButton.Icon")));
-            this.aiSendButton.Location = new System.Drawing.Point(342, 393);
+            this.aiSendButton.Location = new System.Drawing.Point(342, 472);
             this.aiSendButton.Mini = true;
             this.aiSendButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.aiSendButton.Name = "aiSendButton";
@@ -241,7 +242,7 @@
             this.aiInputTextBox.HideSelection = true;
             this.aiInputTextBox.Hint = "Ask Constelia...";
             this.aiInputTextBox.LeadingIcon = null;
-            this.aiInputTextBox.Location = new System.Drawing.Point(17, 333);
+            this.aiInputTextBox.Location = new System.Drawing.Point(17, 412);
             this.aiInputTextBox.MaxLength = 32767;
             this.aiInputTextBox.MouseState = MaterialSkin.MouseState.OUT;
             this.aiInputTextBox.Name = "aiInputTextBox";
@@ -284,7 +285,7 @@
             this.aiMultiLineTextBox.SelectionLength = 0;
             this.aiMultiLineTextBox.SelectionStart = 0;
             this.aiMultiLineTextBox.ShortcutsEnabled = true;
-            this.aiMultiLineTextBox.Size = new System.Drawing.Size(361, 301);
+            this.aiMultiLineTextBox.Size = new System.Drawing.Size(361, 380);
             this.aiMultiLineTextBox.TabIndex = 0;
             this.aiMultiLineTextBox.TabStop = false;
             this.aiMultiLineTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -299,7 +300,7 @@
             this.loginCard1.Controls.Add(this.keyTextBox);
             this.loginCard1.Depth = 0;
             this.loginCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.loginCard1.Location = new System.Drawing.Point(13, 412);
+            this.loginCard1.Location = new System.Drawing.Point(13, 496);
             this.loginCard1.Margin = new System.Windows.Forms.Padding(14);
             this.loginCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.loginCard1.Name = "loginCard1";
@@ -522,7 +523,7 @@
             this.protectionCard.Controls.Add(this.protectionCombo);
             this.protectionCard.Depth = 0;
             this.protectionCard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.protectionCard.Location = new System.Drawing.Point(706, 412);
+            this.protectionCard.Location = new System.Drawing.Point(739, 496);
             this.protectionCard.Margin = new System.Windows.Forms.Padding(14);
             this.protectionCard.MouseState = MaterialSkin.MouseState.HOVER;
             this.protectionCard.Name = "protectionCard";

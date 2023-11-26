@@ -390,32 +390,6 @@ namespace lucid_dreams
             }
         }
 
-        // Forces a full update JUST on the user configuration.
-        private async void updateConfig()
-        {
-            try
-            {
-                HttpClient configClient = new HttpClient();
-                HttpResponseMessage configClientResponse = await configClient.GetAsync($"https://constelia.ai/api.php?key={userKey}&cmd=getConfiguration");
-
-                if (configClientResponse.IsSuccessStatusCode)
-                {
-                    string config = await configClientResponse.Content.ReadAsStringAsync();
-                    JsonDocument configDoc = JsonDocument.Parse(GlobalConfig);
-                    string formattedConfig = System.Text.Json.JsonSerializer.Serialize(configDoc, new JsonSerializerOptions { WriteIndented = true });
-                    configTextBox.Text = formattedConfig;
-                }
-                else
-                {
-                    MessageBox.Show("Failed to load the configuration.", "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Exception caught. Please contact developer.\n\n{ex.Message}", "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         // Saves whatevers in the current configText buffer to be set as the user config. (sets the config xaxaxa)
         private async void setConfig()
         {
@@ -429,8 +403,9 @@ namespace lucid_dreams
 
                 if (saveResponse.IsSuccessStatusCode)
                 {
-                    MessageBox.Show("Config Saved!");
-                } else
+                    MessageBox.Show($"Config Saved!\n\n{configContent}");
+                } 
+                else
                 {
                     MessageBox.Show($"Config failed to save!\n\n {saveResponse.StatusCode}");
                 }
@@ -575,7 +550,8 @@ namespace lucid_dreams
 
         private void loadConfigButton_Click(object sender, EventArgs e)
         {
-            updateConfig();
+            fullUpdate(); // Might aswell update EVERYTHING in the background aswell as the config contents.
+            // Prob not best practice?
         }
 
         private void saveConfigButton_Click(object sender, EventArgs e)
