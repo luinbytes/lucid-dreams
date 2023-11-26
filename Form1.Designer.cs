@@ -76,12 +76,6 @@
             this.infoLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.infoLabel = new MaterialSkin.Controls.MaterialLabel();
             this.avatarBox = new System.Windows.Forms.PictureBox();
-            this.materialCheckbox1 = new MaterialSkin.Controls.MaterialCheckbox();
-            this.materialCard7 = new MaterialSkin.Controls.MaterialCard();
-            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialSlider1 = new MaterialSkin.Controls.MaterialSlider();
-            this.materialTextBox21 = new MaterialSkin.Controls.MaterialTextBox2();
-            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.tabControl.SuspendLayout();
             this.tabUser.SuspendLayout();
             this.aiCard.SuspendLayout();
@@ -96,7 +90,6 @@
             this.materialCard1.SuspendLayout();
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avatarBox)).BeginInit();
-            this.materialCard7.SuspendLayout();
             this.SuspendLayout();
             // 
             // loginButton
@@ -166,7 +159,7 @@
             this.tabSelector.Margin = new System.Windows.Forms.Padding(0);
             this.tabSelector.MouseState = MaterialSkin.MouseState.HOVER;
             this.tabSelector.Name = "tabSelector";
-            this.tabSelector.Size = new System.Drawing.Size(1139, 50);
+            this.tabSelector.Size = new System.Drawing.Size(1155, 50);
             this.tabSelector.TabIndex = 3;
             this.tabSelector.Text = "materialTabSelector1";
             // 
@@ -186,7 +179,7 @@
             this.tabControl.Multiline = true;
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1139, 616);
+            this.tabControl.Size = new System.Drawing.Size(1155, 655);
             this.tabControl.TabIndex = 5;
             // 
             // tabUser
@@ -198,7 +191,7 @@
             this.tabUser.Location = new System.Drawing.Point(4, 25);
             this.tabUser.Name = "tabUser";
             this.tabUser.Padding = new System.Windows.Forms.Padding(3);
-            this.tabUser.Size = new System.Drawing.Size(1115, 548);
+            this.tabUser.Size = new System.Drawing.Size(1131, 587);
             this.tabUser.TabIndex = 0;
             this.tabUser.Text = "User Control";
             this.tabUser.UseVisualStyleBackColor = true;
@@ -215,6 +208,7 @@
             this.aiCard.Depth = 0;
             this.aiCard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.aiCard.Location = new System.Drawing.Point(706, 17);
+            this.aiCard.Margin = new System.Windows.Forms.Padding(14);
             this.aiCard.MouseState = MaterialSkin.MouseState.HOVER;
             this.aiCard.Name = "aiCard";
             this.aiCard.Padding = new System.Windows.Forms.Padding(14);
@@ -306,6 +300,7 @@
             this.loginCard1.Depth = 0;
             this.loginCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.loginCard1.Location = new System.Drawing.Point(13, 412);
+            this.loginCard1.Margin = new System.Windows.Forms.Padding(14);
             this.loginCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.loginCard1.Name = "loginCard1";
             this.loginCard1.Padding = new System.Windows.Forms.Padding(14);
@@ -343,6 +338,7 @@
             this.materialCard3.Depth = 0;
             this.materialCard3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialCard3.Location = new System.Drawing.Point(13, 14);
+            this.materialCard3.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard3.Name = "materialCard3";
             this.materialCard3.Padding = new System.Windows.Forms.Padding(14);
@@ -527,6 +523,7 @@
             this.protectionCard.Depth = 0;
             this.protectionCard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.protectionCard.Location = new System.Drawing.Point(706, 412);
+            this.protectionCard.Margin = new System.Windows.Forms.Padding(14);
             this.protectionCard.MouseState = MaterialSkin.MouseState.HOVER;
             this.protectionCard.Name = "protectionCard";
             this.protectionCard.Padding = new System.Windows.Forms.Padding(14);
@@ -646,13 +643,12 @@
             // 
             // tabConfig
             // 
-            this.tabConfig.Controls.Add(this.materialCard7);
             this.tabConfig.Controls.Add(this.materialCard6);
             this.tabConfig.Controls.Add(this.configTextBox);
             this.tabConfig.Location = new System.Drawing.Point(4, 25);
             this.tabConfig.Name = "tabConfig";
             this.tabConfig.Padding = new System.Windows.Forms.Padding(3);
-            this.tabConfig.Size = new System.Drawing.Size(1131, 587);
+            this.tabConfig.Size = new System.Drawing.Size(1147, 626);
             this.tabConfig.TabIndex = 1;
             this.tabConfig.Text = "Config";
             this.tabConfig.UseVisualStyleBackColor = true;
@@ -667,11 +663,12 @@
             this.materialCard6.Controls.Add(this.loadConfigButton);
             this.materialCard6.Depth = 0;
             this.materialCard6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard6.Location = new System.Drawing.Point(6, 520);
+            this.materialCard6.Location = new System.Drawing.Point(6, 559);
+            this.materialCard6.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard6.Name = "materialCard6";
             this.materialCard6.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard6.Size = new System.Drawing.Size(1119, 61);
+            this.materialCard6.Size = new System.Drawing.Size(1135, 61);
             this.materialCard6.TabIndex = 3;
             // 
             // resetConfigButton
@@ -684,7 +681,7 @@
             this.resetConfigButton.Depth = 0;
             this.resetConfigButton.HighEmphasis = true;
             this.resetConfigButton.Icon = null;
-            this.resetConfigButton.Location = new System.Drawing.Point(837, 11);
+            this.resetConfigButton.Location = new System.Drawing.Point(853, 11);
             this.resetConfigButton.Margin = new System.Windows.Forms.Padding(14, 0, 0, 0);
             this.resetConfigButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.resetConfigButton.Name = "resetConfigButton";
@@ -712,12 +709,13 @@
             this.saveConfigButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.saveConfigButton.Name = "saveConfigButton";
             this.saveConfigButton.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.saveConfigButton.Size = new System.Drawing.Size(268, 36);
+            this.saveConfigButton.Size = new System.Drawing.Size(284, 36);
             this.saveConfigButton.TabIndex = 0;
             this.saveConfigButton.Text = "Save Config";
             this.saveConfigButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.saveConfigButton.UseAccentColor = false;
             this.saveConfigButton.UseVisualStyleBackColor = true;
+            this.saveConfigButton.Click += new System.EventHandler(this.saveConfigButton_Click);
             // 
             // loadConfigButton
             // 
@@ -740,6 +738,7 @@
             this.loadConfigButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.loadConfigButton.UseAccentColor = false;
             this.loadConfigButton.UseVisualStyleBackColor = true;
+            this.loadConfigButton.Click += new System.EventHandler(this.loadConfigButton_Click);
             // 
             // configTextBox
             // 
@@ -763,7 +762,7 @@
             this.configTextBox.SelectionLength = 0;
             this.configTextBox.SelectionStart = 0;
             this.configTextBox.ShortcutsEnabled = true;
-            this.configTextBox.Size = new System.Drawing.Size(556, 508);
+            this.configTextBox.Size = new System.Drawing.Size(1135, 547);
             this.configTextBox.TabIndex = 2;
             this.configTextBox.TabStop = false;
             this.configTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -775,7 +774,7 @@
             this.tabScripts.Location = new System.Drawing.Point(4, 25);
             this.tabScripts.Name = "tabScripts";
             this.tabScripts.Padding = new System.Windows.Forms.Padding(3);
-            this.tabScripts.Size = new System.Drawing.Size(1115, 548);
+            this.tabScripts.Size = new System.Drawing.Size(1131, 587);
             this.tabScripts.TabIndex = 2;
             this.tabScripts.Text = "Scripts";
             this.tabScripts.UseVisualStyleBackColor = true;
@@ -943,7 +942,7 @@
             // avatarBox
             // 
             this.avatarBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.avatarBox.Location = new System.Drawing.Point(1065, 34);
+            this.avatarBox.Location = new System.Drawing.Point(1081, 34);
             this.avatarBox.Name = "avatarBox";
             this.avatarBox.Size = new System.Drawing.Size(68, 68);
             this.avatarBox.TabIndex = 2;
@@ -951,112 +950,12 @@
             this.avatarBox.Visible = false;
             this.avatarBox.WaitOnLoad = true;
             // 
-            // materialCheckbox1
-            // 
-            this.materialCheckbox1.AutoSize = true;
-            this.materialCheckbox1.Depth = 0;
-            this.materialCheckbox1.Location = new System.Drawing.Point(14, 26);
-            this.materialCheckbox1.Margin = new System.Windows.Forms.Padding(0);
-            this.materialCheckbox1.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialCheckbox1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCheckbox1.Name = "materialCheckbox1";
-            this.materialCheckbox1.ReadOnly = false;
-            this.materialCheckbox1.Ripple = true;
-            this.materialCheckbox1.Size = new System.Drawing.Size(165, 37);
-            this.materialCheckbox1.TabIndex = 5;
-            this.materialCheckbox1.Text = "exampleCheckBox";
-            this.materialCheckbox1.UseVisualStyleBackColor = true;
-            // 
-            // materialCard7
-            // 
-            this.materialCard7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard7.Controls.Add(this.materialLabel5);
-            this.materialCard7.Controls.Add(this.materialTextBox21);
-            this.materialCard7.Controls.Add(this.materialSlider1);
-            this.materialCard7.Controls.Add(this.materialLabel3);
-            this.materialCard7.Controls.Add(this.materialCheckbox1);
-            this.materialCard7.Depth = 0;
-            this.materialCard7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard7.Location = new System.Drawing.Point(579, 6);
-            this.materialCard7.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard7.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCard7.Name = "materialCard7";
-            this.materialCard7.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard7.Size = new System.Drawing.Size(334, 167);
-            this.materialCard7.TabIndex = 6;
-            // 
-            // materialLabel3
-            // 
-            this.materialLabel3.AutoSize = true;
-            this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel3.Location = new System.Drawing.Point(18, 4);
-            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(153, 19);
-            this.materialLabel3.TabIndex = 6;
-            this.materialLabel3.Text = "Script Name Example";
-            // 
-            // materialSlider1
-            // 
-            this.materialSlider1.Depth = 0;
-            this.materialSlider1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialSlider1.Location = new System.Drawing.Point(17, 66);
-            this.materialSlider1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSlider1.Name = "materialSlider1";
-            this.materialSlider1.Size = new System.Drawing.Size(250, 40);
-            this.materialSlider1.TabIndex = 7;
-            this.materialSlider1.Text = "exampleSlider";
-            // 
-            // materialTextBox21
-            // 
-            this.materialTextBox21.AnimateReadOnly = false;
-            this.materialTextBox21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.materialTextBox21.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.materialTextBox21.Depth = 0;
-            this.materialTextBox21.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialTextBox21.HideSelection = true;
-            this.materialTextBox21.LeadingIcon = null;
-            this.materialTextBox21.Location = new System.Drawing.Point(146, 112);
-            this.materialTextBox21.MaxLength = 32767;
-            this.materialTextBox21.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBox21.Name = "materialTextBox21";
-            this.materialTextBox21.PasswordChar = '\0';
-            this.materialTextBox21.PrefixSuffixText = null;
-            this.materialTextBox21.ReadOnly = false;
-            this.materialTextBox21.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.materialTextBox21.SelectedText = "";
-            this.materialTextBox21.SelectionLength = 0;
-            this.materialTextBox21.SelectionStart = 0;
-            this.materialTextBox21.ShortcutsEnabled = true;
-            this.materialTextBox21.Size = new System.Drawing.Size(87, 36);
-            this.materialTextBox21.TabIndex = 8;
-            this.materialTextBox21.TabStop = false;
-            this.materialTextBox21.Text = "4.20";
-            this.materialTextBox21.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.materialTextBox21.TrailingIcon = null;
-            this.materialTextBox21.UseAccent = false;
-            this.materialTextBox21.UseSystemPasswordChar = false;
-            this.materialTextBox21.UseTallSize = false;
-            // 
-            // materialLabel5
-            // 
-            this.materialLabel5.AutoSize = true;
-            this.materialLabel5.Depth = 0;
-            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel5.Location = new System.Drawing.Point(18, 121);
-            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel5.Name = "materialLabel5";
-            this.materialLabel5.Size = new System.Drawing.Size(122, 19);
-            this.materialLabel5.TabIndex = 9;
-            this.materialLabel5.Text = "exampleInt/Float";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1139, 733);
+            this.ClientSize = new System.Drawing.Size(1155, 772);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.avatarBox);
             this.Controls.Add(this.tabSelector);
@@ -1084,8 +983,6 @@
             this.materialCard1.PerformLayout();
             this.materialCard2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.avatarBox)).EndInit();
-            this.materialCard7.ResumeLayout(false);
-            this.materialCard7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1139,12 +1036,6 @@
         private MaterialSkin.Controls.MaterialMultiLineTextBox2 aiMultiLineTextBox;
         private MaterialSkin.Controls.MaterialTextBox2 aiInputTextBox;
         private MaterialSkin.Controls.MaterialFloatingActionButton aiSendButton;
-        private MaterialSkin.Controls.MaterialCard materialCard7;
-        private MaterialSkin.Controls.MaterialCheckbox materialCheckbox1;
-        private MaterialSkin.Controls.MaterialLabel materialLabel5;
-        private MaterialSkin.Controls.MaterialTextBox2 materialTextBox21;
-        private MaterialSkin.Controls.MaterialSlider materialSlider1;
-        private MaterialSkin.Controls.MaterialLabel materialLabel3;
     }
 }
 

@@ -15,6 +15,7 @@ using System.Text;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Web;
 using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
@@ -130,7 +131,16 @@ namespace lucid_dreams
                         curSync = true;
                         syncButton.Text = "Syncing";
                         syncButton.Enabled = false;
-                        
+
+                        /** We need to check if the key is a valid format before running the API request.
+                        *   This is ESSENTIAL to ensure users wont get false API banned. **/
+                        Regex regex = new Regex(@"^[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}$");
+                        if (!regex.IsMatch(userKey))
+                        {
+                            MessageBox.Show("Your key was an invalid format! Wanted format: ABCD-EFGH-IJKL-MNOP.", "Format Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
                         // Timer for sync button text to reset back to normal.
                         System.Windows.Forms.Timer syncButtonTimer = new System.Windows.Forms.Timer();
                         syncButtonTimer.Interval = 5000;
@@ -142,15 +152,6 @@ namespace lucid_dreams
                             syncButtonTimer.Stop();
                         };
                         syncButtonTimer.Start();
-
-                        /** We need to check if the key is a valid format before running the API request.
-                        *   This is ESSENTIAL to ensure users wont get false API banned. **/
-                        Regex regex = new Regex(@"^[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}$");
-                        if (!regex.IsMatch(userKey))
-                        {
-                            MessageBox.Show("Your key was an invalid format! Wanted format: ABCD-EFGH-IJKL-MNOP.", "Format Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
 
                         // Base URL is the main APi request here. It grabs ALL user info except sessions, so we need to run a request for that seperately.
                         string baseUrl = $"https://constelia.ai/api.php?key={userKey}";
@@ -324,7 +325,9 @@ namespace lucid_dreams
                             }
 
                             // Config
-                            configTextBox.Text = GlobalConfig;
+                            JsonDocument config = JsonDocument.Parse(GlobalConfig);
+                            string formattedConfig = System.Text.Json.JsonSerializer.Serialize(config, new JsonSerializerOptions { WriteIndented = true });
+                            configTextBox.Text = formattedConfig;
                         }
                         else
                         {
@@ -384,6 +387,57 @@ namespace lucid_dreams
                 {
                     MessageBox.Show($"Exception caught. Please contact developer.\n\nException: {ex.Message}\nException Source: {ex.Source}\nException Stack Trace: {ex.StackTrace}", "Fatal Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        // Forces a full update JUST on the user configuration.
+        private async void updateConfig()
+        {
+            try
+            {
+                HttpClient configClient = new HttpClient();
+                HttpResponseMessage configClientResponse = await configClient.GetAsync($"https://constelia.ai/api.php?key={userKey}&cmd=getConfiguration");
+
+                if (configClientResponse.IsSuccessStatusCode)
+                {
+                    string config = await configClientResponse.Content.ReadAsStringAsync();
+                    JsonDocument configDoc = JsonDocument.Parse(GlobalConfig);
+                    string formattedConfig = System.Text.Json.JsonSerializer.Serialize(configDoc, new JsonSerializerOptions { WriteIndented = true });
+                    configTextBox.Text = formattedConfig;
+                }
+                else
+                {
+                    MessageBox.Show("Failed to load the configuration.", "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Exception caught. Please contact developer.\n\n{ex.Message}", "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Saves whatevers in the current configText buffer to be set as the user config. (sets the config xaxaxa)
+        private async void setConfig()
+        {
+            try
+            {
+                string fullConfig = configTextBox.Text;
+                string encodedConfig = HttpUtility.UrlEncode(fullConfig);
+                HttpClient configClient = new HttpClient();
+                StringContent configContent = new StringContent($"value={encodedConfig}", Encoding.UTF8, "application/x-www-form-urlencoded");
+                HttpResponseMessage saveResponse = await configClient.PostAsync($"https://constelia.ai/api.php?key={userKey}&cmd=setConfiguration", configContent);
+
+                if (saveResponse.IsSuccessStatusCode)
+                {
+                    MessageBox.Show("Config Saved!");
+                } else
+                {
+                    MessageBox.Show($"Config failed to save!\n\n {saveResponse.StatusCode}");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Exception caught. Please contact developer.\n\n{ex.Message}", "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -517,6 +571,16 @@ namespace lucid_dreams
         private void gitButton_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/luinbytes/lucid-dreams/");
+        }
+
+        private void loadConfigButton_Click(object sender, EventArgs e)
+        {
+            updateConfig();
+        }
+
+        private void saveConfigButton_Click(object sender, EventArgs e)
+        {
+            setConfig();
         }
     }
 }
