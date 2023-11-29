@@ -159,7 +159,7 @@
             this.tabSelector.Margin = new System.Windows.Forms.Padding(0);
             this.tabSelector.MouseState = MaterialSkin.MouseState.HOVER;
             this.tabSelector.Name = "tabSelector";
-            this.tabSelector.Size = new System.Drawing.Size(1155, 50);
+            this.tabSelector.Size = new System.Drawing.Size(1171, 50);
             this.tabSelector.TabIndex = 3;
             this.tabSelector.Text = "materialTabSelector1";
             // 
@@ -179,7 +179,7 @@
             this.tabControl.Multiline = true;
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1155, 655);
+            this.tabControl.Size = new System.Drawing.Size(1171, 694);
             this.tabControl.TabIndex = 5;
             // 
             // tabUser
@@ -192,7 +192,7 @@
             this.tabUser.Margin = new System.Windows.Forms.Padding(0);
             this.tabUser.Name = "tabUser";
             this.tabUser.Padding = new System.Windows.Forms.Padding(3);
-            this.tabUser.Size = new System.Drawing.Size(1147, 626);
+            this.tabUser.Size = new System.Drawing.Size(1163, 665);
             this.tabUser.TabIndex = 0;
             this.tabUser.Text = "User Control";
             this.tabUser.UseVisualStyleBackColor = true;
@@ -208,12 +208,12 @@
             this.aiCard.Controls.Add(this.aiMultiLineTextBox);
             this.aiCard.Depth = 0;
             this.aiCard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.aiCard.Location = new System.Drawing.Point(739, 14);
+            this.aiCard.Location = new System.Drawing.Point(755, 14);
             this.aiCard.Margin = new System.Windows.Forms.Padding(14);
             this.aiCard.MouseState = MaterialSkin.MouseState.HOVER;
             this.aiCard.Name = "aiCard";
             this.aiCard.Padding = new System.Windows.Forms.Padding(14);
-            this.aiCard.Size = new System.Drawing.Size(396, 458);
+            this.aiCard.Size = new System.Drawing.Size(396, 497);
             this.aiCard.TabIndex = 11;
             // 
             // aiSendButton
@@ -221,7 +221,7 @@
             this.aiSendButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.aiSendButton.Depth = 0;
             this.aiSendButton.Icon = ((System.Drawing.Image)(resources.GetObject("aiSendButton.Icon")));
-            this.aiSendButton.Location = new System.Drawing.Point(342, 465);
+            this.aiSendButton.Location = new System.Drawing.Point(342, 504);
             this.aiSendButton.Mini = true;
             this.aiSendButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.aiSendButton.Name = "aiSendButton";
@@ -242,7 +242,7 @@
             this.aiInputTextBox.HideSelection = true;
             this.aiInputTextBox.Hint = "Ask Constelia...";
             this.aiInputTextBox.LeadingIcon = null;
-            this.aiInputTextBox.Location = new System.Drawing.Point(17, 405);
+            this.aiInputTextBox.Location = new System.Drawing.Point(17, 444);
             this.aiInputTextBox.MaxLength = 32767;
             this.aiInputTextBox.MouseState = MaterialSkin.MouseState.OUT;
             this.aiInputTextBox.Name = "aiInputTextBox";
@@ -285,7 +285,7 @@
             this.aiMultiLineTextBox.SelectionLength = 0;
             this.aiMultiLineTextBox.SelectionStart = 0;
             this.aiMultiLineTextBox.ShortcutsEnabled = true;
-            this.aiMultiLineTextBox.Size = new System.Drawing.Size(361, 373);
+            this.aiMultiLineTextBox.Size = new System.Drawing.Size(361, 412);
             this.aiMultiLineTextBox.TabIndex = 0;
             this.aiMultiLineTextBox.TabStop = false;
             this.aiMultiLineTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -300,7 +300,7 @@
             this.loginCard1.Controls.Add(this.keyTextBox);
             this.loginCard1.Depth = 0;
             this.loginCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.loginCard1.Location = new System.Drawing.Point(13, 487);
+            this.loginCard1.Location = new System.Drawing.Point(13, 526);
             this.loginCard1.Margin = new System.Windows.Forms.Padding(14);
             this.loginCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.loginCard1.Name = "loginCard1";
@@ -523,7 +523,7 @@
             this.protectionCard.Controls.Add(this.protectionCombo);
             this.protectionCard.Depth = 0;
             this.protectionCard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.protectionCard.Location = new System.Drawing.Point(739, 487);
+            this.protectionCard.Location = new System.Drawing.Point(755, 526);
             this.protectionCard.Margin = new System.Windows.Forms.Padding(14);
             this.protectionCard.MouseState = MaterialSkin.MouseState.HOVER;
             this.protectionCard.Name = "protectionCard";
@@ -776,7 +776,7 @@
             this.tabScripts.Location = new System.Drawing.Point(4, 25);
             this.tabScripts.Name = "tabScripts";
             this.tabScripts.Padding = new System.Windows.Forms.Padding(3);
-            this.tabScripts.Size = new System.Drawing.Size(1131, 587);
+            this.tabScripts.Size = new System.Drawing.Size(1147, 626);
             this.tabScripts.TabIndex = 2;
             this.tabScripts.Text = "Scripts";
             this.tabScripts.UseVisualStyleBackColor = true;
@@ -788,7 +788,7 @@
             this.tabSettings.Location = new System.Drawing.Point(4, 25);
             this.tabSettings.Name = "tabSettings";
             this.tabSettings.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSettings.Size = new System.Drawing.Size(1131, 587);
+            this.tabSettings.Size = new System.Drawing.Size(1163, 665);
             this.tabSettings.TabIndex = 3;
             this.tabSettings.Text = "Settings";
             this.tabSettings.UseVisualStyleBackColor = true;
@@ -807,7 +807,7 @@
             this.materialCard4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard4.Name = "materialCard4";
             this.materialCard4.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard4.Size = new System.Drawing.Size(308, 549);
+            this.materialCard4.Size = new System.Drawing.Size(308, 588);
             this.materialCard4.TabIndex = 2;
             // 
             // materialCard5
@@ -824,7 +824,7 @@
             this.materialCard5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard5.Name = "materialCard5";
             this.materialCard5.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard5.Size = new System.Drawing.Size(286, 478);
+            this.materialCard5.Size = new System.Drawing.Size(286, 517);
             this.materialCard5.TabIndex = 1;
             // 
             // gitButton
@@ -874,12 +874,12 @@
             this.materialCard1.Controls.Add(this.infoLabel);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(806, 14);
+            this.materialCard1.Location = new System.Drawing.Point(822, 14);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(308, 549);
+            this.materialCard1.Size = new System.Drawing.Size(308, 588);
             this.materialCard1.TabIndex = 0;
             // 
             // versionLabel
@@ -889,7 +889,7 @@
             this.versionLabel.Depth = 0;
             this.versionLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.versionLabel.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
-            this.versionLabel.Location = new System.Drawing.Point(17, 550);
+            this.versionLabel.Location = new System.Drawing.Point(17, 589);
             this.versionLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.versionLabel.Name = "versionLabel";
             this.versionLabel.Size = new System.Drawing.Size(50, 17);
@@ -911,7 +911,7 @@
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard2.Size = new System.Drawing.Size(286, 149);
+            this.materialCard2.Size = new System.Drawing.Size(286, 290);
             this.materialCard2.TabIndex = 1;
             // 
             // infoLabel1
@@ -924,8 +924,7 @@
             this.infoLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.infoLabel1.Size = new System.Drawing.Size(274, 412);
             this.infoLabel1.TabIndex = 0;
-            this.infoLabel1.Text = "Running Kernel mode?\r\nPlease run Lucid Dreams as admin.\r\n\r\nWhen will <feature> be" +
-    " added?\r\nNo clue. I\'m not very smart.";
+            this.infoLabel1.Text = resources.GetString("infoLabel1.Text");
             // 
             // infoLabel
             // 
@@ -944,7 +943,7 @@
             // avatarBox
             // 
             this.avatarBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.avatarBox.Location = new System.Drawing.Point(1081, 34);
+            this.avatarBox.Location = new System.Drawing.Point(1097, 34);
             this.avatarBox.Name = "avatarBox";
             this.avatarBox.Size = new System.Drawing.Size(68, 68);
             this.avatarBox.TabIndex = 2;
@@ -957,7 +956,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1155, 772);
+            this.ClientSize = new System.Drawing.Size(1171, 811);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.avatarBox);
             this.Controls.Add(this.tabSelector);
