@@ -117,6 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="aiSendButton.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAARxJREFUSEu1UoERwjAIdJSO4ihu0lEcxVEyiE2QJ6ESjuasxr/79vgLED5ciOiv
+        DMWZDMWZDMWZ7IJClGijm9V+pRcaSuLPylyY/swpeoFry7ei8EREd+aV6c9+RC8ollwLv1GbYSqfM6QX
+        FBqzRXmVt5HJ5HNqKi+oRV7HW+DxH8x2puCHZsOl8II2QNLRDRfKYpVBSWxpaJ8XPNSOqOGyQS9tKqAt
+        xdOctQngjjoIEjJuFt0OtkFHUQto+3r7JEU4bqMW1ksAaBLmdIFJ6PRGtinX1ZWD8kHhk49cobGsqSgN
+        XDa1R95tGLELzAS7DcaIQxtG7ALTwPqLLRnaMGIXSNFa+avbRuwCrj2tsDIUZzIUZzIUZzIU55EuL149
+        HuWjQFRZAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="infoLabel1.Text" xml:space="preserve">
     <value>Running Kernel mode?
 Please run Lucid Dreams as admin.
@@ -129,18 +141,6 @@ Press it 5 times to confirm you want to reset your config.
 
 Error! Bad Request!
 Your formatting is off! I will add json formatting at some point (when I figure it out).</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="aiSendButton.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAAARxJREFUSEu1UoERwjAIdJSO4ihu0lEcxVEyiE2QJ6ESjuasxr/79vgLED5ciOiv
-        DMWZDMWZDMWZ7IJClGijm9V+pRcaSuLPylyY/swpeoFry7ei8EREd+aV6c9+RC8ollwLv1GbYSqfM6QX
-        FBqzRXmVt5HJ5HNqKi+oRV7HW+DxH8x2puCHZsOl8II2QNLRDRfKYpVBSWxpaJ8XPNSOqOGyQS9tKqAt
-        xdOctQngjjoIEjJuFt0OtkFHUQto+3r7JEU4bqMW1ksAaBLmdIFJ6PRGtinX1ZWD8kHhk49cobGsqSgN
-        XDa1R95tGLELzAS7DcaIQxtG7ALTwPqLLRnaMGIXSNFa+avbRuwCrj2tsDIUZzIUZzIUZzIU55EuL149
-        HuWjQFRZAAAAAElFTkSuQmCC
-</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

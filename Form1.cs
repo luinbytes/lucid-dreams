@@ -52,7 +52,7 @@ namespace lucid_dreams
         bool syncTextReset = false;
         int textTimeOut = 4000; // 4 Seconds (4000ms)
         int resetConfigCount = 0;
-        string VERSION = "0.2.0";
+        string VERSION = "0.2.5";
 
         public MainForm()
         {
@@ -89,7 +89,7 @@ namespace lucid_dreams
         }
 
         // Functions
-        
+       
         // Rounds any image. Not the best implementation.
         public Image RoundCorners(Image StartImage, int CornerRadius, Color BackgroundColor)
         {
@@ -643,6 +643,57 @@ namespace lucid_dreams
                 {
                     MessageBox.Show("Failed to reset config.", "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        // 1 Button debugging for end users.
+        private void quickDebugButton_Click(object sender, EventArgs e)
+        {
+            string quickDebugPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ld_debug.txt");
+            
+            try
+            {
+                // Setup for debug output.
+                var curTime = DateTime.Now;
+                string formattedTime = curTime.ToString("dd/MM/yyyy - hh:mm:ss");
+
+                bool keyFormatted;
+                Regex regex = new Regex(@"^[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}$");
+                if (!regex.IsMatch(userKey))
+                {
+                    keyFormatted = false;
+                } 
+                else
+                {
+                    keyFormatted = true;
+                }
+
+                using (StreamWriter debugWriter = new StreamWriter(quickDebugPath))
+                {
+                    debugWriter.WriteLine("------------------------------------");
+                    debugWriter.WriteLine($"Lucid Dreams {VERSION} Quick Debug Log");
+                    debugWriter.WriteLine($"Date/Time: {formattedTime}");
+                    debugWriter.WriteLine("------------------------------------");
+                    debugWriter.WriteLine("");
+                    debugWriter.WriteLine("// User info:");
+                    debugWriter.WriteLine($"Username : {GlobalUsername}");
+                    debugWriter.WriteLine($"Is Key Formatted : {keyFormatted}");
+                    debugWriter.WriteLine($"FID : {GlobalFid}");
+                }
+
+                quickDebugButton.Text = "Writing log...";
+                System.Windows.Forms.Timer debugTimer = new System.Windows.Forms.Timer();
+                debugTimer.Interval = textTimeOut;
+                debugTimer.Tick += (s, ea) =>
+                {
+                    quickDebugButton.Text = "Quick Debug";
+                    debugTimer.Stop();
+                };
+                debugTimer.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"File writing failed.\n\n{ex.Message}", "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

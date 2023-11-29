@@ -68,6 +68,7 @@
             this.tabSettings = new System.Windows.Forms.TabPage();
             this.materialCard4 = new MaterialSkin.Controls.MaterialCard();
             this.materialCard5 = new MaterialSkin.Controls.MaterialCard();
+            this.quickDebugButton = new MaterialSkin.Controls.MaterialButton();
             this.gitButton = new MaterialSkin.Controls.MaterialButton();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
@@ -649,7 +650,7 @@
             this.tabConfig.Location = new System.Drawing.Point(4, 25);
             this.tabConfig.Name = "tabConfig";
             this.tabConfig.Padding = new System.Windows.Forms.Padding(3);
-            this.tabConfig.Size = new System.Drawing.Size(1147, 626);
+            this.tabConfig.Size = new System.Drawing.Size(1163, 665);
             this.tabConfig.TabIndex = 1;
             this.tabConfig.Text = "Config";
             this.tabConfig.UseVisualStyleBackColor = true;
@@ -776,7 +777,7 @@
             this.tabScripts.Location = new System.Drawing.Point(4, 25);
             this.tabScripts.Name = "tabScripts";
             this.tabScripts.Padding = new System.Windows.Forms.Padding(3);
-            this.tabScripts.Size = new System.Drawing.Size(1147, 626);
+            this.tabScripts.Size = new System.Drawing.Size(1163, 665);
             this.tabScripts.TabIndex = 2;
             this.tabScripts.Text = "Scripts";
             this.tabScripts.UseVisualStyleBackColor = true;
@@ -816,6 +817,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialCard5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard5.Controls.Add(this.quickDebugButton);
             this.materialCard5.Controls.Add(this.gitButton);
             this.materialCard5.Depth = 0;
             this.materialCard5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -826,6 +828,29 @@
             this.materialCard5.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard5.Size = new System.Drawing.Size(286, 517);
             this.materialCard5.TabIndex = 1;
+            // 
+            // quickDebugButton
+            // 
+            this.quickDebugButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.quickDebugButton.AutoSize = false;
+            this.quickDebugButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.quickDebugButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.quickDebugButton.Depth = 0;
+            this.quickDebugButton.HighEmphasis = true;
+            this.quickDebugButton.Icon = null;
+            this.quickDebugButton.Location = new System.Drawing.Point(18, 62);
+            this.quickDebugButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.quickDebugButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.quickDebugButton.Name = "quickDebugButton";
+            this.quickDebugButton.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.quickDebugButton.Size = new System.Drawing.Size(250, 32);
+            this.quickDebugButton.TabIndex = 0;
+            this.quickDebugButton.Text = "Quick Debug";
+            this.quickDebugButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.quickDebugButton.UseAccentColor = false;
+            this.quickDebugButton.UseVisualStyleBackColor = true;
+            this.quickDebugButton.Click += new System.EventHandler(this.quickDebugButton_Click);
             // 
             // gitButton
             // 
@@ -1037,6 +1062,7 @@
         private MaterialSkin.Controls.MaterialMultiLineTextBox2 aiMultiLineTextBox;
         private MaterialSkin.Controls.MaterialTextBox2 aiInputTextBox;
         private MaterialSkin.Controls.MaterialFloatingActionButton aiSendButton;
+        private MaterialSkin.Controls.MaterialButton quickDebugButton;
     }
 }
 
