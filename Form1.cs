@@ -39,9 +39,10 @@ namespace lucid_dreams
         public static string AvatarURL;
         public static string GlobalConfig;
         public static string SessionHistory;
-
-        private StringBuilder outputBuilder = new StringBuilder();
-        private StringBuilder errorBuilder = new StringBuilder();
+        public static string GlobalLastSync;
+        public static string quickDebugPath;
+        public static string conBatchPath;
+        public static string uniBatchPath;
 
         string userKey;
         bool loggedIn = false;
@@ -81,6 +82,11 @@ namespace lucid_dreams
                 // Forces a full webAPI refresh
                 fullUpdate();
             }
+
+            // Path setup
+            quickDebugPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ld_debug.txt");
+            conBatchPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "constellation.bat");
+            uniBatchPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "launch.bat");
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -342,6 +348,8 @@ namespace lucid_dreams
                                 loadButtonTimer.Stop();
                             };
                             loadButtonTimer.Start();
+                            var curTime = DateTime.Now;
+                            GlobalLastSync = curTime.ToString("dd/MM/yyyy - hh:mm:ss");
 
                         }
                         else
@@ -495,8 +503,6 @@ namespace lucid_dreams
 
         private async void launchConButton_Click(object sender, EventArgs e)
         {
-            // Find where the lucid dreams exe is currently stored and grab the full path.
-            string conBatchPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "constellation.bat");
             // Pull a new constellation.bat straight from the site.
             string conBatchUrl = "https://constelia.ai/constellation.bat";
 
@@ -531,7 +537,6 @@ namespace lucid_dreams
         // Same as above tbh
         private async void launchUniButton_Click(object sender, EventArgs e)
         {
-            string uniBatchPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "launch.bat");
             string uniBatchUrl = "https://constelia.ai/launch.bat";
 
             using (HttpClient uniBatchClient = new HttpClient())
@@ -648,14 +653,15 @@ namespace lucid_dreams
 
         // 1 Button debugging for end users.
         private void quickDebugButton_Click(object sender, EventArgs e)
-        {
-            string quickDebugPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ld_debug.txt");
-            
+        {   
             try
             {
                 // Setup for debug output.
                 var curTime = DateTime.Now;
                 string formattedTime = curTime.ToString("dd/MM/yyyy - hh:mm:ss");
+
+                JsonDocument config = JsonDocument.Parse(GlobalConfig);
+                string formattedConfig = System.Text.Json.JsonSerializer.Serialize(config, new JsonSerializerOptions { WriteIndented = true });
 
                 bool keyFormatted;
                 Regex regex = new Regex(@"^[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}$");
@@ -679,6 +685,22 @@ namespace lucid_dreams
                     debugWriter.WriteLine($"Username : {GlobalUsername}");
                     debugWriter.WriteLine($"Is Key Formatted : {keyFormatted}");
                     debugWriter.WriteLine($"FID : {GlobalFid}");
+                    debugWriter.WriteLine($"Avatar URL : {AvatarURL}");
+                    debugWriter.WriteLine($"Level : {GlobalLevel}");
+                    debugWriter.WriteLine("");
+                    debugWriter.WriteLine("// Software info:");
+                    debugWriter.WriteLine($"Protection : {GlobalProtection} - {protectionCombo.Text}");
+                    debugWriter.WriteLine($"Last Sync : {GlobalLastSync}");
+                    debugWriter.WriteLine($"Cur Sync : {curSync}");
+                    debugWriter.WriteLine($"Sync Text Reset : {syncTextReset}");
+                    debugWriter.WriteLine($"Text Timeout : {textTimeOut}");
+                    debugWriter.WriteLine($"Logged In : {loggedIn}");
+                    debugWriter.WriteLine("");
+                    debugWriter.WriteLine("// Raw config:");
+                    debugWriter.WriteLine($"{GlobalConfig}");
+                    debugWriter.WriteLine("");
+                    debugWriter.WriteLine("// Formatted config:");
+                    debugWriter.WriteLine($"{formattedConfig}");
                 }
 
                 quickDebugButton.Text = "Writing log...";
