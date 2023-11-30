@@ -34,6 +34,13 @@
             this.tabSelector = new MaterialSkin.Controls.MaterialTabSelector();
             this.tabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.tabUser = new System.Windows.Forms.TabPage();
+            this.perkCard = new MaterialSkin.Controls.MaterialCard();
+            this.perkDescriptionTextBox = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
+            this.respecPerksButton = new MaterialSkin.Controls.MaterialButton();
+            this.sellPerkButton = new MaterialSkin.Controls.MaterialButton();
+            this.buyPerkButton = new MaterialSkin.Controls.MaterialButton();
+            this.perkCombo = new MaterialSkin.Controls.MaterialComboBox();
+            this.perksLabel = new MaterialSkin.Controls.MaterialLabel();
             this.aiCard = new MaterialSkin.Controls.MaterialCard();
             this.aiSendButton = new MaterialSkin.Controls.MaterialFloatingActionButton();
             this.aiInputTextBox = new MaterialSkin.Controls.MaterialTextBox2();
@@ -79,6 +86,7 @@
             this.avatarBox = new System.Windows.Forms.PictureBox();
             this.tabControl.SuspendLayout();
             this.tabUser.SuspendLayout();
+            this.perkCard.SuspendLayout();
             this.aiCard.SuspendLayout();
             this.loginCard1.SuspendLayout();
             this.materialCard3.SuspendLayout();
@@ -102,7 +110,7 @@
             this.loginButton.Depth = 0;
             this.loginButton.HighEmphasis = true;
             this.loginButton.Icon = null;
-            this.loginButton.Location = new System.Drawing.Point(20, 90);
+            this.loginButton.Location = new System.Drawing.Point(73, 100);
             this.loginButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.loginButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.loginButton.Name = "loginButton";
@@ -128,7 +136,7 @@
             this.keyTextBox.HideSelection = true;
             this.keyTextBox.Hint = "User Key";
             this.keyTextBox.LeadingIcon = null;
-            this.keyTextBox.Location = new System.Drawing.Point(20, 45);
+            this.keyTextBox.Location = new System.Drawing.Point(20, 55);
             this.keyTextBox.MaxLength = 19;
             this.keyTextBox.MouseState = MaterialSkin.MouseState.OUT;
             this.keyTextBox.Name = "keyTextBox";
@@ -140,7 +148,7 @@
             this.keyTextBox.SelectionLength = 0;
             this.keyTextBox.SelectionStart = 0;
             this.keyTextBox.ShortcutsEnabled = true;
-            this.keyTextBox.Size = new System.Drawing.Size(211, 36);
+            this.keyTextBox.Size = new System.Drawing.Size(264, 36);
             this.keyTextBox.TabIndex = 2;
             this.keyTextBox.TabStop = false;
             this.keyTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -160,7 +168,7 @@
             this.tabSelector.Margin = new System.Windows.Forms.Padding(0);
             this.tabSelector.MouseState = MaterialSkin.MouseState.HOVER;
             this.tabSelector.Name = "tabSelector";
-            this.tabSelector.Size = new System.Drawing.Size(1171, 50);
+            this.tabSelector.Size = new System.Drawing.Size(1087, 50);
             this.tabSelector.TabIndex = 3;
             this.tabSelector.Text = "materialTabSelector1";
             // 
@@ -180,11 +188,12 @@
             this.tabControl.Multiline = true;
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1171, 694);
+            this.tabControl.Size = new System.Drawing.Size(1088, 572);
             this.tabControl.TabIndex = 5;
             // 
             // tabUser
             // 
+            this.tabUser.Controls.Add(this.perkCard);
             this.tabUser.Controls.Add(this.aiCard);
             this.tabUser.Controls.Add(this.loginCard1);
             this.tabUser.Controls.Add(this.materialCard3);
@@ -193,10 +202,166 @@
             this.tabUser.Margin = new System.Windows.Forms.Padding(0);
             this.tabUser.Name = "tabUser";
             this.tabUser.Padding = new System.Windows.Forms.Padding(3);
-            this.tabUser.Size = new System.Drawing.Size(1163, 665);
+            this.tabUser.Size = new System.Drawing.Size(1080, 543);
             this.tabUser.TabIndex = 0;
             this.tabUser.Text = "User Control";
             this.tabUser.UseVisualStyleBackColor = true;
+            // 
+            // perkCard
+            // 
+            this.perkCard.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.perkCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.perkCard.Controls.Add(this.perkDescriptionTextBox);
+            this.perkCard.Controls.Add(this.respecPerksButton);
+            this.perkCard.Controls.Add(this.sellPerkButton);
+            this.perkCard.Controls.Add(this.buyPerkButton);
+            this.perkCard.Controls.Add(this.perkCombo);
+            this.perkCard.Controls.Add(this.perksLabel);
+            this.perkCard.Depth = 0;
+            this.perkCard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.perkCard.Location = new System.Drawing.Point(329, 14);
+            this.perkCard.Margin = new System.Windows.Forms.Padding(0);
+            this.perkCard.MouseState = MaterialSkin.MouseState.HOVER;
+            this.perkCard.Name = "perkCard";
+            this.perkCard.Padding = new System.Windows.Forms.Padding(14);
+            this.perkCard.Size = new System.Drawing.Size(403, 365);
+            this.perkCard.TabIndex = 12;
+            // 
+            // perkDescriptionTextBox
+            // 
+            this.perkDescriptionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.perkDescriptionTextBox.AnimateReadOnly = false;
+            this.perkDescriptionTextBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.perkDescriptionTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.perkDescriptionTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.perkDescriptionTextBox.Depth = 0;
+            this.perkDescriptionTextBox.HideSelection = true;
+            this.perkDescriptionTextBox.Location = new System.Drawing.Point(18, 84);
+            this.perkDescriptionTextBox.MaxLength = 32767;
+            this.perkDescriptionTextBox.MouseState = MaterialSkin.MouseState.OUT;
+            this.perkDescriptionTextBox.Name = "perkDescriptionTextBox";
+            this.perkDescriptionTextBox.PasswordChar = '\0';
+            this.perkDescriptionTextBox.ReadOnly = true;
+            this.perkDescriptionTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.perkDescriptionTextBox.SelectedText = "";
+            this.perkDescriptionTextBox.SelectionLength = 0;
+            this.perkDescriptionTextBox.SelectionStart = 0;
+            this.perkDescriptionTextBox.ShortcutsEnabled = true;
+            this.perkDescriptionTextBox.Size = new System.Drawing.Size(367, 242);
+            this.perkDescriptionTextBox.TabIndex = 9;
+            this.perkDescriptionTextBox.TabStop = false;
+            this.perkDescriptionTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.perkDescriptionTextBox.UseSystemPasswordChar = false;
+            // 
+            // respecPerksButton
+            // 
+            this.respecPerksButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.respecPerksButton.AutoSize = false;
+            this.respecPerksButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.respecPerksButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.respecPerksButton.Depth = 0;
+            this.respecPerksButton.HighEmphasis = true;
+            this.respecPerksButton.Icon = null;
+            this.respecPerksButton.Location = new System.Drawing.Point(299, 335);
+            this.respecPerksButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.respecPerksButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.respecPerksButton.Name = "respecPerksButton";
+            this.respecPerksButton.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.respecPerksButton.Size = new System.Drawing.Size(86, 22);
+            this.respecPerksButton.TabIndex = 8;
+            this.respecPerksButton.Text = "Respec";
+            this.respecPerksButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.respecPerksButton.UseAccentColor = true;
+            this.respecPerksButton.UseVisualStyleBackColor = true;
+            // 
+            // sellPerkButton
+            // 
+            this.sellPerkButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.sellPerkButton.AutoSize = false;
+            this.sellPerkButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.sellPerkButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.sellPerkButton.Depth = 0;
+            this.sellPerkButton.HighEmphasis = true;
+            this.sellPerkButton.Icon = null;
+            this.sellPerkButton.Location = new System.Drawing.Point(151, 335);
+            this.sellPerkButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.sellPerkButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.sellPerkButton.Name = "sellPerkButton";
+            this.sellPerkButton.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.sellPerkButton.Size = new System.Drawing.Size(103, 22);
+            this.sellPerkButton.TabIndex = 8;
+            this.sellPerkButton.Text = "Sell Perk";
+            this.sellPerkButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.sellPerkButton.UseAccentColor = false;
+            this.sellPerkButton.UseVisualStyleBackColor = true;
+            // 
+            // buyPerkButton
+            // 
+            this.buyPerkButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buyPerkButton.AutoSize = false;
+            this.buyPerkButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buyPerkButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.buyPerkButton.Depth = 0;
+            this.buyPerkButton.HighEmphasis = true;
+            this.buyPerkButton.Icon = null;
+            this.buyPerkButton.Location = new System.Drawing.Point(18, 335);
+            this.buyPerkButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buyPerkButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.buyPerkButton.Name = "buyPerkButton";
+            this.buyPerkButton.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.buyPerkButton.Size = new System.Drawing.Size(86, 22);
+            this.buyPerkButton.TabIndex = 8;
+            this.buyPerkButton.Text = "Buy Perk";
+            this.buyPerkButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.buyPerkButton.UseAccentColor = false;
+            this.buyPerkButton.UseVisualStyleBackColor = true;
+            // 
+            // perkCombo
+            // 
+            this.perkCombo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.perkCombo.AutoResize = false;
+            this.perkCombo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.perkCombo.Depth = 0;
+            this.perkCombo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.perkCombo.DropDownHeight = 118;
+            this.perkCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.perkCombo.DropDownWidth = 121;
+            this.perkCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.perkCombo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.perkCombo.FormattingEnabled = true;
+            this.perkCombo.Hint = "Select Perk...";
+            this.perkCombo.IntegralHeight = false;
+            this.perkCombo.ItemHeight = 29;
+            this.perkCombo.Location = new System.Drawing.Point(18, 42);
+            this.perkCombo.MaxDropDownItems = 4;
+            this.perkCombo.MouseState = MaterialSkin.MouseState.OUT;
+            this.perkCombo.Name = "perkCombo";
+            this.perkCombo.Size = new System.Drawing.Size(368, 35);
+            this.perkCombo.StartIndex = 0;
+            this.perkCombo.TabIndex = 7;
+            this.perkCombo.UseAccent = false;
+            this.perkCombo.UseTallSize = false;
+            this.perkCombo.SelectedIndexChanged += new System.EventHandler(this.perkCombo_SelectedIndexChanged);
+            // 
+            // perksLabel
+            // 
+            this.perksLabel.AutoSize = true;
+            this.perksLabel.Depth = 0;
+            this.perksLabel.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.perksLabel.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.perksLabel.HighEmphasis = true;
+            this.perksLabel.Location = new System.Drawing.Point(17, 14);
+            this.perksLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.perksLabel.Name = "perksLabel";
+            this.perksLabel.Size = new System.Drawing.Size(52, 24);
+            this.perksLabel.TabIndex = 6;
+            this.perksLabel.Text = "Perks";
             // 
             // aiCard
             // 
@@ -209,12 +374,12 @@
             this.aiCard.Controls.Add(this.aiMultiLineTextBox);
             this.aiCard.Depth = 0;
             this.aiCard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.aiCard.Location = new System.Drawing.Point(755, 14);
+            this.aiCard.Location = new System.Drawing.Point(746, 14);
             this.aiCard.Margin = new System.Windows.Forms.Padding(14);
             this.aiCard.MouseState = MaterialSkin.MouseState.HOVER;
             this.aiCard.Name = "aiCard";
             this.aiCard.Padding = new System.Windows.Forms.Padding(14);
-            this.aiCard.Size = new System.Drawing.Size(396, 497);
+            this.aiCard.Size = new System.Drawing.Size(322, 515);
             this.aiCard.TabIndex = 11;
             // 
             // aiSendButton
@@ -222,7 +387,7 @@
             this.aiSendButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.aiSendButton.Depth = 0;
             this.aiSendButton.Icon = ((System.Drawing.Image)(resources.GetObject("aiSendButton.Icon")));
-            this.aiSendButton.Location = new System.Drawing.Point(342, 504);
+            this.aiSendButton.Location = new System.Drawing.Point(268, 522);
             this.aiSendButton.Mini = true;
             this.aiSendButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.aiSendButton.Name = "aiSendButton";
@@ -243,7 +408,7 @@
             this.aiInputTextBox.HideSelection = true;
             this.aiInputTextBox.Hint = "Ask Constelia...";
             this.aiInputTextBox.LeadingIcon = null;
-            this.aiInputTextBox.Location = new System.Drawing.Point(17, 444);
+            this.aiInputTextBox.Location = new System.Drawing.Point(17, 462);
             this.aiInputTextBox.MaxLength = 32767;
             this.aiInputTextBox.MouseState = MaterialSkin.MouseState.OUT;
             this.aiInputTextBox.Name = "aiInputTextBox";
@@ -255,7 +420,7 @@
             this.aiInputTextBox.SelectionLength = 0;
             this.aiInputTextBox.SelectionStart = 0;
             this.aiInputTextBox.ShortcutsEnabled = true;
-            this.aiInputTextBox.Size = new System.Drawing.Size(361, 36);
+            this.aiInputTextBox.Size = new System.Drawing.Size(288, 36);
             this.aiInputTextBox.TabIndex = 1;
             this.aiInputTextBox.TabStop = false;
             this.aiInputTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -286,10 +451,11 @@
             this.aiMultiLineTextBox.SelectionLength = 0;
             this.aiMultiLineTextBox.SelectionStart = 0;
             this.aiMultiLineTextBox.ShortcutsEnabled = true;
-            this.aiMultiLineTextBox.Size = new System.Drawing.Size(361, 412);
+            this.aiMultiLineTextBox.Size = new System.Drawing.Size(287, 430);
             this.aiMultiLineTextBox.TabIndex = 0;
             this.aiMultiLineTextBox.TabStop = false;
             this.aiMultiLineTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.aiMultiLineTextBox.UseAccent = false;
             this.aiMultiLineTextBox.UseSystemPasswordChar = false;
             // 
             // loginCard1
@@ -301,12 +467,12 @@
             this.loginCard1.Controls.Add(this.keyTextBox);
             this.loginCard1.Depth = 0;
             this.loginCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.loginCard1.Location = new System.Drawing.Point(13, 526);
+            this.loginCard1.Location = new System.Drawing.Point(13, 397);
             this.loginCard1.Margin = new System.Windows.Forms.Padding(14);
             this.loginCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.loginCard1.Name = "loginCard1";
             this.loginCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.loginCard1.Size = new System.Drawing.Size(249, 122);
+            this.loginCard1.Size = new System.Drawing.Size(302, 132);
             this.loginCard1.TabIndex = 10;
             // 
             // loginLabel
@@ -325,6 +491,8 @@
             // 
             // materialCard3
             // 
+            this.materialCard3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.materialCard3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard3.Controls.Add(this.divinityButton);
             this.materialCard3.Controls.Add(this.forumButton);
@@ -344,18 +512,19 @@
             this.materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard3.Name = "materialCard3";
             this.materialCard3.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard3.Size = new System.Drawing.Size(302, 212);
+            this.materialCard3.Size = new System.Drawing.Size(302, 365);
             this.materialCard3.TabIndex = 9;
             // 
             // divinityButton
             // 
+            this.divinityButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.divinityButton.AutoSize = false;
             this.divinityButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.divinityButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.divinityButton.Depth = 0;
             this.divinityButton.HighEmphasis = true;
             this.divinityButton.Icon = null;
-            this.divinityButton.Location = new System.Drawing.Point(202, 182);
+            this.divinityButton.Location = new System.Drawing.Point(198, 323);
             this.divinityButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.divinityButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.divinityButton.Name = "divinityButton";
@@ -370,13 +539,15 @@
             // 
             // forumButton
             // 
+            this.forumButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.forumButton.AutoSize = false;
             this.forumButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.forumButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.forumButton.Depth = 0;
             this.forumButton.HighEmphasis = true;
             this.forumButton.Icon = null;
-            this.forumButton.Location = new System.Drawing.Point(108, 182);
+            this.forumButton.Location = new System.Drawing.Point(108, 323);
             this.forumButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.forumButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.forumButton.Name = "forumButton";
@@ -391,6 +562,7 @@
             // 
             // syncButton
             // 
+            this.syncButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.syncButton.AutoSize = false;
             this.syncButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.syncButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
@@ -398,7 +570,7 @@
             this.syncButton.Enabled = false;
             this.syncButton.HighEmphasis = true;
             this.syncButton.Icon = null;
-            this.syncButton.Location = new System.Drawing.Point(14, 182);
+            this.syncButton.Location = new System.Drawing.Point(18, 323);
             this.syncButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.syncButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.syncButton.Name = "syncButton";
@@ -413,10 +585,12 @@
             // 
             // regLabel
             // 
+            this.regLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.regLabel.AutoSize = true;
             this.regLabel.Depth = 0;
             this.regLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.regLabel.Location = new System.Drawing.Point(11, 157);
+            this.regLabel.Location = new System.Drawing.Point(11, 271);
+            this.regLabel.Margin = new System.Windows.Forms.Padding(10);
             this.regLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.regLabel.Name = "regLabel";
             this.regLabel.Size = new System.Drawing.Size(75, 19);
@@ -439,10 +613,12 @@
             // 
             // fidLabel
             // 
+            this.fidLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.fidLabel.AutoSize = true;
             this.fidLabel.Depth = 0;
             this.fidLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.fidLabel.Location = new System.Drawing.Point(11, 138);
+            this.fidLabel.Location = new System.Drawing.Point(11, 232);
+            this.fidLabel.Margin = new System.Windows.Forms.Padding(10);
             this.fidLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.fidLabel.Name = "fidLabel";
             this.fidLabel.Size = new System.Drawing.Size(77, 19);
@@ -467,10 +643,12 @@
             // 
             // postsLabel
             // 
+            this.postsLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.postsLabel.AutoSize = true;
             this.postsLabel.Depth = 0;
             this.postsLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.postsLabel.Location = new System.Drawing.Point(11, 119);
+            this.postsLabel.Location = new System.Drawing.Point(11, 193);
+            this.postsLabel.Margin = new System.Windows.Forms.Padding(10);
             this.postsLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.postsLabel.Name = "postsLabel";
             this.postsLabel.Size = new System.Drawing.Size(41, 19);
@@ -479,10 +657,12 @@
             // 
             // alertsLabel
             // 
+            this.alertsLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.alertsLabel.AutoSize = true;
             this.alertsLabel.Depth = 0;
             this.alertsLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.alertsLabel.Location = new System.Drawing.Point(11, 62);
+            this.alertsLabel.Location = new System.Drawing.Point(11, 76);
+            this.alertsLabel.Margin = new System.Windows.Forms.Padding(10);
             this.alertsLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.alertsLabel.Name = "alertsLabel";
             this.alertsLabel.Size = new System.Drawing.Size(95, 19);
@@ -491,10 +671,12 @@
             // 
             // scoreLabel
             // 
+            this.scoreLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.scoreLabel.AutoSize = true;
             this.scoreLabel.Depth = 0;
             this.scoreLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.scoreLabel.Location = new System.Drawing.Point(11, 100);
+            this.scoreLabel.Location = new System.Drawing.Point(11, 154);
+            this.scoreLabel.Margin = new System.Windows.Forms.Padding(10);
             this.scoreLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.scoreLabel.Name = "scoreLabel";
             this.scoreLabel.Size = new System.Drawing.Size(41, 19);
@@ -503,10 +685,12 @@
             // 
             // messagesLabel
             // 
+            this.messagesLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.messagesLabel.AutoSize = true;
             this.messagesLabel.Depth = 0;
             this.messagesLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.messagesLabel.Location = new System.Drawing.Point(11, 81);
+            this.messagesLabel.Location = new System.Drawing.Point(11, 115);
+            this.messagesLabel.Margin = new System.Windows.Forms.Padding(10);
             this.messagesLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.messagesLabel.Name = "messagesLabel";
             this.messagesLabel.Size = new System.Drawing.Size(127, 19);
@@ -515,7 +699,8 @@
             // 
             // protectionCard
             // 
-            this.protectionCard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.protectionCard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.protectionCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.protectionCard.Controls.Add(this.launchUniButton);
             this.protectionCard.Controls.Add(this.materialLabel2);
@@ -524,12 +709,12 @@
             this.protectionCard.Controls.Add(this.protectionCombo);
             this.protectionCard.Depth = 0;
             this.protectionCard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.protectionCard.Location = new System.Drawing.Point(755, 526);
+            this.protectionCard.Location = new System.Drawing.Point(329, 397);
             this.protectionCard.Margin = new System.Windows.Forms.Padding(14);
             this.protectionCard.MouseState = MaterialSkin.MouseState.HOVER;
             this.protectionCard.Name = "protectionCard";
             this.protectionCard.Padding = new System.Windows.Forms.Padding(14);
-            this.protectionCard.Size = new System.Drawing.Size(396, 122);
+            this.protectionCard.Size = new System.Drawing.Size(403, 132);
             this.protectionCard.TabIndex = 8;
             // 
             // launchUniButton
@@ -541,7 +726,7 @@
             this.launchUniButton.Depth = 0;
             this.launchUniButton.HighEmphasis = true;
             this.launchUniButton.Icon = null;
-            this.launchUniButton.Location = new System.Drawing.Point(18, 88);
+            this.launchUniButton.Location = new System.Drawing.Point(18, 98);
             this.launchUniButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.launchUniButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.launchUniButton.Name = "launchUniButton";
@@ -577,7 +762,7 @@
             this.launchConButton.Depth = 0;
             this.launchConButton.HighEmphasis = true;
             this.launchConButton.Icon = null;
-            this.launchConButton.Location = new System.Drawing.Point(18, 49);
+            this.launchConButton.Location = new System.Drawing.Point(18, 59);
             this.launchConButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.launchConButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.launchConButton.Name = "launchConButton";
@@ -599,7 +784,7 @@
             this.setProtectionButton.Depth = 0;
             this.setProtectionButton.HighEmphasis = true;
             this.setProtectionButton.Icon = null;
-            this.setProtectionButton.Location = new System.Drawing.Point(207, 88);
+            this.setProtectionButton.Location = new System.Drawing.Point(214, 98);
             this.setProtectionButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.setProtectionButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.setProtectionButton.Name = "setProtectionButton";
@@ -634,7 +819,7 @@
             "Kernel",
             "Min Usermode",
             "Min Kernel"});
-            this.protectionCombo.Location = new System.Drawing.Point(207, 45);
+            this.protectionCombo.Location = new System.Drawing.Point(214, 55);
             this.protectionCombo.MaxDropDownItems = 4;
             this.protectionCombo.MouseState = MaterialSkin.MouseState.OUT;
             this.protectionCombo.Name = "protectionCombo";
@@ -650,7 +835,7 @@
             this.tabConfig.Location = new System.Drawing.Point(4, 25);
             this.tabConfig.Name = "tabConfig";
             this.tabConfig.Padding = new System.Windows.Forms.Padding(3);
-            this.tabConfig.Size = new System.Drawing.Size(1163, 665);
+            this.tabConfig.Size = new System.Drawing.Size(1080, 543);
             this.tabConfig.TabIndex = 1;
             this.tabConfig.Text = "Config";
             this.tabConfig.UseVisualStyleBackColor = true;
@@ -665,12 +850,12 @@
             this.materialCard6.Controls.Add(this.loadConfigButton);
             this.materialCard6.Depth = 0;
             this.materialCard6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard6.Location = new System.Drawing.Point(20, 551);
+            this.materialCard6.Location = new System.Drawing.Point(6, 466);
             this.materialCard6.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard6.Name = "materialCard6";
             this.materialCard6.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard6.Size = new System.Drawing.Size(1114, 61);
+            this.materialCard6.Size = new System.Drawing.Size(1068, 63);
             this.materialCard6.TabIndex = 3;
             // 
             // resetConfigButton
@@ -683,12 +868,12 @@
             this.resetConfigButton.Depth = 0;
             this.resetConfigButton.HighEmphasis = true;
             this.resetConfigButton.Icon = null;
-            this.resetConfigButton.Location = new System.Drawing.Point(832, 11);
+            this.resetConfigButton.Location = new System.Drawing.Point(867, 14);
             this.resetConfigButton.Margin = new System.Windows.Forms.Padding(14, 0, 0, 0);
             this.resetConfigButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.resetConfigButton.Name = "resetConfigButton";
             this.resetConfigButton.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.resetConfigButton.Size = new System.Drawing.Size(268, 36);
+            this.resetConfigButton.Size = new System.Drawing.Size(187, 35);
             this.resetConfigButton.TabIndex = 0;
             this.resetConfigButton.Text = "Reset Config";
             this.resetConfigButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -707,12 +892,12 @@
             this.saveConfigButton.Depth = 0;
             this.saveConfigButton.HighEmphasis = true;
             this.saveConfigButton.Icon = null;
-            this.saveConfigButton.Location = new System.Drawing.Point(440, 11);
+            this.saveConfigButton.Location = new System.Drawing.Point(450, 14);
             this.saveConfigButton.Margin = new System.Windows.Forms.Padding(14, 0, 0, 0);
             this.saveConfigButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.saveConfigButton.Name = "saveConfigButton";
             this.saveConfigButton.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.saveConfigButton.Size = new System.Drawing.Size(263, 36);
+            this.saveConfigButton.Size = new System.Drawing.Size(187, 35);
             this.saveConfigButton.TabIndex = 0;
             this.saveConfigButton.Text = "Save Config";
             this.saveConfigButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -730,12 +915,12 @@
             this.loadConfigButton.Depth = 0;
             this.loadConfigButton.HighEmphasis = true;
             this.loadConfigButton.Icon = null;
-            this.loadConfigButton.Location = new System.Drawing.Point(14, 11);
+            this.loadConfigButton.Location = new System.Drawing.Point(14, 14);
             this.loadConfigButton.Margin = new System.Windows.Forms.Padding(0);
             this.loadConfigButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.loadConfigButton.Name = "loadConfigButton";
             this.loadConfigButton.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.loadConfigButton.Size = new System.Drawing.Size(268, 36);
+            this.loadConfigButton.Size = new System.Drawing.Size(187, 35);
             this.loadConfigButton.TabIndex = 0;
             this.loadConfigButton.Text = "Load Config";
             this.loadConfigButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -754,7 +939,7 @@
             this.configTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.configTextBox.Depth = 0;
             this.configTextBox.HideSelection = true;
-            this.configTextBox.Location = new System.Drawing.Point(20, 6);
+            this.configTextBox.Location = new System.Drawing.Point(6, 6);
             this.configTextBox.MaxLength = 32767;
             this.configTextBox.MouseState = MaterialSkin.MouseState.OUT;
             this.configTextBox.Name = "configTextBox";
@@ -765,7 +950,7 @@
             this.configTextBox.SelectionLength = 0;
             this.configTextBox.SelectionStart = 0;
             this.configTextBox.ShortcutsEnabled = true;
-            this.configTextBox.Size = new System.Drawing.Size(1114, 536);
+            this.configTextBox.Size = new System.Drawing.Size(1068, 443);
             this.configTextBox.TabIndex = 2;
             this.configTextBox.TabStop = false;
             this.configTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -777,7 +962,7 @@
             this.tabScripts.Location = new System.Drawing.Point(4, 25);
             this.tabScripts.Name = "tabScripts";
             this.tabScripts.Padding = new System.Windows.Forms.Padding(3);
-            this.tabScripts.Size = new System.Drawing.Size(1163, 665);
+            this.tabScripts.Size = new System.Drawing.Size(1182, 662);
             this.tabScripts.TabIndex = 2;
             this.tabScripts.Text = "Scripts";
             this.tabScripts.UseVisualStyleBackColor = true;
@@ -789,7 +974,7 @@
             this.tabSettings.Location = new System.Drawing.Point(4, 25);
             this.tabSettings.Name = "tabSettings";
             this.tabSettings.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSettings.Size = new System.Drawing.Size(1163, 665);
+            this.tabSettings.Size = new System.Drawing.Size(1080, 543);
             this.tabSettings.TabIndex = 3;
             this.tabSettings.Text = "Settings";
             this.tabSettings.UseVisualStyleBackColor = true;
@@ -808,7 +993,7 @@
             this.materialCard4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard4.Name = "materialCard4";
             this.materialCard4.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard4.Size = new System.Drawing.Size(308, 588);
+            this.materialCard4.Size = new System.Drawing.Size(306, 189);
             this.materialCard4.TabIndex = 2;
             // 
             // materialCard5
@@ -826,7 +1011,7 @@
             this.materialCard5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard5.Name = "materialCard5";
             this.materialCard5.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard5.Size = new System.Drawing.Size(286, 517);
+            this.materialCard5.Size = new System.Drawing.Size(284, 118);
             this.materialCard5.TabIndex = 1;
             // 
             // quickDebugButton
@@ -844,7 +1029,7 @@
             this.quickDebugButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.quickDebugButton.Name = "quickDebugButton";
             this.quickDebugButton.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.quickDebugButton.Size = new System.Drawing.Size(250, 32);
+            this.quickDebugButton.Size = new System.Drawing.Size(248, 32);
             this.quickDebugButton.TabIndex = 0;
             this.quickDebugButton.Text = "Quick Debug";
             this.quickDebugButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -867,7 +1052,7 @@
             this.gitButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.gitButton.Name = "gitButton";
             this.gitButton.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.gitButton.Size = new System.Drawing.Size(250, 32);
+            this.gitButton.Size = new System.Drawing.Size(248, 32);
             this.gitButton.TabIndex = 0;
             this.gitButton.Text = "Github";
             this.gitButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -899,12 +1084,12 @@
             this.materialCard1.Controls.Add(this.infoLabel);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(822, 14);
+            this.materialCard1.Location = new System.Drawing.Point(739, 14);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(308, 588);
+            this.materialCard1.Size = new System.Drawing.Size(324, 368);
             this.materialCard1.TabIndex = 0;
             // 
             // versionLabel
@@ -914,7 +1099,7 @@
             this.versionLabel.Depth = 0;
             this.versionLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.versionLabel.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
-            this.versionLabel.Location = new System.Drawing.Point(17, 589);
+            this.versionLabel.Location = new System.Drawing.Point(17, 369);
             this.versionLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.versionLabel.Name = "versionLabel";
             this.versionLabel.Size = new System.Drawing.Size(50, 17);
@@ -936,7 +1121,7 @@
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard2.Size = new System.Drawing.Size(286, 290);
+            this.materialCard2.Size = new System.Drawing.Size(302, 299);
             this.materialCard2.TabIndex = 1;
             // 
             // infoLabel1
@@ -947,7 +1132,7 @@
             this.infoLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.infoLabel1.Name = "infoLabel1";
             this.infoLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.infoLabel1.Size = new System.Drawing.Size(274, 412);
+            this.infoLabel1.Size = new System.Drawing.Size(290, 412);
             this.infoLabel1.TabIndex = 0;
             this.infoLabel1.Text = resources.GetString("infoLabel1.Text");
             // 
@@ -968,7 +1153,7 @@
             // avatarBox
             // 
             this.avatarBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.avatarBox.Location = new System.Drawing.Point(1097, 34);
+            this.avatarBox.Location = new System.Drawing.Point(1013, 34);
             this.avatarBox.Name = "avatarBox";
             this.avatarBox.Size = new System.Drawing.Size(68, 68);
             this.avatarBox.TabIndex = 2;
@@ -981,7 +1166,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1171, 811);
+            this.ClientSize = new System.Drawing.Size(1087, 687);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.avatarBox);
             this.Controls.Add(this.tabSelector);
@@ -992,6 +1177,8 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabControl.ResumeLayout(false);
             this.tabUser.ResumeLayout(false);
+            this.perkCard.ResumeLayout(false);
+            this.perkCard.PerformLayout();
             this.aiCard.ResumeLayout(false);
             this.loginCard1.ResumeLayout(false);
             this.loginCard1.PerformLayout();
@@ -1063,6 +1250,13 @@
         private MaterialSkin.Controls.MaterialTextBox2 aiInputTextBox;
         private MaterialSkin.Controls.MaterialFloatingActionButton aiSendButton;
         private MaterialSkin.Controls.MaterialButton quickDebugButton;
+        private MaterialSkin.Controls.MaterialCard perkCard;
+        private MaterialSkin.Controls.MaterialComboBox perkCombo;
+        private MaterialSkin.Controls.MaterialLabel perksLabel;
+        private MaterialSkin.Controls.MaterialButton respecPerksButton;
+        private MaterialSkin.Controls.MaterialButton sellPerkButton;
+        private MaterialSkin.Controls.MaterialButton buyPerkButton;
+        private MaterialSkin.Controls.MaterialMultiLineTextBox2 perkDescriptionTextBox;
     }
 }
 

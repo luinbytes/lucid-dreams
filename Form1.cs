@@ -19,11 +19,33 @@ using System.Web;
 using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using Newtonsoft.Json;
 
 namespace lucid_dreams
 {
     public partial class MainForm : MaterialForm
     {
+        public class Perks
+        {
+            public int id { get; set; }
+            public string Name { get; set; }
+            public string Description { get; set; }
+        }
+
+        public class Scripts
+        {
+            public int id { get; set; }
+            public int software { get; set; }
+            public string name { get; set; }
+            public string author { get; set; }
+            public int last_update { get; set; }
+            public string update_notes { get; set; }
+            public string script_contents { get; set; } 
+        }
+
+        // Needs its own global. This is the TOTAL PERKS LIST
+        public static List<Perks> perksList;
+        
         public static string GlobalUserKey;
         public static string GlobalUsername = "Logged Out!";
         // public static string GlobalKeyLink;
@@ -31,6 +53,9 @@ namespace lucid_dreams
         public static string GlobalLevel;
         public static string GlobalProtection;
         public static string GlobalFid;
+        public static string GlobalIsBuddy;
+        public static string GlobalPerkPoints;
+        public static List<Perks> GlobalPerksList; // This is for current user perks.
         public static string GlobalUnreadConversations;
         public static string GlobalUnreadAlerts;
         public static string GlobalRegisterDate;
@@ -164,13 +189,15 @@ namespace lucid_dreams
                         string baseUrl = $"https://constelia.ai/api.php?key={userKey}";
                         HttpResponseMessage globalResponse = await client.GetAsync(baseUrl);
                         HttpResponseMessage sessionResponse = await client.GetAsync($"https://constelia.ai/api.php?key={userKey}&cmd=getMember&history");
+                        HttpResponseMessage perksResponse = await client.GetAsync($"https://constelia.ai/api.php?key={userKey}&cmd=listPerks");
 
                         // Check if both responses are good.
-                        if (globalResponse.IsSuccessStatusCode && sessionResponse.IsSuccessStatusCode)
+                        if (globalResponse.IsSuccessStatusCode && sessionResponse.IsSuccessStatusCode && perksResponse.IsSuccessStatusCode)
                         {
                             // Converting both results right to strings makes this process a lot simpler.
                             string globalResult = await globalResponse.Content.ReadAsStringAsync();
                             string sessionResult = await sessionResponse.Content.ReadAsStringAsync();
+                            string perksResult = await perksResponse.Content.ReadAsStringAsync();
                             
                             // Ensure the GlobalUserKey is stored for future use.
                             GlobalUserKey = userKey;
@@ -178,8 +205,10 @@ namespace lucid_dreams
                             // Parsing both results and getting their root.
                             var globalJson = JsonDocument.Parse(globalResult);
                             var sessionJson = JsonDocument.Parse(sessionResult);
+                            var perksJson = JsonDocument.Parse(perksResult);
                             var globalRoot = globalJson.RootElement;
                             var sessionRoot = sessionJson.RootElement;
+                            var perksRoot = perksJson.RootElement;
 
                             // Store json parsing results into their globals.
                             if (globalRoot.TryGetProperty("username", out var memberProperty) && memberProperty.ValueKind == JsonValueKind.String)
@@ -281,6 +310,16 @@ namespace lucid_dreams
                                 GlobalConfig = "{}";
                             }
 
+                            if (globalRoot.TryGetProperty("perk_points", out var perkPointsProperty) && perkPointsProperty.ValueKind == JsonValueKind.Number) 
+                            {
+                                GlobalPerkPoints = perkPointsProperty.GetInt32().ToString();
+                            }
+
+                            if (globalRoot.TryGetProperty("perks", out var perksProperty) && perksProperty.ValueKind == JsonValueKind.Array)
+                            {
+                                GlobalPerksList = JsonConvert.DeserializeObject<List<Perks>>(perksProperty.ToString());
+                            }
+
                             if (sessionRoot.TryGetProperty("session_history", out var sessionProperty) && sessionProperty.ValueKind == JsonValueKind.Object)
                             {
                                 SessionHistory = sessionProperty.GetRawText();
@@ -289,6 +328,9 @@ namespace lucid_dreams
                             {
                                 SessionHistory = "{}";
                             }
+
+                            // Perks
+                            perksList = JsonConvert.DeserializeObject<List<Perks>>(perksResult);
 
                             // Update UI
                             // Info Panels
@@ -299,6 +341,12 @@ namespace lucid_dreams
                             postsLabel.Text = $"Posts: {GlobalPosts}";
                             fidLabel.Text = $"Fantasy ID: {GlobalFid}";
                             regLabel.Text = $"Registered: {GlobalRegisterDate}";
+
+                            // Update perk combo with latest perk names.
+                            foreach (Perks perks in perksList)
+                            {
+                                perkCombo.Items.Add(perks.Name);
+                            }
 
                             // Set Avatar Box Elements
                             System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
@@ -572,7 +620,7 @@ namespace lucid_dreams
 
         private void divinityButton_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://constelia.ai/divinity.php");
+            System.Diagnostics.Process.Start("https://constelia.ai/divinity/");
         }
 
         private void gitButton_Click(object sender, EventArgs e)
@@ -716,6 +764,18 @@ namespace lucid_dreams
             catch (Exception ex)
             {
                 MessageBox.Show($"File writing failed.\n\n{ex.Message}", "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Handle perk selection and desc updating.
+        private void perkCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedIndex = perkCombo.SelectedIndex;
+
+            if (selectedIndex >= 0 && selectedIndex < perksList.Count)
+            {
+                Perks perks = perksList[selectedIndex];
+                perkDescriptionTextBox.Text = perks.Description;
             }
         }
     }

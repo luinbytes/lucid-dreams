@@ -46,7 +46,6 @@ C:\Users\Lu\Documents\GitHub\lucid-dreams\bin\Release\System.ValueTuple.xml
 C:\Users\Lu\Documents\GitHub\lucid-dreams\obj\Release\lucid-dreams.csproj.AssemblyReference.cache
 C:\Users\Lu\Documents\GitHub\lucid-dreams\obj\Release\lucid-dreams.csproj.SuggestedBindingRedirects.cache
 C:\Users\Lu\Documents\GitHub\lucid-dreams\obj\Release\lucid-dreams.exe.config
-C:\Users\Lu\Documents\GitHub\lucid-dreams\obj\Release\lucid_dreams.MainForm.resources
 C:\Users\Lu\Documents\GitHub\lucid-dreams\obj\Release\lucid_dreams.Properties.Resources.resources
 C:\Users\Lu\Documents\GitHub\lucid-dreams\obj\Release\lucid-dreams.csproj.GenerateResource.cache
 C:\Users\Lu\Documents\GitHub\lucid-dreams\obj\Release\lucid-dreams.csproj.CoreCompileInputs.cache
@@ -56,3 +55,4 @@ C:\Users\Lu\Documents\GitHub\lucid-dreams\obj\Release\lucid-dreams.csproj.CopyCo
 C:\Users\Lu\Documents\GitHub\lucid-dreams\obj\Release\lucid-dreams.exe
 C:\Users\Lu\Documents\GitHub\lucid-dreams\obj\Release\lucid-dreams.pdb
 C:\Users\Lu\Documents\GitHub\lucid-dreams\obj\Release\lucid-dreams.csproj.Fody.CopyLocal.cache
+C:\Users\Lu\Documents\GitHub\lucid-dreams\obj\Release\lucid_dreams.MainForm.resources

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "3qDL+k52nqoJozvcyxZO09sWN7bUFCm6++4s48uwA/rg5rZEimsLFOIw4nvlkRcDVQdwH9Rwv/bN5I07OuYbRQ==",
+  "dgSpecHash": "qVi7yry3r8oIYB88fuaQlmclpcyFme4xuWIvtZeCKwJUt/ThTVtlMMPpEBmQsJWKZJ968pITWUOXaWtqLjrC/w==",
   "success": true,
   "projectFilePath": "C:\\Users\\Lu\\Documents\\GitHub\\lucid-dreams\\lucid-dreams.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\Lu\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\Lu\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\Lu\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
+    "C:\\Users\\Lu\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\Lu\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\Lu\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\Lu\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

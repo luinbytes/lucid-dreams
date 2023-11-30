@@ -42,7 +42,6 @@ C:\Users\Lu\Documents\GitHub\lucid-dreams\bin\Debug\System.ValueTuple.xml
 C:\Users\Lu\Documents\GitHub\lucid-dreams\obj\Debug\lucid-dreams.csproj.AssemblyReference.cache
 C:\Users\Lu\Documents\GitHub\lucid-dreams\obj\Debug\lucid-dreams.csproj.SuggestedBindingRedirects.cache
 C:\Users\Lu\Documents\GitHub\lucid-dreams\obj\Debug\lucid-dreams.exe.config
-C:\Users\Lu\Documents\GitHub\lucid-dreams\obj\Debug\lucid_dreams.MainForm.resources
 C:\Users\Lu\Documents\GitHub\lucid-dreams\obj\Debug\lucid_dreams.Properties.Resources.resources
 C:\Users\Lu\Documents\GitHub\lucid-dreams\obj\Debug\lucid-dreams.csproj.GenerateResource.cache
 C:\Users\Lu\Documents\GitHub\lucid-dreams\obj\Debug\lucid-dreams.csproj.CoreCompileInputs.cache
@@ -52,3 +51,4 @@ C:\Users\Lu\Documents\GitHub\lucid-dreams\obj\Debug\lucid-dreams.application
 C:\Users\Lu\Documents\GitHub\lucid-dreams\obj\Debug\lucid-dreams.csproj.CopyComplete
 C:\Users\Lu\Documents\GitHub\lucid-dreams\obj\Debug\lucid-dreams.exe
 C:\Users\Lu\Documents\GitHub\lucid-dreams\obj\Debug\lucid-dreams.pdb
+C:\Users\Lu\Documents\GitHub\lucid-dreams\obj\Debug\lucid_dreams.MainForm.resources
