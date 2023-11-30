@@ -78,7 +78,7 @@ namespace lucid_dreams
         bool syncTextReset = false;
         int textTimeOut = 4000; // 4 Seconds (4000ms)
         int resetConfigCount = 0;
-        string VERSION = "0.2.5";
+        string VERSION = "0.2.8";
 
         public MainForm()
         {
