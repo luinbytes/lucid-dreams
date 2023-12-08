@@ -43,46 +43,78 @@ namespace lucid_dreams
             public string script_contents { get; set; } 
         }
 
-        // Needs its own global. This is the TOTAL PERKS LIST
-        public static List<Perks> perksList;
-        
-        public static string GlobalUserKey;
-        public static string GlobalUsername = "Logged Out!";
-        // public static string GlobalKeyLink;
-        // public static string GlobalKeyStop;
-        public static string GlobalLevel;
-        public static string GlobalProtection;
-        public static string GlobalFid;
-        public static string GlobalIsBuddy;
-        public static string GlobalPerkPoints;
-        public static List<Perks> GlobalPerksList; // This is for current user perks.
-        public static string GlobalUnreadConversations;
-        public static string GlobalUnreadAlerts;
-        public static string GlobalRegisterDate;
-        public static string GlobalPosts;
-        public static string GlobalScore;
-        public static string AvatarURL;
-        public static string GlobalConfig;
-        public static string SessionHistory;
-        public static string GlobalLastSync;
-        public static string quickDebugPath;
-        public static string conBatchPath;
-        public static string uniBatchPath;
+        public class Session
+        {
+            public string directory { get; set; }
+            public int started { get; set; }
+            public int expire { get; set; }
+        }
 
-        string userKey;
-        bool loggedIn = false;
-        bool autoKey;
-        bool curSync;
-        bool syncFinished;
-        bool showSync = false;
-        bool syncTextReset = false;
-        int textTimeOut = 4000; // 4 Seconds (4000ms)
-        int resetConfigCount = 0;
-        string VERSION = "0.2.8";
+        public class Steam
+        {
+            public string id { get; set; }
+            public string name { get; set; }
+            public string persona { get; set; }
+            public int time { get; set; }
+        }
+
+        public class SteamResponse
+        {
+            public Dictionary<string, Steam> Steam { get; set; }
+        }
+
+        // Globals
+        public class Global
+        {
+            public string username { get; set; }
+            public string key { get; set; }
+            public int key_link { get; set; }
+            public int key_stop { get; set; }
+            public string level { get; set; }
+            public string protection { get; set; }
+            public string buddy { get; set; }
+            public string xp { get; set; }
+            public string perk_points { get; set; }
+            public  List<Perks> perks { get; set; } // Current user perks.
+            public List<Perks> perks_list { get; set; } // All available perks.
+            public string sign { get; set; }
+            public string fid { get; set; }
+            public string unread_conversations { get; set; }
+            public string unread_alerts { get; set; }
+            public string last_activity { get; set; }
+            public string register_date { get; set; }
+            public string posts { get; set; }
+            public string score { get; set; }
+            public string custom_title { get; set; }
+            public string groups { get; set; }
+            public string avatar { get; set; }
+            public List<Session> session { get; set; }
+            public List<Steam> steam { get; set; }
+            public string configuration { get; set; }
+
+            // Lucid Dreams Globals
+            public string quick_debug_path { get; set; }
+            public string con_batch_path { get; set; }
+            public string uni_batch_path { get; set; }
+            public bool logged_in { get; set; }
+            public bool auto_key { get; set; }
+            public bool cur_sync { get; set; }
+            public bool sync_finished { get; set; }
+            public bool show_sync { get; set; }
+            public bool sync_text_reset { get; set; }
+            public string last_sync { get; set; }
+            public int text_timeout = 4000;
+            public int reset_config_count { get; set; }
+            public string VER = "0.3.1";
+        }
+
+        Global Globals = new Global();
 
         public MainForm()
         {
             InitializeComponent();
+            Global Globals = new Global();
+            
             // Force non-resizable window
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -95,23 +127,23 @@ namespace lucid_dreams
             materialSkinManager.ColorScheme = new ColorScheme(Primary.Purple200, Primary.Purple300, Primary.Purple500, Accent.DeepPurple400, TextShade.WHITE);
             
             // Version global
-            versionLabel.Text = $"v{VERSION}";
+            versionLabel.Text = $"v{Globals.VER}";
 
             // Key check
             string keyDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "key.txt");
             if (File.Exists(keyDir))
             {
-                userKey = File.ReadAllText(keyDir);
-                keyTextBox.Text = userKey;
-                autoKey = true;
+                Globals.key = File.ReadAllText(keyDir);
+                keyTextBox.Text = Globals.key;
+                Globals.auto_key = true;
                 // Forces a full webAPI refresh
                 fullUpdate();
             }
 
             // Path setup
-            quickDebugPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ld_debug.txt");
-            conBatchPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "constellation.bat");
-            uniBatchPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "launch.bat");
+            Globals.quick_debug_path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ld_debug.txt");
+            Globals.con_batch_path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "constellation.bat");
+            Globals.uni_batch_path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "launch.bat");
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -153,21 +185,21 @@ namespace lucid_dreams
                 try
                 {
                     // If the key wasn't automatically found, grab it from the text field and store it.
-                    if (!autoKey)
+                    if (!Globals.auto_key)
                     {
-                        userKey = keyTextBox.Text;
+                        Globals.key = keyTextBox.Text;
                     }
                     // Check if there is already a sync task running. If not, start one.
-                    if (!curSync)
+                    if (!Globals.cur_sync)
                     {
-                        curSync = true;
+                        Globals.cur_sync = true;
                         syncButton.Text = "Syncing";
                         syncButton.Enabled = false;
 
                         /** We need to check if the key is a valid format before running the API request.
                         *   This is ESSENTIAL to ensure users wont get false API banned. **/
                         Regex regex = new Regex(@"^[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}$");
-                        if (!regex.IsMatch(userKey))
+                        if (!regex.IsMatch(Globals.key))
                         {
                             MessageBox.Show("Your key was an invalid format! Wanted format: ABCD-EFGH-IJKL-MNOP.", "Format Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
@@ -175,21 +207,21 @@ namespace lucid_dreams
 
                         // Timer for sync button text to reset back to normal.
                         System.Windows.Forms.Timer syncButtonTimer = new System.Windows.Forms.Timer();
-                        syncButtonTimer.Interval = textTimeOut;
+                        syncButtonTimer.Interval = Globals.text_timeout;
                         syncButtonTimer.Tick += (s, ea) =>
                         {
                             syncButton.Text = "Sync";
                             syncButton.Enabled = true;
-                            syncTextReset = true;
+                            Globals.sync_text_reset = true;
                             syncButtonTimer.Stop();
                         };
                         syncButtonTimer.Start();
 
                         // Base URL is the main APi request here. It grabs ALL user info except sessions, so we need to run a request for that seperately.
-                        string baseUrl = $"https://constelia.ai/api.php?key={userKey}";
+                        string baseUrl = $"https://constelia.ai/api.php?key={Globals.key}";
                         HttpResponseMessage globalResponse = await client.GetAsync(baseUrl);
-                        HttpResponseMessage sessionResponse = await client.GetAsync($"https://constelia.ai/api.php?key={userKey}&cmd=getMember&history");
-                        HttpResponseMessage perksResponse = await client.GetAsync($"https://constelia.ai/api.php?key={userKey}&cmd=listPerks");
+                        HttpResponseMessage sessionResponse = await client.GetAsync($"https://constelia.ai/api.php?key={Globals.key}&cmd=getMember&history");
+                        HttpResponseMessage perksResponse = await client.GetAsync($"https://constelia.ai/api.php?key={Globals.key}&cmd=listPerks");
 
                         // Check if both responses are good.
                         if (globalResponse.IsSuccessStatusCode && sessionResponse.IsSuccessStatusCode && perksResponse.IsSuccessStatusCode)
@@ -199,8 +231,6 @@ namespace lucid_dreams
                             string sessionResult = await sessionResponse.Content.ReadAsStringAsync();
                             string perksResult = await perksResponse.Content.ReadAsStringAsync();
                             
-                            // Ensure the GlobalUserKey is stored for future use.
-                            GlobalUserKey = userKey;
 
                             // Parsing both results and getting their root.
                             var globalJson = JsonDocument.Parse(globalResult);
@@ -213,140 +243,177 @@ namespace lucid_dreams
                             // Store json parsing results into their globals.
                             if (globalRoot.TryGetProperty("username", out var memberProperty) && memberProperty.ValueKind == JsonValueKind.String)
                             {
-                                GlobalUsername = memberProperty.GetString();
+                                Globals.username = memberProperty.GetString();
                             }
                             else
                             {
-                                GlobalUsername = "Logged out!";
+                                Globals.username = "Logged out!";
                             }
 
                             if (globalRoot.TryGetProperty("level", out var levelProperty) && levelProperty.ValueKind == JsonValueKind.Number)
                             {
-                                GlobalLevel = levelProperty.GetInt32().ToString();
+                                Globals.level = levelProperty.GetInt32().ToString();
                             }
                             else
                             {
-                                GlobalLevel = "0";
+                                Globals.level = "0";
                             }
 
                             if (globalRoot.TryGetProperty("protection", out var protectionProperty) && protectionProperty.ValueKind == JsonValueKind.Number)
                             {
-                                GlobalProtection = protectionProperty.GetInt32().ToString();
+                                Globals.protection = protectionProperty.GetInt32().ToString();
                             }
                             else
                             {
-                                GlobalProtection = "0";
+                                Globals.protection = "0";
                             }
 
                             if (globalRoot.TryGetProperty("fid", out var fidProperty) && fidProperty.ValueKind == JsonValueKind.Number)
                             {
-                                GlobalFid = fidProperty.GetInt32().ToString();
+                                Globals.fid = fidProperty.GetInt32().ToString();
                             }
                             else
                             {
-                                GlobalFid = "0";
+                                Globals.fid = "0";
                             }
 
                             if (globalRoot.TryGetProperty("unread_conversations", out var unreadConversationsProperty) && unreadConversationsProperty.ValueKind == JsonValueKind.Number)
                             {
-                                GlobalUnreadConversations = unreadConversationsProperty.GetInt32().ToString();
+                                Globals.unread_conversations = unreadConversationsProperty.GetInt32().ToString();
                             }
                             else
                             {
-                                GlobalUnreadConversations = "0";
+                                Globals.unread_conversations = "0";
                             }
 
                             if (globalRoot.TryGetProperty("unread_alerts", out var unreadAlertsProperty) && unreadAlertsProperty.ValueKind == JsonValueKind.Number)
                             {
-                                GlobalUnreadAlerts = unreadAlertsProperty.GetInt32().ToString();
+                                Globals.unread_alerts = unreadAlertsProperty.GetInt32().ToString();
                             }
                             else
                             {
-                                GlobalUnreadAlerts = "0";
+                                Globals.unread_alerts = "0";
                             }
 
                             if (globalRoot.TryGetProperty("register_date", out var registerDateProperty) && registerDateProperty.ValueKind == JsonValueKind.Number)
                             {
-                                GlobalRegisterDate = DateTimeOffset.FromUnixTimeSeconds(registerDateProperty.GetInt64()).DateTime.ToString();
+                                Globals.register_date = DateTimeOffset.FromUnixTimeSeconds(registerDateProperty.GetInt64()).DateTime.ToString();
                             }
                             else
                             {
-                                GlobalRegisterDate = DateTime.Now.ToString();
+                                Globals.register_date = DateTime.Now.ToString();
                             }
 
                             if (globalRoot.TryGetProperty("posts", out var postsProperty) && postsProperty.ValueKind == JsonValueKind.Number)
                             {
-                                GlobalPosts = postsProperty.GetInt32().ToString();
+                                Globals.posts = postsProperty.GetInt32().ToString();
                             }
                             else
                             {
-                                GlobalPosts = "0";
+                                Globals.posts = "0";
                             }
 
                             if (globalRoot.TryGetProperty("score", out var scoreProperty) && scoreProperty.ValueKind == JsonValueKind.Number)
                             {
-                                GlobalScore = scoreProperty.GetInt32().ToString();
+                                Globals.score = scoreProperty.GetInt32().ToString();
                             }
                             else
                             {
-                                GlobalScore = "0";
+                                Globals.score = "0";
                             }
 
                             if (globalRoot.TryGetProperty("avatar", out var avatarURLProperty) && avatarURLProperty.ValueKind == JsonValueKind.String)
                             {
-                                AvatarURL = avatarURLProperty.GetString();
+                                Globals.avatar = avatarURLProperty.GetString();
                             }
                             else
                             {
-                                AvatarURL = "null";
+                                Globals.avatar = "null";
                             }
 
                             if (globalRoot.TryGetProperty("configuration", out var configProperty) && configProperty.ValueKind == JsonValueKind.Object)
                             {
-                                GlobalConfig = configProperty.GetRawText();
+                                Globals.configuration = configProperty.GetRawText();
                             }
                             else
                             {
-                                GlobalConfig = "{}";
+                                Globals.configuration = "{}";
                             }
 
                             if (globalRoot.TryGetProperty("perk_points", out var perkPointsProperty) && perkPointsProperty.ValueKind == JsonValueKind.Number) 
                             {
-                                GlobalPerkPoints = perkPointsProperty.GetInt32().ToString();
+                                Globals.perk_points = perkPointsProperty.GetInt32().ToString();
                             }
 
                             if (globalRoot.TryGetProperty("perks", out var perksProperty) && perksProperty.ValueKind == JsonValueKind.Array)
                             {
-                                GlobalPerksList = JsonConvert.DeserializeObject<List<Perks>>(perksProperty.ToString());
+                                Globals.perks = JsonConvert.DeserializeObject<List<Perks>>(perksProperty.ToString());
                             }
 
-                            if (sessionRoot.TryGetProperty("session_history", out var sessionProperty) && sessionProperty.ValueKind == JsonValueKind.Object)
+                            if (sessionRoot.TryGetProperty("session", out var sessionProperty) && sessionProperty.ValueKind == JsonValueKind.Array)
                             {
-                                SessionHistory = sessionProperty.GetRawText();
+                                var sessionList = new List<Session>();
+                                var sessionRaw = sessionProperty.GetRawText();
+                                sessionList = JsonConvert.DeserializeObject<List<Session>>(sessionRaw);
+                                Globals.session = sessionList;
                             }
                             else
                             {
-                                SessionHistory = "{}";
+                                Globals.session = null;
                             }
 
-                            // Perks
-                            perksList = JsonConvert.DeserializeObject<List<Perks>>(perksResult);
+                            // Perk List
+                            Globals.perks_list = JsonConvert.DeserializeObject<List<Perks>>(perksResult);
+
+                            // Steam Info
+                            if (globalRoot.TryGetProperty("steam", out var steamProperty) && steamProperty.ValueKind == JsonValueKind.Object)
+                            {
+                                var steamList = new List<Steam>();
+
+                                foreach (var steamAccount in steamProperty.EnumerateObject())
+                                {
+                                    var account = steamAccount.Value;
+                                    var steamData = new Steam
+                                    {
+                                        id = account.GetProperty("id").GetString(),
+                                        name = account.GetProperty("name").GetString(),
+                                        persona = account.GetProperty("persona").GetString(),
+                                        time = account.GetProperty("time").GetInt32()
+                                    };
+
+                                    steamList.Add(steamData);
+                                }
+
+                                // Now, steamList contains each Steam account information as objects in a list
+                                Globals.steam = steamList;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Failed to grab steam info!", "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
 
                             // Update UI
                             // Info Panels
-                            usernameLabel.Text = $"Welcome {GlobalUsername}";
-                            alertsLabel.Text = $"Unread Alerts: {GlobalUnreadAlerts}";
-                            messagesLabel.Text = $"Unread Messages: {GlobalUnreadConversations}";
-                            scoreLabel.Text = $"Score: {GlobalScore}";
-                            postsLabel.Text = $"Posts: {GlobalPosts}";
-                            fidLabel.Text = $"Fantasy ID: {GlobalFid}";
-                            regLabel.Text = $"Registered: {GlobalRegisterDate}";
+                            usernameLabel.Text = $"Welcome {Globals.username}";
+                            alertsLabel.Text = $"Unread Alerts: {Globals.unread_alerts}";
+                            messagesLabel.Text = $"Unread Messages: {Globals.unread_conversations}";
+                            scoreLabel.Text = $"Score: {Globals.score}";
+                            postsLabel.Text = $"Posts: {Globals.posts}";
+                            fidLabel.Text = $"Fantasy ID: {Globals.fid}";
+                            regLabel.Text = $"Registered: {Globals.register_date}";
 
                             // Update perk combo with latest perk names.
-                            foreach (Perks perks in perksList)
+                            foreach (Perks perks in Globals.perks_list)
                             {
                                 perkCombo.Items.Add(perks.Name);
                             }
+
+                            // Update steam combo with grabbed steam accounts.
+                            foreach (var steamAccount in Globals.steam)
+                            {
+                                steamAccountComboBox.Items.Add(steamAccount.name);
+                            }
+                            steamAccountComboBox.SelectedIndex = 0;
 
                             // Set Avatar Box Elements
                             System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
@@ -355,22 +422,22 @@ namespace lucid_dreams
                             avatarBox.Region = rg;
                             avatarBox.Visible = true;
                             avatarBox.Size = new Size(68, 68);
-                            avatarBox.ImageLocation = AvatarURL;
+                            avatarBox.ImageLocation = Globals.avatar;
                             avatarBox.SizeMode = PictureBoxSizeMode.StretchImage;
 
                             // Protection
-                            protectionCombo.SelectedIndex = Int32.Parse(GlobalProtection);
+                            protectionCombo.SelectedIndex = Int32.Parse(Globals.protection);
 
                             // Sync
-                            syncFinished = true;
-                            showSync = true;
-                            if (showSync)
+                            Globals.sync_finished = true;
+                            Globals.show_sync = true;
+                            if (Globals.show_sync)
                             {
                                 loginButton.Enabled = false;
                                 keyTextBox.Enabled = false;
                             }
-                            curSync = false;
-                            if (!loggedIn)
+                            Globals.cur_sync = false;
+                            if (!Globals.logged_in)
                             {
                                 syncButton.Enabled = false;
                             }
@@ -381,14 +448,14 @@ namespace lucid_dreams
 
                             // Config
                             loadConfigButton.Enabled = false;
-                            JsonDocument config = JsonDocument.Parse(GlobalConfig);
+                            JsonDocument config = JsonDocument.Parse(Globals.configuration);
                             string formattedConfig = System.Text.Json.JsonSerializer.Serialize(config, new JsonSerializerOptions { WriteIndented = true });
                             configTextBox.Text = formattedConfig;
                             loadConfigButton.Text = "Loaded";
 
                             // Timer for load config button text to reset back to normal.
                             System.Windows.Forms.Timer loadButtonTimer = new System.Windows.Forms.Timer();
-                            loadButtonTimer.Interval = textTimeOut;
+                            loadButtonTimer.Interval = Globals.text_timeout;
                             loadButtonTimer.Tick += (s, ea) =>
                             {
                                 loadConfigButton.Text = "Load Config";
@@ -397,7 +464,7 @@ namespace lucid_dreams
                             };
                             loadButtonTimer.Start();
                             var curTime = DateTime.Now;
-                            GlobalLastSync = curTime.ToString("dd/MM/yyyy - hh:mm:ss");
+                            Globals.last_sync = curTime.ToString("dd/MM/yyyy - hh:mm:ss");
 
                         }
                         else
@@ -438,7 +505,7 @@ namespace lucid_dreams
                                 }
                                 /** We need to remember to set the sync var to false whenever a sync is not in process!
                                  *  Especially when stopped due to unexpected errors. **/
-                                curSync = false;
+                                Globals.cur_sync = false;
                             }
                             else
                             {
@@ -446,7 +513,7 @@ namespace lucid_dreams
                             }
                         }
                         // Once again, making sure we remember to update this var when needed.
-                        curSync = false;
+                        Globals.cur_sync = false;
                     }
                 }
                 // Exception handling.
@@ -471,13 +538,13 @@ namespace lucid_dreams
                 string encodedConfig = HttpUtility.UrlEncode(fullConfig);
                 HttpClient configClient = new HttpClient();
                 StringContent configContent = new StringContent($"value={encodedConfig}", Encoding.UTF8, "application/x-www-form-urlencoded");
-                HttpResponseMessage saveResponse = await configClient.PostAsync($"https://constelia.ai/api.php?key={userKey}&cmd=setConfiguration", configContent);
+                HttpResponseMessage saveResponse = await configClient.PostAsync($"https://constelia.ai/api.php?key={Globals.key}&cmd=setConfiguration", configContent);
 
                 if (saveResponse.IsSuccessStatusCode)
                 {
                     saveConfigButton.Text = "Config Saved!";
                     System.Windows.Forms.Timer saveTimer = new System.Windows.Forms.Timer();
-                    saveTimer.Interval = textTimeOut;
+                    saveTimer.Interval = Globals.text_timeout;
                     saveTimer.Tick += (s, ea) =>
                     {
                         saveConfigButton.Text = "Save Config";
@@ -502,7 +569,7 @@ namespace lucid_dreams
         private async void loginButton_click(object sender, EventArgs e)
         {
             // If the login button was clicked and there isn't currently a sync task running then run a full update.
-            if (!curSync)
+            if (!Globals.cur_sync)
             {
                 fullUpdate();
             }
@@ -511,7 +578,7 @@ namespace lucid_dreams
         private void syncButton_Click(object sender, EventArgs e)
         {
             // Same as login but for the sync button :)
-            if (!curSync)
+            if (!Globals.cur_sync)
             {
                 fullUpdate();
             }
@@ -524,13 +591,13 @@ namespace lucid_dreams
                 /** New http client for the API request.
                  *  Grabbing the current wanted protection value from the combo. **/
                 HttpClient httpProtClient = new HttpClient();
-                HttpResponseMessage httpProtClientResponse = await httpProtClient.GetAsync($"https://constelia.ai/api.php?key={userKey}&cmd=setProtection&protection={protectionCombo.SelectedIndex}");
+                HttpResponseMessage httpProtClientResponse = await httpProtClient.GetAsync($"https://constelia.ai/api.php?key={Globals.key}&cmd=setProtection&protection={protectionCombo.SelectedIndex}");
 
                 if (httpProtClientResponse.IsSuccessStatusCode)
                 {
                     setProtectionButton.Text = "Protection Set!";
                     System.Windows.Forms.Timer protectionTextTimer = new System.Windows.Forms.Timer();
-                    protectionTextTimer.Interval = textTimeOut;
+                    protectionTextTimer.Interval = Globals.text_timeout;
                     protectionTextTimer.Tick += (s, ea) =>
                     {
                         setProtectionButton.Text = "Set Protection";
@@ -561,7 +628,7 @@ namespace lucid_dreams
                 if (conBatchResponce.IsSuccessStatusCode)
                 {
                     var conBatchContents = await conBatchResponce.Content.ReadAsByteArrayAsync();
-                    File.WriteAllBytes(conBatchPath, conBatchContents);
+                    File.WriteAllBytes(Globals.con_batch_path, conBatchContents);
                 }
                 else
                 {
@@ -571,12 +638,12 @@ namespace lucid_dreams
             }
             // RUN THAT BIHHHHHHHHHHH
             //you can really see how my attention span disappeared while writing these.
-            if (File.Exists(conBatchPath))
+            if (File.Exists(Globals.con_batch_path))
             {
                 Process.Start(new ProcessStartInfo
                 {
                     FileName = "cmd",
-                    Arguments = $"/c start \"\" \"{conBatchPath}\"",
+                    Arguments = $"/c start \"\" \"{Globals.con_batch_path}\"",
                     UseShellExecute = true
                 });
             }
@@ -593,7 +660,7 @@ namespace lucid_dreams
                 if (uniBatchResponce.IsSuccessStatusCode)
                 {
                     var conBatchContents = await uniBatchResponce.Content.ReadAsByteArrayAsync();
-                    File.WriteAllBytes(uniBatchPath, conBatchContents);
+                    File.WriteAllBytes(Globals.uni_batch_path, conBatchContents);
                 }
                 else
                 {
@@ -601,12 +668,12 @@ namespace lucid_dreams
                     return;
                 }
             }
-            if (File.Exists(uniBatchPath))
+            if (File.Exists(Globals.uni_batch_path))
             {
                 Process.Start(new ProcessStartInfo
                 {
                     FileName = "cmd",
-                    Arguments = $"/c start \"\" \"{uniBatchPath}\"",
+                    Arguments = $"/c start \"\" \"{Globals.uni_batch_path}\"",
                     UseShellExecute = true
                 });
             }
@@ -642,10 +709,10 @@ namespace lucid_dreams
 
         private async void resetConfigButton_Click(object sender, EventArgs e)
         {
-            resetConfigCount++;
-            resetConfigButton.Text = $"Are you sure? ({resetConfigCount}/5)";
+            Globals.reset_config_count++;
+            resetConfigButton.Text = $"Are you sure? ({Globals.reset_config_count}/5)";
 
-            if (resetConfigCount >= 5)
+            if (Globals.reset_config_count >= 5)
             {
                 string baseConfig = @"{
                 ""bones"": [4, 7, 10],
@@ -676,15 +743,15 @@ namespace lucid_dreams
             }";
 
                 HttpClient resetClient = new HttpClient();
-                HttpResponseMessage resetClientResposne = await resetClient.GetAsync($"https://constelia.ai/api.php?key={userKey}&cmd=resetConfiguration");
+                HttpResponseMessage resetClientResposne = await resetClient.GetAsync($"https://constelia.ai/api.php?key={Globals.key}&cmd=resetConfiguration");
 
                 if (resetClientResposne.IsSuccessStatusCode)
                 {
-                    resetConfigCount = 0;
+                    Globals.reset_config_count = 0;
                     resetConfigButton.Text = "Config Reset!";
                     configTextBox.Text = baseConfig;
                     System.Windows.Forms.Timer resetTimer = new System.Windows.Forms.Timer();
-                    resetTimer.Interval = textTimeOut;
+                    resetTimer.Interval = Globals.text_timeout;
                     resetTimer.Tick += (s, ea) =>
                     {
                         resetConfigButton.Text = "Reset Config";
@@ -701,19 +768,19 @@ namespace lucid_dreams
 
         // 1 Button debugging for end users.
         private void quickDebugButton_Click(object sender, EventArgs e)
-        {   
+        {
             try
             {
                 // Setup for debug output.
                 var curTime = DateTime.Now;
                 string formattedTime = curTime.ToString("dd/MM/yyyy - hh:mm:ss");
 
-                JsonDocument config = JsonDocument.Parse(GlobalConfig);
+                JsonDocument config = JsonDocument.Parse(Globals.configuration);
                 string formattedConfig = System.Text.Json.JsonSerializer.Serialize(config, new JsonSerializerOptions { WriteIndented = true });
 
                 bool keyFormatted;
                 Regex regex = new Regex(@"^[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}$");
-                if (!regex.IsMatch(userKey))
+                if (!regex.IsMatch(Globals.key))
                 {
                     keyFormatted = false;
                 } 
@@ -722,30 +789,30 @@ namespace lucid_dreams
                     keyFormatted = true;
                 }
 
-                using (StreamWriter debugWriter = new StreamWriter(quickDebugPath))
+                using (StreamWriter debugWriter = new StreamWriter(Globals.quick_debug_path))
                 {
                     debugWriter.WriteLine("------------------------------------");
-                    debugWriter.WriteLine($"Lucid Dreams {VERSION} Quick Debug Log");
+                    debugWriter.WriteLine($"Lucid Dreams {Globals.VER} Quick Debug Log");
                     debugWriter.WriteLine($"Date/Time: {formattedTime}");
                     debugWriter.WriteLine("------------------------------------");
                     debugWriter.WriteLine("");
                     debugWriter.WriteLine("// User info:");
-                    debugWriter.WriteLine($"Username : {GlobalUsername}");
+                    debugWriter.WriteLine($"Username : {Globals.username}");
                     debugWriter.WriteLine($"Is Key Formatted : {keyFormatted}");
-                    debugWriter.WriteLine($"FID : {GlobalFid}");
-                    debugWriter.WriteLine($"Avatar URL : {AvatarURL}");
-                    debugWriter.WriteLine($"Level : {GlobalLevel}");
+                    debugWriter.WriteLine($"FID : {Globals.fid}");
+                    debugWriter.WriteLine($"Avatar URL : {Globals.avatar}");
+                    debugWriter.WriteLine($"Level : {Globals.level}");
                     debugWriter.WriteLine("");
                     debugWriter.WriteLine("// Software info:");
-                    debugWriter.WriteLine($"Protection : {GlobalProtection} - {protectionCombo.Text}");
-                    debugWriter.WriteLine($"Last Sync : {GlobalLastSync}");
-                    debugWriter.WriteLine($"Cur Sync : {curSync}");
-                    debugWriter.WriteLine($"Sync Text Reset : {syncTextReset}");
-                    debugWriter.WriteLine($"Text Timeout : {textTimeOut}");
-                    debugWriter.WriteLine($"Logged In : {loggedIn}");
+                    debugWriter.WriteLine($"Protection : {Globals.protection} - {protectionCombo.Text}");
+                    debugWriter.WriteLine($"Last Sync : {Globals.last_sync}");
+                    debugWriter.WriteLine($"Cur Sync : {Globals.cur_sync}");
+                    debugWriter.WriteLine($"Sync Text Reset : {Globals.sync_text_reset}");
+                    debugWriter.WriteLine($"Text Timeout : {Globals.text_timeout}");
+                    debugWriter.WriteLine($"Logged In : {Globals.logged_in}");
                     debugWriter.WriteLine("");
                     debugWriter.WriteLine("// Raw config:");
-                    debugWriter.WriteLine($"{GlobalConfig}");
+                    debugWriter.WriteLine($"{Globals.configuration}");
                     debugWriter.WriteLine("");
                     debugWriter.WriteLine("// Formatted config:");
                     debugWriter.WriteLine($"{formattedConfig}");
@@ -753,7 +820,7 @@ namespace lucid_dreams
 
                 quickDebugButton.Text = "Writing log...";
                 System.Windows.Forms.Timer debugTimer = new System.Windows.Forms.Timer();
-                debugTimer.Interval = textTimeOut;
+                debugTimer.Interval = Globals.text_timeout;
                 debugTimer.Tick += (s, ea) =>
                 {
                     quickDebugButton.Text = "Quick Debug";
@@ -772,10 +839,29 @@ namespace lucid_dreams
         {
             int selectedIndex = perkCombo.SelectedIndex;
 
-            if (selectedIndex >= 0 && selectedIndex < perksList.Count)
+            if (selectedIndex >= 0 && selectedIndex < Globals.perks_list.Count)
             {
-                Perks perks = perksList[selectedIndex];
+                Perks perks = Globals.perks_list[selectedIndex];
                 perkDescriptionTextBox.Text = perks.Description;
+            }
+        }
+
+        private void buyPerkButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void steamAccountComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedUsername = steamAccountComboBox.SelectedItem.ToString();
+            Steam selectedAccount = Globals.steam.FirstOrDefault(account => account.name == selectedUsername);
+
+            if (selectedAccount != null)
+            {
+                steamNameLabel.Text = selectedAccount.name;
+                steamPersonaLabel.Text = selectedAccount.persona;
+                steamIdLabel.Text = selectedAccount.id;
+                steamTimeLabel.Text = DateTimeOffset.FromUnixTimeSeconds(selectedAccount.time).DateTime.ToString();
             }
         }
     }
