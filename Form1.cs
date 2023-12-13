@@ -58,11 +58,6 @@ namespace lucid_dreams
             public int time { get; set; }
         }
 
-        public class SteamResponse
-        {
-            public Dictionary<string, Steam> Steam { get; set; }
-        }
-
         // Globals
         public class Global
         {
@@ -113,7 +108,6 @@ namespace lucid_dreams
         public MainForm()
         {
             InitializeComponent();
-            Global Globals = new Global();
             
             // Force non-resizable window
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
