@@ -1,25 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Drawing.Text;
 using System.IO;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Net;
 using System.Net.Http;
 using System.Text;
-using System.Text.Json;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Web;
 using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using Newtonsoft.Json;
+using System.Text.Json;
 
 namespace lucid_dreams
 {
@@ -100,7 +95,7 @@ namespace lucid_dreams
             public string last_sync { get; set; }
             public int text_timeout = 4000;
             public int reset_config_count { get; set; }
-            public string VER = "0.3.1";
+            public string VER = "0.3.5";
         }
 
         Global Globals = new Global();
@@ -135,7 +130,7 @@ namespace lucid_dreams
             }
 
             // Path setup
-            Globals.quick_debug_path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ld_debug.txt");
+            Globals.quick_debug_path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $"ld_debug_{Globals.VER}.txt");
             Globals.con_batch_path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "constellation.bat");
             Globals.uni_batch_path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "launch.bat");
         }
@@ -852,10 +847,8 @@ namespace lucid_dreams
 
             if (selectedAccount != null)
             {
-                steamNameLabel.Text = selectedAccount.name;
-                steamPersonaLabel.Text = selectedAccount.persona;
-                steamIdLabel.Text = selectedAccount.id;
-                steamTimeLabel.Text = DateTimeOffset.FromUnixTimeSeconds(selectedAccount.time).DateTime.ToString();
+                string formattedTime = DateTimeOffset.FromUnixTimeSeconds(selectedAccount.time).DateTime.ToString();
+                steamAccountTextBox.Text = $"Username: {selectedAccount.name}\nPersona: {selectedAccount.persona}\nID: {selectedAccount.id}\nLast Used: {formattedTime}";
             }
         }
     }

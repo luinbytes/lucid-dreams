@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Lu\\Documents\\GitHub\\lucid-dreams\\lucid-dreams.csproj": {}
+    "B:\\Github\\lucid-dreams\\lucid-dreams.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Lu\\Documents\\GitHub\\lucid-dreams\\lucid-dreams.csproj": {
+    "B:\\Github\\lucid-dreams\\lucid-dreams.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lu\\Documents\\GitHub\\lucid-dreams\\lucid-dreams.csproj",
+        "projectUniqueName": "B:\\Github\\lucid-dreams\\lucid-dreams.csproj",
         "projectName": "lucid-dreams",
-        "projectPath": "C:\\Users\\Lu\\Documents\\GitHub\\lucid-dreams\\lucid-dreams.csproj",
+        "projectPath": "B:\\Github\\lucid-dreams\\lucid-dreams.csproj",
         "packagesPath": "C:\\Users\\Lu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lu\\Documents\\GitHub\\lucid-dreams\\obj\\",
+        "outputPath": "B:\\Github\\lucid-dreams\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
@@ -49,6 +49,10 @@
               "version": "[13.0.3, )"
             },
             "System.Resources.Extensions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "System.Text.Json": {
               "target": "Package",
               "version": "[8.0.0, )"
             }

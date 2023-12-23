@@ -1,0 +1,296 @@
+------------------------------------
+Lucid Dreams 0.3.1 Quick Debug Log
+Date/Time: 23/12/2023 - 03:31:27
+------------------------------------
+
+// User info:
+Username : lu.
+Is Key Formatted : True
+FID : 10433
+Avatar URL : https://constelia.ai/forums/data/avatars/l/10/10433.jpg
+Level : 2
+
+// Software info:
+Protection : 2 - Kernel
+Last Sync : 23/12/2023 - 03:31:19
+Cur Sync : False
+Sync Text Reset : True
+Text Timeout : 4000
+Logged In : False
+
+// Raw config:
+{"Constellation4":{"auto_save.lua":{"after_calibration":true,"after_game_close":true,"after_scripts_load":true,"minute_interval":5},"bones":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,20,21,22,23,24,25,26,27],"bsp.lua":{"debug":false},"constelia.lua":null,"constellation.lua":{"esp":false,"esp_fov":5,"esp_sonar":false,"esp_surround":true,"humanizer":true,"humanizer_debug":true,"humanizer_mouse_threshold":60,"humanizer_range_max":10,"humanizer_range_min":1,"iterations":2},"crosshair_esp.lua":{"enabled":true,"fov":7},"esp.lua":{"box":true,"color":"FFFFFFFF","enabled":true,"health_bar":true,"name":false,"skeleton":false},"hey_constelia.lua":{"message":"Hey!","open_on_launch":false,"open_with_key":36,"title":"Hey Constelia"},"nade_helper.lua":{"creationHelper":true,"creationHelperKeyLinux":65474,"creationHelperKeyWindows":116,"crosshair_color":"FF00FFFF","decoy_color":"FFFF00FF","drawWithNadeOnly":false,"enabled":true,"flash_color":"FFFF00FF","he_grenade_color":"FF8800FF","indicatorHeight":40,"maxDistance":400,"molotov_color":"FF0000FF","mouseAssist":false,"reloadKeyLinux":65475,"reloadKeyWindows":117,"smoke_color":"FFFFFFFF"},"noise_esp.lua":{"enabled":true,"land_color":"7d7abcff","land_distance":36,"land_linger":0.25,"land_round":0,"land_size":7.5,"land_thick":1,"shot_color":"ff4f79ff","shot_distance":48,"shot_linger":0.30000001192093,"shot_round":0,"shot_size":10,"shot_thick":1,"step_color":"42cafdff","step_distance":32,"step_linger":0.20000000298023,"step_round":0,"step_size":5,"step_thick":1},"sniperassistant.lua":{"awp_enable_hardscope":true,"awp_enable_noscope":true,"awp_enable_quickscope":true,"awp_max_crouched_noscope_distance":230,"awp_max_crouched_quickscope_distance":900,"awp_max_noscope_distance":180,"awp_max_quickscope_distance":700,"awp_max_velocity_scoped":30,"awp_max_velocity_unscoped":100,"awp_min_hardscope_time":400,"awp_min_quickscope_time":140,"awp_perpendicular_delay":50,"awp_trigger_delay":5,"enable_perpendicular_modifier":true,"enable_quickswitch":true,"enabled":true,"presskeyto_key":6,"presskeyto_mode":false,"quickswitch_delay":70,"quickswitch_key":81,"scout_enable_hardscope":true,"scout_enable_noscope":true,"scout_enable_quickscope":true,"scout_max_crouched_noscope_distance":580,"scout_max_crouched_quickscope_distance":900,"scout_max_noscope_distance":500,"scout_max_quickscope_distance":800,"scout_max_velocity_scoped":60,"scout_max_velocity_unscoped":120,"scout_min_hardscope_time":100,"scout_min_quickscope_time":40,"scout_perpendicular_delay":45,"scout_trigger_delay":5,"use_cachetarget":true,"use_presskeyto":false},"static_smooth.lua":{"smooth":10},"striggerbot.lua":{"debug":true,"delay":0,"delay_randomization":true,"jitter":false,"key":6,"key_linux":65509,"max_delay_randomization":5,"sensitivity":0.5,"tf2_check_conditions":false,"tf2_force_bones":true,"tf2_sniper_headshot":false,"true_fov_triggerbot":false},"tfhumanizer.lua":{"allow_projectile":true,"condition_check":true,"demo_smooth":1,"engineer_smooth":1,"global_sensitivity":true,"global_sensitivity_smooth":10,"heavy_smooth":1,"medic_smooth":1,"pyro_smooth":1,"scout_smooth":1,"sniper_smooth":1,"soldier_smooth":1,"spy_smooth":1},"ttaio.lua":{"bone":8,"bone_triggerbot":true,"bsp_parsing_check":false,"debug":true,"debug_to_logs":false,"dynamic_cooldown":true,"dynamic_cooldown_max":175,"humanizer_check":true,"in_cross_check":true,"indicator":false,"indicator_color":"FF5620EB","jitter":true,"key":6,"magnetic":true,"magnetic_fov":10,"magnetic_smooth":8,"multi_bone":true,"multi_bone_points":"[0, 1, 2, 3, 4, 5, 6, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]","release_delay_max":90,"sensitivity":3.2999990940093995,"spotted_check":false,"static_cooldown":193,"static_fov":true,"target_circle":true,"target_circle_as_square":false,"target_circle_color":"45EB14DE","target_circle_incorrect_color":"FF0000","target_circle_offset_x":0,"target_circle_offset_y":0,"target_circle_size":20,"target_circle_thickness":1,"tf2_check_conditions":true,"tf2_sniper_fov_max":0.6000000238418579,"tf2_sniper_headshot":false}},"Universe4":{"auto_save.lua":{"after_calibration":true,"after_game_close":true,"after_scripts_load":true,"minute_interval":5},"bones":[4,7,10],"hey_constelia.lua":{"message":"Hey!","open_on_launch":false,"open_with_key":-1,"title":"Hey Constelia"},"shattered_dreams.lua":{"always_overwrite_canvas":true,"exit_on_close":true,"home_configuration":true,"linker_show_hide":true,"log_reading_size":5000,"save_configuration_on_update":true,"title":"constelia.ai - Shattered Dreams"}},"bones":[4,7,10],"constellation.lua":{"esp":false,"esp_fov":10,"esp_sonar":false,"esp_surround":true,"humanizer":true,"humanizer_debug":true,"humanizer_mouse_threshold":32,"humanizer_range_max":10,"humanizer_range_min":0.6,"iterations":1},"fc2.lua":{"anti_aliasing":false,"change_compositor":true,"fps_lock":false,"linux_sound_command":"play -q","no_base":false,"xdotool":true,"zombie":"explorer.exe","zombie_mm":true}}
+
+// Formatted config:
+{
+  "Constellation4": {
+    "auto_save.lua": {
+      "after_calibration": true,
+      "after_game_close": true,
+      "after_scripts_load": true,
+      "minute_interval": 5
+    },
+    "bones": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27
+    ],
+    "bsp.lua": {
+      "debug": false
+    },
+    "constelia.lua": null,
+    "constellation.lua": {
+      "esp": false,
+      "esp_fov": 5,
+      "esp_sonar": false,
+      "esp_surround": true,
+      "humanizer": true,
+      "humanizer_debug": true,
+      "humanizer_mouse_threshold": 60,
+      "humanizer_range_max": 10,
+      "humanizer_range_min": 1,
+      "iterations": 2
+    },
+    "crosshair_esp.lua": {
+      "enabled": true,
+      "fov": 7
+    },
+    "esp.lua": {
+      "box": true,
+      "color": "FFFFFFFF",
+      "enabled": true,
+      "health_bar": true,
+      "name": false,
+      "skeleton": false
+    },
+    "hey_constelia.lua": {
+      "message": "Hey!",
+      "open_on_launch": false,
+      "open_with_key": 36,
+      "title": "Hey Constelia"
+    },
+    "nade_helper.lua": {
+      "creationHelper": true,
+      "creationHelperKeyLinux": 65474,
+      "creationHelperKeyWindows": 116,
+      "crosshair_color": "FF00FFFF",
+      "decoy_color": "FFFF00FF",
+      "drawWithNadeOnly": false,
+      "enabled": true,
+      "flash_color": "FFFF00FF",
+      "he_grenade_color": "FF8800FF",
+      "indicatorHeight": 40,
+      "maxDistance": 400,
+      "molotov_color": "FF0000FF",
+      "mouseAssist": false,
+      "reloadKeyLinux": 65475,
+      "reloadKeyWindows": 117,
+      "smoke_color": "FFFFFFFF"
+    },
+    "noise_esp.lua": {
+      "enabled": true,
+      "land_color": "7d7abcff",
+      "land_distance": 36,
+      "land_linger": 0.25,
+      "land_round": 0,
+      "land_size": 7.5,
+      "land_thick": 1,
+      "shot_color": "ff4f79ff",
+      "shot_distance": 48,
+      "shot_linger": 0.30000001192093,
+      "shot_round": 0,
+      "shot_size": 10,
+      "shot_thick": 1,
+      "step_color": "42cafdff",
+      "step_distance": 32,
+      "step_linger": 0.20000000298023,
+      "step_round": 0,
+      "step_size": 5,
+      "step_thick": 1
+    },
+    "sniperassistant.lua": {
+      "awp_enable_hardscope": true,
+      "awp_enable_noscope": true,
+      "awp_enable_quickscope": true,
+      "awp_max_crouched_noscope_distance": 230,
+      "awp_max_crouched_quickscope_distance": 900,
+      "awp_max_noscope_distance": 180,
+      "awp_max_quickscope_distance": 700,
+      "awp_max_velocity_scoped": 30,
+      "awp_max_velocity_unscoped": 100,
+      "awp_min_hardscope_time": 400,
+      "awp_min_quickscope_time": 140,
+      "awp_perpendicular_delay": 50,
+      "awp_trigger_delay": 5,
+      "enable_perpendicular_modifier": true,
+      "enable_quickswitch": true,
+      "enabled": true,
+      "presskeyto_key": 6,
+      "presskeyto_mode": false,
+      "quickswitch_delay": 70,
+      "quickswitch_key": 81,
+      "scout_enable_hardscope": true,
+      "scout_enable_noscope": true,
+      "scout_enable_quickscope": true,
+      "scout_max_crouched_noscope_distance": 580,
+      "scout_max_crouched_quickscope_distance": 900,
+      "scout_max_noscope_distance": 500,
+      "scout_max_quickscope_distance": 800,
+      "scout_max_velocity_scoped": 60,
+      "scout_max_velocity_unscoped": 120,
+      "scout_min_hardscope_time": 100,
+      "scout_min_quickscope_time": 40,
+      "scout_perpendicular_delay": 45,
+      "scout_trigger_delay": 5,
+      "use_cachetarget": true,
+      "use_presskeyto": false
+    },
+    "static_smooth.lua": {
+      "smooth": 10
+    },
+    "striggerbot.lua": {
+      "debug": true,
+      "delay": 0,
+      "delay_randomization": true,
+      "jitter": false,
+      "key": 6,
+      "key_linux": 65509,
+      "max_delay_randomization": 5,
+      "sensitivity": 0.5,
+      "tf2_check_conditions": false,
+      "tf2_force_bones": true,
+      "tf2_sniper_headshot": false,
+      "true_fov_triggerbot": false
+    },
+    "tfhumanizer.lua": {
+      "allow_projectile": true,
+      "condition_check": true,
+      "demo_smooth": 1,
+      "engineer_smooth": 1,
+      "global_sensitivity": true,
+      "global_sensitivity_smooth": 10,
+      "heavy_smooth": 1,
+      "medic_smooth": 1,
+      "pyro_smooth": 1,
+      "scout_smooth": 1,
+      "sniper_smooth": 1,
+      "soldier_smooth": 1,
+      "spy_smooth": 1
+    },
+    "ttaio.lua": {
+      "bone": 8,
+      "bone_triggerbot": true,
+      "bsp_parsing_check": false,
+      "debug": true,
+      "debug_to_logs": false,
+      "dynamic_cooldown": true,
+      "dynamic_cooldown_max": 175,
+      "humanizer_check": true,
+      "in_cross_check": true,
+      "indicator": false,
+      "indicator_color": "FF5620EB",
+      "jitter": true,
+      "key": 6,
+      "magnetic": true,
+      "magnetic_fov": 10,
+      "magnetic_smooth": 8,
+      "multi_bone": true,
+      "multi_bone_points": "[0, 1, 2, 3, 4, 5, 6, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]",
+      "release_delay_max": 90,
+      "sensitivity": 3.2999990940093995,
+      "spotted_check": false,
+      "static_cooldown": 193,
+      "static_fov": true,
+      "target_circle": true,
+      "target_circle_as_square": false,
+      "target_circle_color": "45EB14DE",
+      "target_circle_incorrect_color": "FF0000",
+      "target_circle_offset_x": 0,
+      "target_circle_offset_y": 0,
+      "target_circle_size": 20,
+      "target_circle_thickness": 1,
+      "tf2_check_conditions": true,
+      "tf2_sniper_fov_max": 0.6000000238418579,
+      "tf2_sniper_headshot": false
+    }
+  },
+  "Universe4": {
+    "auto_save.lua": {
+      "after_calibration": true,
+      "after_game_close": true,
+      "after_scripts_load": true,
+      "minute_interval": 5
+    },
+    "bones": [
+      4,
+      7,
+      10
+    ],
+    "hey_constelia.lua": {
+      "message": "Hey!",
+      "open_on_launch": false,
+      "open_with_key": -1,
+      "title": "Hey Constelia"
+    },
+    "shattered_dreams.lua": {
+      "always_overwrite_canvas": true,
+      "exit_on_close": true,
+      "home_configuration": true,
+      "linker_show_hide": true,
+      "log_reading_size": 5000,
+      "save_configuration_on_update": true,
+      "title": "constelia.ai - Shattered Dreams"
+    }
+  },
+  "bones": [
+    4,
+    7,
+    10
+  ],
+  "constellation.lua": {
+    "esp": false,
+    "esp_fov": 10,
+    "esp_sonar": false,
+    "esp_surround": true,
+    "humanizer": true,
+    "humanizer_debug": true,
+    "humanizer_mouse_threshold": 32,
+    "humanizer_range_max": 10,
+    "humanizer_range_min": 0.6,
+    "iterations": 1
+  },
+  "fc2.lua": {
+    "anti_aliasing": false,
+    "change_compositor": true,
+    "fps_lock": false,
+    "linux_sound_command": "play -q",
+    "no_base": false,
+    "xdotool": true,
+    "zombie": "explorer.exe",
+    "zombie_mm": true
+  }
+}
